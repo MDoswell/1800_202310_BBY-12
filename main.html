@@ -5,9 +5,7 @@
     <title>My BCIT Project</title>
     <meta name="comp1800 template" content="My 1800 App">
 
-    <!------------------------>
     <!-- Required meta tags -->
-    <!------------------------>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -36,40 +34,44 @@
     <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
     <!-- <link rel="stylesheet" href="./styles/style.css"> -->
 
+    <!-- Link to styles of your own -->
+    <!-- <link rel="stylesheet" href="./styles/style.css"> -->
+
 </head>
 
 <body>
+
     <!------------------------------>
     <!-- Your HTML Layout go here -->
     <!------------------------------>
-
     <!-- Navbar-->
-    <nav class="navbar navbar-expand-sm bg-body-tertiary" style="background-color: #9bbdd5;">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="images/pedestrian-logo.png" width="40px"> AppName</a>
-            Login
+    <nav id="navbarPlaceholder"></nav>
+
+    <div class="container ">
+        <!-- Welcome Banner -->
+        <div class="p-3 mb-4 bg-light rounded-3 text-center">
+            <ul class="nav justify-content-center">
+                <li class="nav-item ">
+                    <h1>-----This is main------</h1>
+                </li>
+            </ul>
         </div>
-    </nav>
 
-    <!-- the body of your page goes here -->
-    <!-- stuff -->
-    <div class="container">
-        <h1>Please Login to use the App</h1>
+        <div>
+            <img src="images/features.jpg" alt="">
+        </div>
     </div>
-    <div id="firebaseui-auth-container"></div>
-    <div id="loader">Loading...</div>
 
-    <!-- our own footer goes here-->
+    <!-- Footer NavBar -->
     <nav id="footerPlaceholder"></nav>
 
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
-    <script src="./scripts/firebaseAPI_BBY12.js"></script>
-    <script src="./scripts/authentication.js"></script>
-    <!-- <script src="./scripts/script.js"></script> -->
 
-
+    <!-- Link to scripts of your own -->
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/skeleton.js"></script>
 </body>
 
 </html>
