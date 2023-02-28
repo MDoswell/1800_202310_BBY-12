@@ -1,0 +1,38 @@
+.bg-primary {
+    background-color: #3581b8
+    !important;
+}
+
+.navbar-brand {
+    color: #d6ff79;
+    color: #26532b;
+}
+
+.navbar-brand:hover {
+    color: #d6ff79;
+}
+
+.nav-link {
+    color: #02111b;
+}
+
+.nav-link:hover {
+    color: #30292f;
+}
+
+.btn-secondary {
+    background-color: #26532b;
+}
+
+.btn-secondary:hover {
+    background-color: #d6ff79;
+}
+
+.btn-outline-secondary {
+    color: #26532b;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #d6ff79;
+    color: #26532b;
+}
