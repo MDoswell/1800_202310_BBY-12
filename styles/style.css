@@ -49,3 +49,24 @@
     -webkit-transform: translateY(-20px) rotate(45deg);
     transform: translateY(-20px) rotate(45deg);
   }
+
+  .community-button {
+    text-align: center;
+    text-justify: center;
+    background-color: gray;
+  }
+
+  #icon-white {
+    filter: invert(100%) sepia(9%) saturate(3732%) hue-rotate(276deg)
+    brightness(121%) contrast(93%);
+    width: 3vw;
+    height: auto;
+  }
+
+  #top-centre {
+    text-align: center;
+  }
+
+  #bottom-left {
+    text-align: left;
+  }
