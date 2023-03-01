@@ -1,12 +1,25 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">App</a>
-        <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-            <a class="menu-trigger" href="#">
-                <span></span>
-                <span></span>
-                <span></span>
+        <img src="./images/logo.png" alt="logo" style="width:50px;">
+        <a class="navbar-brand" href="/main.html">SureFoot</a>
+
+        <li class="nav-item dropdown">
+            <a class="navbar-toggler first-button" href="#" id="navbarDropdownMenuLink" role="button"
+                data-bs-toggle="dropdown" data-target="#navbarDropdownMenuLink" aria-controls="navbarDropdownMenuLink" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <div class="animated-icon1"><span></span><span></span><span></span></div>
             </a>
-        </div>
+            <!-- Collapsible content -->
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                &nbsp&nbspHello, <span id="name-goes-here"></span>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><a class="dropdown-item" href="#">Setting</a></li>
+                <li><a class="dropdown-item" href="#">Support</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Logout</a></li>
+            </ul>
+            <!-- Collapsible content -->
+        </li>
     </div>
 </nav>
