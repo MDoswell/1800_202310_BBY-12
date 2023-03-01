@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="icon" src="/images/favicon.ico">
+        <title>Sidewalk App</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="styles/style.css">
+    </head>
+    <body>
+        <nav id="navbarPlaceholder"></nav>
+        <nav id="footerPlaceholder"></nav>
+        <script src="/scripts/skeleton.js"></script>
+        <div id="top-centre"><span><h1>Add a Hazard</h1></span></div>
+        <table>
+            <tr>
+                <td>Type of hazard:</td>
+                <td>
+                    <select name="hazards">
+                    <option>---None Selected---</option>
+                    <option>Tree Branch</option>
+                    <option>Puddle</option>
+                    <option>Hot Sidewalk</option>
+                    <option>Uneven Terrain</option>
+                    <option>General Warning</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Details:</td>
+                <td><input type="text" placeholder="Details"></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Photos, if possible:</td>
+                <td><input type="file"></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit"></td>
+            </tr>
+        </table>
+        <a id="bottom-left" href="main.html">Back</a>
+    </body>
+</html>
