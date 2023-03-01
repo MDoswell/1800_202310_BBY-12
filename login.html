@@ -5,6 +5,8 @@
     <title>My BCIT Project</title>
     <meta name="comp1800 template" content="My 1800 App">
 
+    <!-- Favicon  -->
+    <link href="./images/favicon.ico" rel="icon" type="image/x-icon" />
     <!------------------------>
     <!-- Required meta tags -->
     <!------------------------>
@@ -34,7 +36,7 @@
     <!-- Other libraries and styles of your own -->
     <!-------------------------------------------->
     <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
-    <!-- <link rel="stylesheet" href="./styles/style.css"> -->
+    <link rel="stylesheet" href="./styles/style.css">
 
 </head>
 
@@ -44,12 +46,7 @@
     <!------------------------------>
 
     <!-- Navbar-->
-    <nav class="navbar navbar-expand-sm bg-body-tertiary" style="background-color: #9bbdd5;">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="images/pedestrian-logo.png" width="40px"> AppName</a>
-            Login
-        </div>
-    </nav>
+    <nav id="loginNavbarPlaceholder"></nav>
 
     <!-- the body of your page goes here -->
     <!-- stuff -->
@@ -60,11 +57,13 @@
     <div id="loader">Loading...</div>
 
     <!-- our own footer goes here-->
-    <nav id="footerPlaceholder"></nav>
+    <footer id="loginFooterPlaceholder"></footer>
+
 
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
+    <script src="./scripts/loginSkeleton.js"></script>
     <script src="./scripts/firebaseAPI_BBY12.js"></script>
     <script src="./scripts/authentication.js"></script>
     <!-- <script src="./scripts/script.js"></script> -->
