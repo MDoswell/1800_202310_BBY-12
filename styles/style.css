@@ -4,7 +4,7 @@
 
 /* Top navigation */
 .navbar {
-  background-color: #3581B8;
+  background-color: #f0f6fa;
 }
 
 .navbar-brand{
@@ -100,13 +100,11 @@ li {
 /* Hamburger menu style end */
 
 .bg-primary {
-    background-color: #3581b8
-    !important;
+    background-color: #1689dc !important;
 }
 
 .navbar-brand {
-    color: #d6ff79;
-    color: #26532b;
+    color: #ffffff;
 }
 
 .navbar-brand:hover {
@@ -114,11 +112,11 @@ li {
 }
 
 .nav-link {
-    color: #02111b;
+    color: #ffffff;
 }
 
 .nav-link:hover {
-    color: #30292f;
+    color: #d6ff79;
 }
 
 .btn-secondary {
@@ -127,6 +125,8 @@ li {
 
 .btn-secondary:hover {
     background-color: #d6ff79;
+    color: #26532b;
+    border-color: #d6ff79;
 }
 
 .btn-outline-secondary {
@@ -136,6 +136,7 @@ li {
 .btn-outline-secondary:hover {
     background-color: #d6ff79;
     color: #26532b;
+    border-color: #d6ff79;
 }
 
 .menu-trigger {
