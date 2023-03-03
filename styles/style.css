@@ -216,3 +216,12 @@ li {
 .hazard-img {
   width: 100%;
 }
+
+#helpful-text {
+  text-align: center;
+}
+
+.detail-text {
+  font-size: 10pt;
+  font-style: italic;
+}
