@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>My BCIT Project</title>
+    <title>SureFoot</title>
     <meta name="comp1800 template" content="My 1800 App">
 
     <!-- Favicon  -->
@@ -54,6 +54,18 @@
         <div class="sticky-top">Map / List</div>
         <div id="map" style="height: 600px;"></div>
     </div>
+
+    <div class="container ">
+        <br>
+        <br>
+        <br>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalLong">
+            Sample hazard details
+        </button>
+
+        <div id="modalPlaceholder"></div>
+    </div>
+
     <!-- Footer NavBar -->
     <nav id="footerPlaceholder"></nav>
 
@@ -63,10 +75,11 @@
 
     <!-- Link to scripts of your own -->
     <script src="./scripts/script.js"></script>
-    <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/firebaseAPI_BBY12.js"></script>
+    <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/main.js"></script>
-    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDG1IqoSEWBRkC4VEM_iE-zV7kOgCbGYGg&callback=initMap"></script>
+    <script defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDG1IqoSEWBRkC4VEM_iE-zV7kOgCbGYGg&callback=initMap"></script>
     <script src="./scripts/googleAPI.js"></script>
 </body>
 
