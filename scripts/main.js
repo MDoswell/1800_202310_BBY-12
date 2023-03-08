@@ -19,3 +19,9 @@ function insertName() {
     });
 }
 insertName(); //run the function
+
+function addHazard() {
+    let addHazard = document.getElementById("addHazard");
+    location.href = '../addHazard.html';
+    console.log(addHazard);
+}
