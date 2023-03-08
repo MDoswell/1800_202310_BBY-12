@@ -210,7 +210,9 @@ li {
   }
 
   #bottom-left {
-    text-align: left;
+    position: absolute;
+    bottom: 16vh;
+    left: 0;
   }
 
 .hazard-img {
