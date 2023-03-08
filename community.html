@@ -59,19 +59,39 @@
         </div>
     </nav> -->
     <!-- <nav class="navbar navbar-expand-sm navbar-light bg-light"> -->
+
+    <!-- Search form -->
     <div style="margin-top: 10px; margin-bottom: 10px;">
         <div class="container-fluid">
-            <form class="form-inline d-flex align-items-center">
+            <div class="form-inline d-flex align-items-center">
                 <i class="fas fa-search" aria-hidden="true"></i>&nbsp
                 <input class="form-control" type="text" placeholder="Search">&nbsp
                 <button class="btn btn-success" type="submit">Search</button>&nbsp
-                <button class="btn btn-success" type="submit" onclick="communityAdd()">&nbspNew&nbsp</button>
-            </form>
+                <button class="btn btn-success" type="submit" onclick="createCommuity()">&nbspCreate&nbsp</button>
+            </div>
         </div>
     </div>
-    <div class="container-fluid">
-        <!-- Search form -->
+
+    <div id="communities-go-here" class="container-fluid">
+    </div>
+
+    <template id="communityCardTemplate">
         <div class="card mb-3">
+            <div class="card-header bg-transparent" style="border:none"><span class="badge rounded-pill bg-primary">Dog
+                    walker</span></div>
+            <div class="card-body">
+                <h5 class="card-title">New Westminster</h5>
+                <p class="card-text-location">With supporting text below as a natural lead-in to additional content.</p>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <h5 class="card-text-number">10 people</h5>
+                <div class="card-footer bg-transparent d-grid d-md-flex justify-content-md-end" style="border:none;">
+                    <a href="#" class="btn btn-primary ">See more Details</a>
+                </div>
+            </div>
+        </div>
+    </template>
+    <!-- Big button card -->
+    <!-- <div class="card mb-3">
             <div class="card-header bg-transparent" style="border:none"><span class="badge rounded-pill bg-primary">Dog
                     walker</span></div>
             <div class="card-body">
@@ -82,20 +102,10 @@
                     <a href="#" class="btn btn-primary ">See more Details</a>
                 </div>
             </div>
-        </div>
-        <div class="card mb-3">
-            <div class="card-header bg-transparent" style="border:none"><span class="badge rounded-pill bg-primary">Dog
-                    walker</span></div>
-            <div class="card-body">
-                <h5 class="card-title">New Westminster</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <h5 class="card-title">10 people</h5>
-                <div class="card-footer bg-transparent d-grid d-md-flex justify-content-md-end" style="border:none;">
-                    <a href="#" class="btn btn-primary ">See more Details</a>
-                </div>
-            </div>
-        </div>
-        <div class="card mb-3">
+        </div> -->
+
+    <!-- Small button card -->
+    <!-- <div class="card mb-3">
             <div class="card-header bg-transparent" style="border:none"><span class="badge bg-success">leisure</span></div>
             <div class="card-body">
                 <h5 class="card-title">New Westminster</h5>
@@ -105,9 +115,9 @@
                     <a class="btn btn-primary wd-50" href="community-details.html">See more Details</a>
                 </div>
             </div>
-        </div>
+        </div> -->
 
-        <!-- <span class="badge bg-primary">Primary</span>
+    <!-- <span class="badge bg-primary">Primary</span>
         <span class="badge bg-secondary">Secondary</span>
         <span class="badge bg-success">Success</span>
         <span class="badge bg-danger">Danger</span>
@@ -115,9 +125,10 @@
         <span class="badge bg-info text-dark">Info</span>
         <span class="badge bg-light text-dark">Light</span>
         <span class="badge bg-dark">Dark</span> -->
-        <!-- <div class="community-button">Burnaby<br><a href="main.html">TEST: TO MAIN PAGE</a></div>
+    <!-- <div class="community-button">Burnaby<br><a href="main.html">TEST: TO MAIN PAGE</a></div>
     <div class="community-button">BCIT<br><a href="addHazard.html">TEST: TO HAZARD PAGE</a></div> -->
-        <script src="/scripts/community.js"></script>
+    <script src="/scripts/firebaseAPI_BBY12.js"></script>
+    <script src="/scripts/community.js"></script>
 </body>
 
 </html>
