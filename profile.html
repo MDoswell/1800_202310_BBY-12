@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SureFoot Profile</title>
+        <link rel="icon" href="/images/favicon.ico">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+        <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+        <link rel="stylesheet" href="/styles/style.css">
+    </head>
+    
+    <body>
+        <div id="navbarPlaceholder">Header/Nav</div>
+        <div class="container">
+            <h1 id="profile-goes-here">User's Profile</h1>
+            <form>
+                <fieldset class="mb-3" id="personalInfoFields" disabled>
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label>City</label>
+                        <input type="text" id="cityInput" class="form-control" placeholder="Enter your city">
+                    </div>
+                    <div class="form-group">
+                        <label>Profile Picture</label>
+                        <input type="file" id="pfpInput" class="form-control" placeholder="Upload an image">
+                    </div>
+                </fieldset>
+                <img src="/images/profile-picture.jpg" alt="Profile Picture"><span><--This is your profile picture!</span>
+                <div class="d-flex justify-content-end mt-5">
+                    <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
+                    <span style="width: 10px"></span>
+                    <button type="button" class="btn btn-info" onclick="saveUserInfo()">Save</button>
+                </div>
+            </form>
+        </div>
+        <br><button type="button" onclick="" id="bottom-left">Back To Main Page</button>
+        <div id="footerPlaceholder">Footer</div>
+
+        <script src="/scripts/skeleton.js"></script>
+    </body>
+</html>
