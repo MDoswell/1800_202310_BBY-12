@@ -4,12 +4,34 @@
 <head>
     <link rel="icon" src="/images/favicon.ico">
     <title>SureFoot Community</title>
+    <meta name="comp1800 template" content="My 1800 App">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
         </script>
+
+    <!-------------------------------------------------------->
+    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+    <!-------------------------------------------------------->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+
+    <!-------------------------------------------->
+    <!-- Other libraries and styles of your own -->
+    <!-------------------------------------------->
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+    <link rel="stylesheet" href="./styles/style.css">
+
+    <!-- Link to styles of your own -->
+    <!-- <link rel="stylesheet" href="./styles/style.css"> -->
+    <script src="https://kit.fontawesome.com/ec73741403.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles/style.css">
 </head>
 
@@ -22,6 +44,80 @@
     <div class="community-button">Burnaby<br><a href="main.html">TEST: TO MAIN PAGE</a></div>
     <div class="community-button">BCIT<br><a href="addHazard.html">TEST: TO HAZARD PAGE</a></div>
     <script src="/scripts/skeleton.js"></script>
+    <nav class="navbar navbar-expand-sm bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Community Page</a>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+    </nav>
+    <!-- Navigation without color -->
+    <!-- <nav>
+        <div class="container d-flex justify-content-between align-items-center">
+            <h1 class="text-center">Community Page</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+    </nav> -->
+    <!-- <nav class="navbar navbar-expand-sm navbar-light bg-light"> -->
+    <div style="margin-top: 10px; margin-bottom: 10px;">
+        <div class="container-fluid">
+            <form class="form-inline d-flex align-items-center">
+                <i class="fas fa-search" aria-hidden="true"></i>&nbsp
+                <input class="form-control" type="text" placeholder="Search">&nbsp
+                <button class="btn btn-success" type="submit">Search</button>&nbsp
+                <button class="btn btn-success" type="submit" onclick="communityAdd()">&nbspNew&nbsp</button>
+            </form>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <!-- Search form -->
+        <div class="card mb-3">
+            <div class="card-header bg-transparent" style="border:none"><span class="badge rounded-pill bg-primary">Dog
+                    walker</span></div>
+            <div class="card-body">
+                <h5 class="card-title">New Westminster</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <h5 class="card-title">10 people</h5>
+                <div class="card-footer bg-transparent d-grid d-md-flex justify-content-md-end" style="border:none;">
+                    <a href="#" class="btn btn-primary ">See more Details</a>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-3">
+            <div class="card-header bg-transparent" style="border:none"><span class="badge rounded-pill bg-primary">Dog
+                    walker</span></div>
+            <div class="card-body">
+                <h5 class="card-title">New Westminster</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <h5 class="card-title">10 people</h5>
+                <div class="card-footer bg-transparent d-grid d-md-flex justify-content-md-end" style="border:none;">
+                    <a href="#" class="btn btn-primary ">See more Details</a>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-3">
+            <div class="card-header bg-transparent" style="border:none"><span class="badge bg-success">leisure</span>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">New Westminster</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <h5 class="card-title">10 people</h5>
+                <div class="card-footer bg-transparent text-justify text-end" style="border:none;">
+                    <a class="btn btn-primary wd-50" href="community-details.html">See more Details</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- <span class="badge bg-primary">Primary</span>
+        <span class="badge bg-secondary">Secondary</span>
+        <span class="badge bg-success">Success</span>
+        <span class="badge bg-danger">Danger</span>
+        <span class="badge bg-warning text-dark">Warning</span>
+        <span class="badge bg-info text-dark">Info</span>
+        <span class="badge bg-light text-dark">Light</span>
+        <span class="badge bg-dark">Dark</span> -->
+        <!-- <div class="community-button">Burnaby<br><a href="main.html">TEST: TO MAIN PAGE</a></div>
+    <div class="community-button">BCIT<br><a href="addHazard.html">TEST: TO HAZARD PAGE</a></div> -->
+        <script src="/scripts/community.js"></script>
 </body>
 
 </html>

@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <title>SureFoot</title>
+    <link rel="icon" src="/images/favicon.ico">
+    <title>Sidewalk App</title>
     <meta name="comp1800 template" content="My 1800 App">
 
     <!-- Favicon  -->
@@ -15,7 +16,6 @@
     <!------------------------------------------>
     <!-- Bootstrap Library CSS JS CDN go here -->
     <!------------------------------------------>
-    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4RCVolZk54PKHfN69RITOa5-MTmO38lY&callback=initMap"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
@@ -40,48 +40,43 @@
 
     <!-- Link to styles of your own -->
     <!-- <link rel="stylesheet" href="./styles/style.css"> -->
-
+    <script src="https://kit.fontawesome.com/ec73741403.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-sm bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Community Page</a>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+    </nav>
 
-    <!------------------------------>
-    <!-- Your HTML Layout go here -->
-    <!------------------------------>
-    <!-- Navbar-->
-    <nav id="navbarPlaceholder"></nav>
+    <div class="card text-center" style="border:none;">
+        <div class="card-header">
+            Who is the leader this week for our community?
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Name</h5>
+            <img src="images/profile.jpg" alt="..." class="img-thumbnail" style="width:200px;">
+        </div>
+        <p class="card-text">Recent information in community</p>
+        <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action active">
+                Cras justo odio
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+            <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+            <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+            <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
+        </div>
+        <div class="card-footer text-muted" style="background-color:#ffffff;">
+            <a href="#" class="btn btn-primary">JOIN</a>
+        </div>
 
-    <div class="container ">
-        <div class="sticky-top">Map / List</div>
-        <div id="map" style="height: 600px;"></div>
     </div>
 
-    <div class="container ">
-        <br>
-        <br>
-        <br>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalLong">
-            Sample hazard details
-        </button>
-
-        <div id="modalPlaceholder"></div>
-    </div>
-
-    <!-- Footer NavBar -->
-    <nav id="footerPlaceholder"></nav>
-
-    <!---------------------------------------------->
-    <!-- Your own JavaScript functions go here    -->
-    <!---------------------------------------------->
-
-    <!-- Link to scripts of your own -->
-    <script src="./scripts/script.js"></script>
-    <script src="./scripts/firebaseAPI_BBY12.js"></script>
-    <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/main.js"></script>
-    <script defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDG1IqoSEWBRkC4VEM_iE-zV7kOgCbGYGg&callback=initMap"></script>
-    <script src="./scripts/googleAPI.js"></script>
+    <script src="/scripts/skeleton.js"></script>
 </body>
 
 </html>
