@@ -18,7 +18,7 @@ function insertName() {
         }
     });
 }
-insertName(); //run the function
+// insertName(); //run the function
 
 function addHazard() {
     let addHazard = document.getElementById("addHazard");

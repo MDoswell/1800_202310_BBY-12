@@ -54,6 +54,9 @@
 
     <div class="card text-center" style="border:none;">
         <div class="card-header">
+            <h5 class="card-title" id="community-name">Community name</h5>
+        </div>
+        <div class="card-header">
             Who is the leader this week for our community?
         </div>
         <div class="card-body">
@@ -63,20 +66,21 @@
         <p class="card-text">Recent information in community</p>
         <div class="list-group">
             <a href="#" class="list-group-item list-group-item-action active">
-                Cras justo odio
+                See our all members
             </a>
-            <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+            <a href="#" class="list-group-item list-group-item-action">See our all members</a>
             <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
             <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
             <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
         </div>
-        <div class="card-footer text-muted" style="background-color:#ffffff;">
-            <a href="#" class="btn btn-primary">JOIN</a>
+        <div class="card-footer text-muted" style="background-color:#ffffff;" id="joinButton">
+            <!-- <a href="#" class="btn btn-primary" onclick="joinCommunity()">JOIN</a> -->
         </div>
 
     </div>
 
     <script src="/scripts/firebaseAPI_BBY12.js"></script>
+    <script src="/scripts/community-details.js"></script>
 </body>
 
 </html>
