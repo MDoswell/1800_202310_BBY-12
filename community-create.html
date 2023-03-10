@@ -47,28 +47,33 @@
 <body>
     <nav class="navbar navbar-expand-sm bg-primary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Community Add</a>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <a class="navbar-brand" href="#">Create new community</a>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick="history.go(-1)"></button>
         </div>
     </nav>
     <div style="margin: 10px;">
         <div class="card" style="border:none;">
             <form>
                 <div class="mb-3">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Commmunity Category</option>
-                        <option value="1">Dog walker</option>
-                        <option value="2">Leisure</option>
-                        <option value="3">Three</option>
+                    <label for="exampleFormControlSelect1">Select a Commmunity Category</label>
+                    <select class="form-select" aria-label="community category" id="tag">
+                        <option value="Dog walker">Dog walker</option>
+                        <option value="Leisure">Leisure</option>
+                        <option value="Stroller">Stroller</option>
+                        <option value="Wheelchair">Wheelchair</option>
                     </select>
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Name</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <label for="location" class="form-label">Location</label>
+                    <input type="location" class="form-control" id="location" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Description</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="name" class="form-control" id="name" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <input type="description" class="form-control" id="description" aria-describedby="emailHelp">
                 </div>
                 <!-- <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email address</label>
@@ -83,7 +88,7 @@
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
                     <label class="form-check-label" for="exampleCheck1">Check me out</label>
                 </div> -->
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-primary" onclick="createCommunity()">Submit</button>
             </form>
 
         </div>
@@ -100,7 +105,8 @@
         <span class="badge bg-dark">Dark</span> -->
     <!-- <div class="community-button">Burnaby<br><a href="main.html">TEST: TO MAIN PAGE</a></div>
     <div class="community-button">BCIT<br><a href="addHazard.html">TEST: TO HAZARD PAGE</a></div> -->
-    <script src="/scripts/skeleton.js"></script>
+    <script src="/scripts/firebaseAPI_BBY12.js"></script>
+    <script src="/scripts/community-create.js"></script>
 </body>
 
 </html>
