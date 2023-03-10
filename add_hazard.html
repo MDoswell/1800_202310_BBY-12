@@ -51,26 +51,27 @@
         <br>
         <h2>Add a Hazard</h2>
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Title" aria-label="Title">
+            <input type="text" id="hazardNameField" class="form-control" placeholder="Title" aria-label="Title">
         </div>
 
         <div class="input-group mb-3">
-            <select class="form-select" id="hazardTypeSelect">
+            <select id="hazardTypeSelect" class="form-select" id="hazardTypeSelect">
                 <option selected>Hazard Type</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option value="Obstruction">Obstruction</option>
+                <option value="Ice">Ice</option>
+                <option value="Puddle">Puddle</option>
+                <option value="Hot sidewalk">Hot sidewalk</option>
             </select>
         </div>
 
         <div class="input-group mb-3">
-            <textarea type="textarea" class="form-control" placeholder="Description"
+            <textarea type="textarea" id="hazardDescriptionArea" class="form-control" placeholder="Description"
                 aria-label="Description"></textarea>
         </div>
 
         <div class="input-group mb-3">
             <button class="btn btn-outline-secondary" type="button" id="button-addon1">Get current location</button>
-            <input type="text" class="form-control" placeholder="Location" aria-label="Location"
+            <input type="text" id="hazardLocationField" class="form-control" placeholder="Location" aria-label="Location"
                 aria-describedby="button-addon1">
         </div>
 
@@ -79,10 +80,16 @@
         </div>
 
         <div class="input-group mb-3">
-            <input type="file" class="form-control" id="inputGroupFile02">
+            <input type="file" id="hazardPhotoSelect" class="form-control">
         </div>
 
-        <button class="btn btn-primary" type="submit">Submit form</button>
+        <div id="picturePreviewContainer">
+            <img id="hazardPicPreview" src="">
+        </div>
+
+        <br>
+
+        <button class="btn btn-primary" type="submit" onclick="addHazard()">Submit form</button>
         <button class="btn btn-primary" type="submit">Cancel</button>
 
         <br>
@@ -129,6 +136,7 @@
     <!-- Link to scripts of your own -->
     <script src="./scripts/firebaseAPI_BBY12.js"></script>
     <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/addHazard.js"></script>
 </body>
 
 </html>

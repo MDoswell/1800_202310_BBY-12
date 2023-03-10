@@ -227,3 +227,7 @@ li {
   font-size: 10pt;
   font-style: italic;
 }
+
+#hazardPicPreview {
+  width: 300px;
+}
