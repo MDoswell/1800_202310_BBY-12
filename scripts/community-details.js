@@ -71,11 +71,7 @@ function joinCommunity() {
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
           })
           .then(() => {
-            // If the user success to join, member number increase.
-            db.collection("communities").doc(communityID).update({
-              member: firebase.firestore.FieldValue.increment(1)
-            });
-            window.location.href = "community-details.html?docID=" + communityID; //new line added
+            window.location.href = "community-details.html?docID=" + communityID; 
           });
       });
     } else {
