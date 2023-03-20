@@ -1,99 +1,64 @@
+//Run google map and navigating when enter the main page.
 function initMap() {
-  // Initial location of a map
-  //navigate current location
+  // Navigate current location
   id = window.navigator.geolocation.watchPosition(success, error, {
     enableHighAccuracy: true,
     maximumAge: 0,
   });
 
-  //Stop navigating
-  //     window.navigator.geolocation.clearWatch(id);
-
-  var curLatLng = {
-    lat: 49.248499,
-    lng: -123.001375,
-  };
-
-  // Creates a map object.
-  var map = new google.maps.Map(document.getElementById("map"), {
-    center: curLatLng,
-    scrollwheel: false,
-    zoom: 15,
-  });
-
-  // Creates a marker on the map.
-  var marker = new google.maps.Marker({
-    position: curLatLng,
-    map: map,
-    title: "Hello World!",
-  });
-
-  infoWindow = new google.maps.InfoWindow();
-
-  const locationButton = document.createElement("button");
-
-  locationButton.textContent = "Pan to Current Location";
-  locationButton.classList.add("custom-map-control-button");
-  map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
-  locationButton.addEventListener("click", () => {
-    // Try HTML5 geolocation.
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const pos = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude,
-          };
-
-          infoWindow.setPosition(pos);
-          infoWindow.setContent("Current loacation");
-          infoWindow.open(map);
-          map.setCenter(pos);
-        },
-        () => {
-          handleLocationError(true, infoWindow, map.getCenter());
-        }
-      );
-    } else {
-      // Browser doesn't support Geolocation
-      handleLocationError(false, infoWindow, map.getCenter());
-    }
-  });
+  // Stop navigating
+  // window.navigator.geolocation.clearWatch(id);
 }
 
+//Success function
 function success(position) {
   var center = new google.maps.LatLng(
     position.coords.latitude,
     position.coords.longitude
   );
+
+  // Initial location of a map
   map = new google.maps.Map($("#map").get(0), {
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     zoom: 17,
     center: center,
   });
 
-  $('#location').text("current latitude = " + position.coords.latitude
-			+" current longitude = " + position.coords.longitude);
+  $("#location").text(
+    "current latitude = " +
+      position.coords.latitude +
+      " current longitude = " +
+      position.coords.longitude
+  );
 
   var marker = new google.maps.Marker({
-    position: center, // 위치 : ,
-    title: "Current", // 설명 : ,
-    map: map, // 어느지도 :
+    position: center, // location : ,
+    title: "Current", // title : ,
+    map: map, // map object :
   });
-}
-function error(err) {
-    alert("Navigate fail = " + err.code);
+
+  marker.addListener("click", () => {
+    //When click the marker, hazard shows.
+    showHazard(hazard);
+  });
+
+  
 }
 
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-  infoWindow.setPosition(pos);
-  infoWindow.setContent(
-    browserHasGeolocation
-      ? "Error: The Geolocation service failed."
-      : "Error: Your browser doesn't support geolocation."
-  );
-  infoWindow.open(map);
+//Fail function
+function error(err) {
+  alert("Navigate fail = " + err.code);
 }
+
+// function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+//   infoWindow.setPosition(pos);
+//   infoWindow.setContent(
+//     browserHasGeolocation
+//       ? "Error: The Geolocation service failed."
+//       : "Error: Your browser doesn't support geolocation."
+//   );
+//   infoWindow.open(map);
+// }
 
 //  $(function() {
 
@@ -173,3 +138,56 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 // 	$("#getMyPositionBtn").trigger("click");
 // 	$("#stopMovingBtn").trigger("click");
 // })
+
+// 현재 위치 없이 고정
+
+//   var curLatLng = {
+//     lat: 49.248499,
+//     lng: -123.001375,
+//   };
+
+//   // Creates a map object.
+//   var map = new google.maps.Map(document.getElementById("map"), {
+//     center: curLatLng,
+//     scrollwheel: false,
+//     zoom: 15,
+//   });
+
+//   // Creates a marker on the map.
+//   var marker = new google.maps.Marker({
+//     position: curLatLng,
+//     map: map,
+//     title: "Hello World!",
+//   });
+
+//   infoWindow = new google.maps.InfoWindow();
+
+//   const locationButton = document.createElement("button");
+
+//   locationButton.textContent = "Pan to Current Location";
+//   locationButton.classList.add("custom-map-control-button");
+//   map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
+//   locationButton.addEventListener("click", () => {
+//     // Try HTML5 geolocation.
+//     if (navigator.geolocation) {
+//       navigator.geolocation.getCurrentPosition(
+//         (position) => {
+//           const pos = {
+//             lat: position.coords.latitude,
+//             lng: position.coords.longitude,
+//           };
+
+//           infoWindow.setPosition(pos);
+//           infoWindow.setContent("Current loacation");
+//           infoWindow.open(map);
+//           map.setCenter(pos);
+//         },
+//         () => {
+//           handleLocationError(true, infoWindow, map.getCenter());
+//         }
+//       );
+//     } else {
+//       // Browser doesn't support Geolocation
+//       handleLocationError(false, infoWindow, map.getCenter());
+//     }
+//   });
