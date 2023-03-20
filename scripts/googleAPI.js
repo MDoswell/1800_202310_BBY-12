@@ -1,5 +1,14 @@
 function initMap() {
   // Initial location of a map
+  //navigate current location
+  id = window.navigator.geolocation.watchPosition(success, error, {
+    enableHighAccuracy: true,
+    maximumAge: 0,
+  });
+
+  //Stop navigating
+  //     window.navigator.geolocation.clearWatch(id);
+
   var curLatLng = {
     lat: 49.248499,
     lng: -123.001375,
@@ -50,6 +59,30 @@ function initMap() {
       handleLocationError(false, infoWindow, map.getCenter());
     }
   });
+}
+
+function success(position) {
+  var center = new google.maps.LatLng(
+    position.coords.latitude,
+    position.coords.longitude
+  );
+  map = new google.maps.Map($("#map").get(0), {
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    zoom: 17,
+    center: center,
+  });
+
+  $('#location').text("current latitude = " + position.coords.latitude
+			+" current longitude = " + position.coords.longitude);
+
+  var marker = new google.maps.Marker({
+    position: center, // 위치 : ,
+    title: "Current", // 설명 : ,
+    map: map, // 어느지도 :
+  });
+}
+function error(err) {
+    alert("Navigate fail = " + err.code);
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
