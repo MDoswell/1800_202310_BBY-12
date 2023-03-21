@@ -232,3 +232,21 @@ li {
 #hazardPicPreview {
   width: 300px;
 }
+
+
+/* Main page */
+#map {
+  height: 500px;
+}
+
+@media (max-width: 768px) {
+  #map {
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  #map {
+    height: 200px;
+  }
+}

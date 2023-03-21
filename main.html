@@ -51,11 +51,10 @@
     <!-- Navbar-->
     <nav id="navbarPlaceholder"></nav>
 
-    <div class="container ">
+    <div class="container-fluid ">
         <br>
-        <br>
-        <br>
-        <button type="button" class="btn btn-primary" onclick="showHazard(testHazard)">
+        <div id="location"></div>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#hazardModal" onclick="showHazard(hazard)">
             Sample hazard details
         </button>
         <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalLong" onclick="showHazard(hazard)">
@@ -65,16 +64,18 @@
         <div id="modalPlaceholder"></div>
     </div>
 
-    <div class="container ">
-        <div class="sticky-top">Map / List</div>
-        <div id="map" style="height: 600px;"></div>
+    <div class="container-fluid ">
+        <div id="map" style="height: 500px;"></div>
     </div>
-
-    
-
+   
     <!-- Footer NavBar -->
-    <nav id="footerPlaceholder"></nav>
-
+    <div class="sticky-bottom">
+        <img src="../images/main.svg" alt="">
+    </div>
+    
+    <footer>
+        <nav id="footerPlaceholder"></nav>
+    </footer>
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
