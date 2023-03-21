@@ -1,5 +1,40 @@
+var map;
+var locationMarker;
+
 //Run google map and navigating when enter the main page.
 function initMap() {
+  // Temporary start position of map
+  var center = new google.maps.LatLng(
+    49.25,
+    -123
+  );
+
+  // Initial location of a map
+  map = new google.maps.Map($("#map").get(0), {
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    zoom: 17,
+    center: center,
+  });
+
+  $("#location").text(
+    "current latitude = " +
+      center.latitude +
+      " current longitude = " +
+      center.longitude
+  );
+
+  locationMarker = new google.maps.Marker({
+    position: center, // location : ,
+    title: "Current Location", // title : ,
+    map: map, // map object :
+    hazardId: "test ID"
+  });
+
+  locationMarker.addListener("click", () => {
+    //When click the marker, hazard shows.
+    showHazard(testHazard);
+  });
+
   // Navigate current location
   id = window.navigator.geolocation.watchPosition(success, error, {
     enableHighAccuracy: true,
@@ -18,11 +53,7 @@ function success(position) {
   );
 
   // Initial location of a map
-  map = new google.maps.Map($("#map").get(0), {
-    mapTypeId: google.maps.MapTypeId.ROADMAP,
-    zoom: 17,
-    center: center,
-  });
+  //map.setCenter(center);
 
   $("#location").text(
     "current latitude = " +
@@ -31,18 +62,9 @@ function success(position) {
       position.coords.longitude
   );
 
-  var marker = new google.maps.Marker({
-    position: center, // location : ,
-    title: "Current", // title : ,
-    map: map, // map object :
-  });
+  locationMarker.setPosition(center);
 
-  marker.addListener("click", () => {
-    //When click the marker, hazard shows.
-    showHazard(testHazard);
-  });
-
-  
+  console.log(locationMarker.hazardId);
 }
 
 //Fail function
