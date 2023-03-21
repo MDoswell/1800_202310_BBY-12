@@ -1,13 +1,16 @@
-var hazard = "XcmmScDg5GyYKry0bx55";
+var testHazard = "XcmmScDg5GyYKry0bx55";
 
-console.log(hazard);
+console.log(testHazard);
 
 function showHazard(hazardID) {
     console.log(db.collection("hazards").get())
 
     var hazard = db.collection("hazards").doc(hazardID);
 
+    console.log(hazard);
+
     hazard.get().then(hazardInfo => {
+        console.log(hazardInfo);
         console.log(hazardInfo.data().name);
         console.log(hazardInfo.data().type);
         console.log(hazardInfo.data().description);
@@ -23,4 +26,6 @@ function showHazard(hazardID) {
         document.getElementById("hazardTimestamp").innerHTML = date;
         document.getElementById("hazardImage").src = hazardInfo.data().image;
     })
+
+    $("#hazardModal").modal("show");
 }
