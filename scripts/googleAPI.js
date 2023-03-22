@@ -30,10 +30,10 @@ function initMap() {
     hazardId: "test ID"
   });
 
-  locationMarker.addListener("click", () => {
-    //When click the marker, hazard shows.
-    showHazard(testHazard);
-  });
+  // locationMarker.addListener("click", () => {
+  //   //When click the marker, hazard shows.
+  //   showHazard(testHazard);
+  // });
 
   // Navigate current location
   id = window.navigator.geolocation.watchPosition(success, error, {

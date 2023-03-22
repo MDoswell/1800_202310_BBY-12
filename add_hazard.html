@@ -39,7 +39,7 @@
 
 </head>
 
-<body>
+<body onload="initializeGeocoder()">
 
     <!------------------------------>
     <!-- Your HTML Layout go here -->
@@ -74,7 +74,7 @@
             </div>
 
             <div class="input-group mb-3">
-                <button class="btn btn-outline-secondary" type="button" id="hazardLocationButton">Get current
+                <button class="btn btn-outline-secondary" type="button" id="hazardLocationButton" onclick="getCurrentLocation()">Get current
                     location</button>
                 <input type="text" id="hazardLocationField" class="form-control" placeholder="Location"
                     aria-label="Location" name="location" required>
@@ -145,7 +145,7 @@
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/addHazard.js"></script>
     <script defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2g0Am2Kd6tQjP_CACJdgfcdRxtpE1Pzc&libraries=places&callback=initAutoComplete"></script>
+        src="https://maps.googleapis.com/maps/api/js?key=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&libraries=places&callback=initAutoComplete"></script>
 </body>
 
 </html>
