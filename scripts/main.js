@@ -25,3 +25,39 @@ function addHazard() {
     location.href = '../addHazard.html';
     console.log(addHazard);
 }
+
+function displayHazardMarkers(collection) {
+    db.collection(collection).get()   //the collection called "hazards"
+        .then(allHazards => {
+            allHazards.forEach(doc => { //iterate thru each doc
+                var testThis = doc.data().testThis;
+                var title = doc.data().name;
+                var details = doc.data().description;
+                var docID = doc.id;
+                var lat = doc.data().lat;
+                var lng = doc.data().lng;
+
+                if (testThis) {
+                    console.log(title);
+                    console.log(details);
+                    console.log(docID);
+                    console.log(lat);
+                    console.log(lng);
+
+                    marker = new google.maps.Marker({
+                        position: { lat, lng }, // location : ,
+                        title: title, // title : ,
+                        map: map, // map object :
+                        hazardId: docID
+                    });
+
+                    marker.addListener("click", () => {
+                        //When click the marker, hazard shows.
+                        showHazard(docID);
+                    });
+                }
+            })
+        })
+}
+
+displayHazardMarkers("hazards");
