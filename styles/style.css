@@ -239,6 +239,30 @@ li {
   height: 500px;
 }
 
+
+#features {
+  display: flex;
+  justify-content: space-between;
+}
+
+#features > div {
+  flex-basis: calc(20% - 20px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+}
+
+#features > div:last-child {
+  margin-right: 0;
+}
+
+#features img {
+  /* width: 100%; */
+  height: auto;
+  margin-bottom: 10px;
+}
+
 @media (max-width: 768px) {
   #map {
     height: 300px;
