@@ -23,19 +23,15 @@
 
 <body>
     <div id="navbarPlaceholder">Header/Nav</div>
-    <div class="container ">
-        <br>
-        <br>
-        <br>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalLong">
-            Launch demo modal
-        </button>
-
-        <div id="modalPlaceholder"></div>
     </div>
     <div class="container">
-        <h1 id="profile-goes-here">User's Profile</h1>
+        <h2 id="profile-goes-here">User's Profile</h2>
         <form>
+            <div>
+                <span id="points-go-here">Points: </span>
+                <br>
+                <span id="level-goes-here">Level: </span>
+            </div>
             <fieldset class="mb-3" id="personalInfoFields" disabled>
                 <div class="form-group">
                     <label>Name</label>
@@ -61,6 +57,7 @@
     <br><button type="button" onclick="" id="bottom-left">Back To Main Page</button>
     <div id="footerPlaceholder">Footer</div>
 
+    <script src="/scripts/firebaseAPI_BBY12.js"></script>
     <script src="/scripts/skeleton.js"></script>
     <script src="/scripts/profile.js"></script>
 </body>

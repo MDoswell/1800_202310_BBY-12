@@ -1,1 +1,61 @@
-leader board
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SureFoot Community LeaderBoards</title>
+    <meta name="comp1800 template" content="My 1800 App">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/images/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+
+<body>
+    <div id="navbarPlaceholder">Nav/Header</div>
+    <div id="users-go-here">
+        <template id="userLeaderboard">
+            <div class="card bg-primary">
+                <img class="card-img-top">
+                <div class="card-body bg-light">
+                    <h5 class="title">Username</h5>
+                    <p class="points">number of MP (meaninglesspoints)</p>
+                    <p class="level">MP level</p>
+                    <br>
+                    <p class="userNumHazards">You have X hazards added to the map.</p>
+                    <p class="userNumHelpful">You have given Y helpful reviews.</p>
+                </div>
+            </div>
+        </template>
+        <template id="leaderboardCardTemplate">
+            <div class="card bg-secondary">
+                <img class="card-img-top">
+                <div class="card-body bg-light">
+                    <h5 class="title">Username</h5>
+                    <p class="points">number of MP (meaninglesspoints)</p>
+                    <p class="level">MP level</p>
+                    <br>
+                    <p class="numHazards">This person has X hazards added to the map.</p>
+                    <p class="numHelpful">This person has given Y helpful reviews.</p>
+                </div>
+            </div>
+        </template>
+    </div>
+    <div id="footerPlaceholder">Footer</div>
+    <!-- <br><button type="button" onclick="" id="bottom-left">Back To Main Page</button> -->
+    <script src="/scripts/firebaseAPI_BBY12.js"></script>
+    <script src="/scripts/skeleton.js"></script>
+    <script src="/scripts/leaderboards.js"></script>
+</body>
+
+</html>
