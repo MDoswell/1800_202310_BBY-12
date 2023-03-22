@@ -16,12 +16,12 @@ function initMap() {
     center: center,
   });
 
-  $("#location").text(
-    "current latitude = " +
-      center.latitude +
-      " current longitude = " +
-      center.longitude
-  );
+  // $("#location").text(
+  //   "current latitude = " +
+  //     center.latitude +
+  //     " current longitude = " +
+  //     center.longitude
+  // );
 
   locationMarker = new google.maps.Marker({
     position: center, // location : ,

@@ -34,6 +34,7 @@ function displayHazardMarkers(collection) {
                 var title = doc.data().name;
                 var details = doc.data().description;
                 var docID = doc.id;
+                var type = doc.data().type;
                 var lat = parseFloat(doc.data().lat);
                 var lng = parseFloat(doc.data().lng);
 
@@ -43,10 +44,27 @@ function displayHazardMarkers(collection) {
                     console.log(docID);
                     console.log(lat);
                     console.log(lng);
+                    console.log(type);
+
+                    var myIcon;
+                    if(type == "Obstruction"){
+                        myIcon = new google.maps.MarkerImage("/images/feature_heated.svg", null, null, null, new google.maps.Size(50,50));
+                    }else if(type == "Warning"){
+                        myIcon = new google.maps.MarkerImage("/images/feature_warning.svg", null, null, null, new google.maps.Size(50,50));
+                    }else if(type == "Branch"){
+                        myIcon = new google.maps.MarkerImage("/images/feature_tree_branch.svg", null, null, null, new google.maps.Size(50,50));
+                    }else if(type == "Heated"){
+                        myIcon = new google.maps.MarkerImage("/images/feature_heated.svg", null, null, null, new google.maps.Size(50,50));
+                    }else if(type == "Puddle"){
+                        myIcon = new google.maps.MarkerImage("/images/feature_puddle.svg", null, null, null, new google.maps.Size(50,50));
+                    }else if(type == "Ice"){
+                        myIcon = new google.maps.MarkerImage("/images/feature_warning.svg", null, null, null, new google.maps.Size(50,50));
+                    }
 
                     marker = new google.maps.Marker({
                         position: { lat, lng }, // location : ,
                         title: title, // title : ,
+                        icon: myIcon,
                         map: map, // map object :
                         hazardId: docID
                     });
