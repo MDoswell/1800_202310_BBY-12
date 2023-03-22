@@ -34,8 +34,8 @@ function displayHazardMarkers(collection) {
                 var title = doc.data().name;
                 var details = doc.data().description;
                 var docID = doc.id;
-                var lat = doc.data().lat;
-                var lng = doc.data().lng;
+                var lat = parseFloat(doc.data().lat);
+                var lng = parseFloat(doc.data().lng);
 
                 if (testThis) {
                     console.log(title);
