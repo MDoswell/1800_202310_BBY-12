@@ -35,7 +35,9 @@ function addSubmitButtonListener() {
             var hazardName = form.elements["title"].value;
             var hazardType = form.elements["type"].value;
             var hazardDesc = form.elements["description"].value;
-            var hazardLocation = form.elements["location"].value;
+            // var hazardLocation = form.elements["location"].value;
+            var hazardLat = coords.lat;
+            var hazardLng = coords.lng;
 
             console.log("ran add hazard");
 
@@ -44,7 +46,8 @@ function addSubmitButtonListener() {
                 type: hazardType,
                 description: hazardDesc,
                 // location: new firebase.firestore.GeoPoint(x[0], x[1]),
-                location: hazardLocation,
+                lat: hazardLat,
+                lng: hazardLng,
                 timestamp: firebase.firestore.FieldValue.serverTimestamp()  //current system time
             }).then(doc => {
                 console.log("Post document added!");
@@ -61,9 +64,17 @@ function addSubmitButtonListener() {
 
         // Add 'submit' event handler
         form.addEventListener("submit", (event) => {
-            event.preventDefault();
+            if (coords) {
+                event.preventDefault();
 
-            addHazard();
+                addHazard();
+            } else {
+                event.preventDefault();
+                alert("Location is not valid");
+                // $("#hazardLocationField").popover({title: "Invalid location", placement: "left"});
+                // console.log($("#hazardLocationField"))
+            }
+
         });
     });
 }
@@ -100,6 +111,8 @@ function uploadPic(postDocID) {
         })
 }
 
+var coords;
+
 function initAutoComplete() {
     const input = document.getElementById("hazardLocationField");
 
@@ -120,7 +133,53 @@ function initAutoComplete() {
         } else {
             // const x = place.geometry.location;
             console.log(place.geometry.location.lat());
+            coords = { lat: place.geometry.location.lat(), lng: place.geometry.location.lng() };
+            console.log(coords);
         }
     });
 
+}
+
+function getCurrentLocation() {
+    console.log(navigator.geolocation);
+    // Navigate current location
+    window.navigator.geolocation.getCurrentPosition(success, error, {
+        enableHighAccuracy: true,
+        maximumAge: 0,
+    });
+}
+
+//getCurrentLocation success function
+function success(position) {
+    let textbox = document.getElementById("hazardLocationField");
+    coords = { lat: position.coords.latitude, lng: position.coords.longitude };
+    console.log(coords);
+
+    geocoder
+        .geocode({ location: coords })
+        .then((response) => {
+            if (response.results[0]) {
+                console.log(response.results[0]);
+                let address = response.results[0].formatted_address;
+
+                let addressString = address + " (" + coords.lat + coords.lng + ")";
+
+                textbox.value = addressString;
+
+            } else {
+                window.alert("No results found");
+            }
+        })
+        .catch((e) => window.alert("Geocoder failed due to: " + e));
+}
+
+//getCurrentLocation fail function
+function error(err) {
+    alert("Navigate fail = " + err.code);
+}
+
+var geocoder;
+
+function initializeGeocoder() {
+    geocoder = new google.maps.Geocoder();
 }

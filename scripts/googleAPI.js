@@ -16,12 +16,12 @@ function initMap() {
     center: center,
   });
 
-  $("#location").text(
-    "current latitude = " +
-      center.latitude +
-      " current longitude = " +
-      center.longitude
-  );
+  // $("#location").text(
+  //   "current latitude = " +
+  //     center.latitude +
+  //     " current longitude = " +
+  //     center.longitude
+  // );
 
   locationMarker = new google.maps.Marker({
     position: center, // location : ,
@@ -30,10 +30,10 @@ function initMap() {
     hazardId: "test ID"
   });
 
-  locationMarker.addListener("click", () => {
-    //When click the marker, hazard shows.
-    showHazard(testHazard);
-  });
+  // locationMarker.addListener("click", () => {
+  //   //When click the marker, hazard shows.
+  //   showHazard(testHazard);
+  // });
 
   // Navigate current location
   id = window.navigator.geolocation.watchPosition(success, error, {
