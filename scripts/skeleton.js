@@ -12,6 +12,7 @@ function loadSkeleton() {
             console.log($('#navbarPlaceholder').load('./text/nav.html'));
             console.log($('#footerPlaceholder').load('./text/footer.html'));
             console.log($('#modalPlaceholder').load('./text/hazard.html'));
+            console.log($('#communityNavbar').load('/text/communityNav.html'));
         } else {
             // No user is signed in.
             console.log($('#loginNavbarPlaceholder').load('./text/loginNav.html'));

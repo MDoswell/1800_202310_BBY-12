@@ -68,6 +68,7 @@ function displayCardsDynamically(collection) {
             })
         })
 }
+
 displayCardsDynamically("communities");  //input param is the name of the collection
 
 // function search(){
