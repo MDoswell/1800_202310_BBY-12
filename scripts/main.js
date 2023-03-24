@@ -71,6 +71,7 @@ function displayHazardMarkers(collection) {
 
                     marker.addListener("click", () => {
                         //When click the marker, hazard shows.
+                        console.log(docID);
                         showHazard(docID);
                     });
                 }

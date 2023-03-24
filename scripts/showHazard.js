@@ -1,6 +1,6 @@
-var testHazard = "XcmmScDg5GyYKry0bx55";
+// var testHazard = "XcmmScDg5GyYKry0bx55";
 
-console.log(testHazard);
+// console.log(testHazard);
 
 function showHazard(hazardID) {
     console.log(db.collection("hazards").get())
@@ -10,12 +10,12 @@ function showHazard(hazardID) {
     console.log(hazard);
 
     hazard.get().then(hazardInfo => {
-        console.log(hazardInfo);
-        console.log(hazardInfo.data().name);
-        console.log(hazardInfo.data().type);
-        console.log(hazardInfo.data().description);
-        console.log(hazardInfo.data().location);
-        console.log(hazardInfo.data().timestamp);
+        // console.log(hazardInfo);
+        // console.log(hazardInfo.data().name);
+        // console.log(hazardInfo.data().type);
+        // console.log(hazardInfo.data().description);
+        // console.log(hazardInfo.data().location);
+        // console.log(hazardInfo.data().timestamp);
 
         date = new Date(hazardInfo.data().timestamp.seconds * 1000);
 
@@ -28,15 +28,21 @@ function showHazard(hazardID) {
     })
 
     const button1 = document.getElementById("button1");
-    button1.addEventListener("click", () => {addHelpful(hazardID)});
+    button1.onclick = null;
+    button1.onclick = () => {addHelpful(hazardID)};
+    // button1.addEventListener("click", () => {addHelpful(hazardID)});
+    console.log(button1.addEventListener);
     const button2 = document.getElementById("button2");
-    button2.addEventListener("click", () => {addNotHelpful(hazardID)});
+    button2.onclick = null;
+    button2.onclick = () => {addNotHelpful(hazardID)};
+    // button2.addEventListener("click", () => {addNotHelpful(hazardID)});
     updateHelpfuls(hazardID);
 
     $("#hazardModal").modal("show");
 }
 
 function updateHelpfuls(hazardID) {
+    console.log(hazardID);
     let hazard = db.collection("hazards").doc(hazardID);
     let total;
     let numHelpful;
@@ -54,6 +60,7 @@ function updateHelpfuls(hazardID) {
 }
 
 function addHelpful(hazardID) {
+    console.log(hazardID);
     console.log("Entered addHelpful function");
     let hazard = db.collection("hazards").doc(hazardID);
     let numHelpful;
@@ -71,6 +78,7 @@ function addHelpful(hazardID) {
 
 
 function addNotHelpful(hazardID) {
+    console.log(hazardID);
     console.log("Entered addNotHelpful function");
     let hazard = db.collection("hazards").doc(hazardID);
     let numNotHelpful;
