@@ -15,6 +15,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
@@ -46,7 +47,7 @@
                     <input type="file" id="pfpInput" class="form-control" placeholder="Upload an image">
                 </div>
             </fieldset>
-            <img src="/images/profile-picture.jpg" alt="Profile Picture"><span><--This is your profile picture!</span>
+            <img src="/images/profile.jpg" id="pfpPreview" style="width: 96px" alt="Profile Picture"><span><--This is your profile picture!</span>
                     <div class="d-flex justify-content-end mt-5">
                         <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
                         <span style="width: 10px"></span>
@@ -60,6 +61,7 @@
     <script src="/scripts/firebaseAPI_BBY12.js"></script>
     <script src="/scripts/skeleton.js"></script>
     <script src="/scripts/profile.js"></script>
+    <script src="/scripts/main.js"></script>
 </body>
 
 </html>

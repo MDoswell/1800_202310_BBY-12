@@ -1,9 +1,9 @@
 function displayLeaderboard(collection) {
     let cardTemplate = document.getElementById("leaderboardCardTemplate");
 
-    db.collection(collection).get()   //the collection called "hikes"
+    db.collection(collection).orderBy("level", "desc").get()   //the collection called "users"
         .then(allUsers => {
-            //var i = 1;  //Optional: if you want to have a unique ID for each hike
+            //var i = 1;  //Optional: if you want to have a unique ID for each user
             allUsers.forEach(doc => { //iterate thru each doc
                 var title = doc.data().name;       // get value of the "name" key
                 var level = doc.data().level;  // get value of the "details" key
