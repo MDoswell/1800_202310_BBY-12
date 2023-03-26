@@ -10,13 +10,6 @@ function showHazard(hazardID) {
     console.log(hazard);
 
     hazard.get().then(hazardInfo => {
-        // console.log(hazardInfo);
-        // console.log(hazardInfo.data().name);
-        // console.log(hazardInfo.data().type);
-        // console.log(hazardInfo.data().description);
-        // console.log(hazardInfo.data().location);
-        // console.log(hazardInfo.data().timestamp);
-
         date = new Date(hazardInfo.data().timestamp.seconds * 1000);
 
         document.getElementById("hazardTitle").innerHTML = hazardInfo.data().name;
