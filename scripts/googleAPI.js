@@ -4,16 +4,21 @@ var locationMarker;
 //Run google map and navigating when enter the main page.
 function initMap() {
   // Temporary start position of map
-  var center = new google.maps.LatLng(
-    49.25,
-    -123
-  );
+  var center = new google.maps.LatLng(49.25, -123);
 
   // Initial location of a map
   map = new google.maps.Map($("#map").get(0), {
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     zoom: 17,
     center: center,
+    // Remove Google default marker
+    styles: [
+      {
+        featureType: "poi",
+        // elementType: "labels",  
+        stylers: [{ visibility: "off" }],
+      },
+    ],
   });
 
   // $("#location").text(
@@ -27,7 +32,7 @@ function initMap() {
     position: center, // location : ,
     title: "Current Location", // title : ,
     map: map, // map object :
-    hazardId: "test ID"
+    hazardId: "test ID",
   });
 
   // locationMarker.addListener("click", () => {
