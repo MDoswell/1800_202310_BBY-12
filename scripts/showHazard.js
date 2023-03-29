@@ -12,10 +12,12 @@ function showHazard(hazardID) {
     hazard.get().then(hazardInfo => {
         date = new Date(hazardInfo.data().timestamp.seconds * 1000);
 
+        let hazardLocation = hazardInfo.data().lat + ", " + hazardInfo.data().lng;
+
         document.getElementById("hazardTitle").innerHTML = hazardInfo.data().name;
         document.getElementById("hazardType").innerHTML = hazardInfo.data().type;
         document.getElementById("hazardDescription").innerHTML = hazardInfo.data().description;
-        document.getElementById("hazardLocation").innerHTML = hazardInfo.data().location;
+        document.getElementById("hazardLocation").innerHTML = hazardLocation;
         document.getElementById("hazardTimestamp").innerHTML = date;
         document.getElementById("hazardImage").src = hazardInfo.data().image;
     })
