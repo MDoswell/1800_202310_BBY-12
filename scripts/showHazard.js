@@ -2,6 +2,9 @@
 
 // console.log(testHazard);
 
+var currentUser = "rNj7ShOtWkfnOLDcLrZJD4Fscpn1";
+var currentHazard;
+
 function showHazard(hazardID) {
     console.log(db.collection("hazards").get())
 
@@ -29,15 +32,14 @@ function showHazard(hazardID) {
 
     const button1 = document.getElementById("button1");
     button1.onclick = null;
-    button1.onclick = () => {addHelpful(hazardID)};
+    button1.onclick = () => { addHelpful(hazardID) };
     // button1.addEventListener("click", () => {addHelpful(hazardID)});
     console.log(button1.addEventListener);
     const button2 = document.getElementById("button2");
     button2.onclick = null;
-    button2.onclick = () => {addNotHelpful(hazardID)};
+    button2.onclick = () => { addNotHelpful(hazardID) };
     // button2.addEventListener("click", () => {addNotHelpful(hazardID)});
     updateHelpfuls(hazardID);
-
     $("#hazardModal").modal("show");
 }
 
@@ -64,16 +66,41 @@ function addHelpful(hazardID) {
     console.log("Entered addHelpful function");
     let hazard = db.collection("hazards").doc(hazardID);
     let numHelpful;
-    hazard.get().then(hazardInfo => {
-        numHelpful = hazardInfo.data().helpfuls;
-        hazard.update({
-            helpfuls: numHelpful + 1
-        })
-        updateHelpfuls(hazardID);
-        console.log("Successfully incremented numHelpful");
-    })
-    
-    console.log("Added helpful");
+    console.log(currentUser);
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            currentUser = user.uid;
+            console.log(currentUser);
+            currentHazard = hazard.get().then(doc => {
+                let users = doc.data().users;
+                console.log(currentHazard);
+                if (users.includes(currentUser)) {
+                    console.log("You've already pressed the button!!!1!!11!!111!");
+                } else {
+                    hazard.get().then(hazardInfo => {
+                        numHelpful = hazardInfo.data().helpfuls;
+                        hazard.update({
+                            helpfuls: numHelpful + 1,
+                            users: firebase.firestore.FieldValue.arrayUnion(currentUser)
+                        })
+                        updateHelpfuls(hazardID);
+                        console.log("Successfully incremented numHelpful");
+                    });
+                    let userPoints = db.collection("users").doc(currentUser);
+                    userPoints.get().then(doc => {
+                        let addPoints = doc.data().points;
+                        let addHelpful = doc.data().numHelpful;
+                        userPoints.update({
+                            points: addPoints + 2,
+                            numHelpful: addHelpful + 1
+                        });
+                        levels();
+                    });
+                };
+                console.log("Added helpful");
+            });
+        }
+    });
 }
 
 
@@ -82,13 +109,38 @@ function addNotHelpful(hazardID) {
     console.log("Entered addNotHelpful function");
     let hazard = db.collection("hazards").doc(hazardID);
     let numNotHelpful;
-    hazard.get().then(hazardInfo => {
-        numNotHelpful = hazardInfo.data().nothelpfuls;
-        hazard.update({
-            nothelpfuls: numNotHelpful + 1
-        })
-        updateHelpfuls(hazardID);
-        console.log("Successfully incremented numNotHelpful");
-    })
-    console.log("Added nothelpful");
+    currentHazard = hazardID;
+    console.log(currentHazard);
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            currentUser = user.uid;
+            console.log(currentUser);
+            currentHazard = hazard.get().then(doc => {
+                let users = doc.data().users;
+                console.log(currentHazard);
+                if (users.includes(currentUser)) {
+                    console.log("You've already pressed the button!!!1!!11!!111!");
+                } else {
+                    hazard.get().then(hazardInfo => {
+                        numNotHelpful = hazardInfo.data().nothelpfuls;
+                        hazard.update({
+                            nothelpfuls: numNotHelpful + 1,
+                            users: firebase.firestore.FieldValue.arrayUnion(currentUser)
+                        });
+                        updateHelpfuls(hazardID);
+                        console.log("Successfully incremented numHelpful");
+                    });
+                    let userPoints = db.collection("users").doc(currentUser);
+                    userPoints.get().then(doc => {
+                        let addPoints = doc.data().points;
+                        userPoints.update({
+                            points: addPoints + 1
+                        });
+                        levels();
+                    });
+                };
+                console.log("Added helpful");
+            });
+        }
+    });
 }
