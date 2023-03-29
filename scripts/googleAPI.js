@@ -4,16 +4,21 @@ var locationMarker;
 //Run google map and navigating when enter the main page.
 function initMap() {
   // Temporary start position of map
-  var center = new google.maps.LatLng(
-    49.25,
-    -123
-  );
+  var center = new google.maps.LatLng(49.25, -123);
 
   // Initial location of a map
   map = new google.maps.Map($("#map").get(0), {
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     zoom: 17,
     center: center,
+    // Remove Google default marker
+    // styles: [
+    //   {
+    //     featureType: "poi",
+    //     // elementType: "labels",
+    //     stylers: [{ visibility: "off" }],
+    //   },
+    // ],
   });
 
   // $("#location").text(
@@ -27,7 +32,7 @@ function initMap() {
     position: center, // location : ,
     title: "Current Location", // title : ,
     map: map, // map object :
-    hazardId: "test ID"
+    hazardId: "test ID",
   });
 
   // locationMarker.addListener("click", () => {
@@ -35,6 +40,23 @@ function initMap() {
   //   showHazard(testHazard);
   // });
 
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+       // Navigate current location
+        id = window.navigator.geolocation.watchPosition(success, error, {
+          enableHighAccuracy: true,
+          maximumAge: 0,
+        });
+      },
+      () => {
+        handleLocationError(true, infoWindow, map.getCenter());
+      }
+    );
+  } else {
+    // Browser doesn't support Geolocation
+    handleLocationError(false, infoWindow, map.getCenter());
+  }
   // Navigate current location
   id = window.navigator.geolocation.watchPosition(success, error, {
     enableHighAccuracy: true,
@@ -45,7 +67,7 @@ function initMap() {
   // window.navigator.geolocation.clearWatch(id);
 }
 
-//Success function
+// Success function
 function success(position) {
   var center = new google.maps.LatLng(
     position.coords.latitude,
@@ -71,6 +93,21 @@ function success(position) {
 function error(err) {
   alert("Navigate fail = " + err.code);
 }
+
+// function success(position) {
+//   // Show error message in popup
+//   alert("FAIL00");  
+
+//   // Hide popup after 5 seconds
+//   // setTimeout(function () {
+//   //   popup.hide();
+//   // }, 5000);
+// }
+
+// //Fail function
+// function error(err) {
+//   alert("Navigate fail = " + err.code);
+// }
 
 // function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 //   infoWindow.setPosition(pos);

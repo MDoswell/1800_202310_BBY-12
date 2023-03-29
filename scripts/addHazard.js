@@ -35,9 +35,9 @@ function addSubmitButtonListener() {
             var hazardName = form.elements["title"].value;
             var hazardType = form.elements["type"].value;
             var hazardDesc = form.elements["description"].value;
-            // var hazardLocation = form.elements["location"].value;
             var hazardLat = coords.lat;
             var hazardLng = coords.lng;
+            var thisHazardCommunities = hazardCommunities;
 
             console.log("ran add hazard");
 
@@ -49,6 +49,7 @@ function addSubmitButtonListener() {
                 lat: hazardLat,
                 lng: hazardLng,
                 users: [],
+                communities: thisHazardCommunities,
                 timestamp: firebase.firestore.FieldValue.serverTimestamp()  //current system time
             }).then(doc => {
                 console.log("Post document added!");
@@ -69,6 +70,7 @@ function addSubmitButtonListener() {
                     });
                     }
                 });
+                window.location.href = "main.html?docID=" + doc.id;
             })
         }
 
@@ -80,6 +82,7 @@ function addSubmitButtonListener() {
             if (coords) {
                 event.preventDefault();
 
+
                 addHazard();
             } else {
                 event.preventDefault();
@@ -87,6 +90,11 @@ function addSubmitButtonListener() {
                 // $("#hazardLocationField").popover({title: "Invalid location", placement: "left"});
                 // console.log($("#hazardLocationField"))
             }
+
+            console.log("submitting");
+
+            
+            // newcard.querySelector('a').href = "eachHike.html?docID=" + docID;
 
         });
     });
@@ -123,6 +131,67 @@ function uploadPic(postDocID) {
             console.log("error uploading to cloud storage");
         })
 }
+
+var hazardCommunities = [];
+
+function getUserCommunities() {
+    firebase.auth().onAuthStateChanged(user => {
+        // Check if user is signed in:
+        if (user) {
+            //go to the correct user document by referencing to the user uid
+            currentUser = db.collection("users").doc(user.uid);
+            console.log(user.uid);
+
+            let communityList = [];
+
+            db.collection("community-member-list").get()   //the collection called "hikes"
+                .then(memberships => {
+                    //var i = 1;  //Optional: if you want to have a unique ID for each hike
+                    memberships.forEach(doc => {
+                        // console.log(doc.data().member);
+                        if (doc.data().member == user.uid) {
+                            console.log(doc.data().community)
+                            communityList.push(doc.data().community)
+                        }
+                    })
+
+                    console.log(communityList);
+                    for (var i = 0; i < communityList.length; i++) {
+                        let communityID = communityList[i];
+                        console.log(communityID);
+                        db.collection("communities").doc(communityID).get()
+                            .then(doc => {
+                                console.log(doc.data().name)
+                                let newButton = document.createElement("BUTTON");
+                                newButton.innerHTML = doc.data().name;
+                                newButton.id = "button-" + communityID;
+                                newButton.classList.add("btn");
+                                newButton.classList.add("btn-outline-primary");
+                                newButton.addEventListener("click", () => {
+                                    let thisButton = document.getElementById(newButton.id);
+                                    if (hazardCommunities.includes(communityID)) {
+                                        let index = hazardCommunities.indexOf(communityID);
+                                        hazardCommunities.splice(index, 1);
+                                        thisButton.classList.remove("btn-primary");
+                                        thisButton.classList.add("btn-outline-primary");
+                                    } else {
+                                        hazardCommunities.push(communityID);
+                                        thisButton.classList.remove("btn-outline-primary");
+                                        thisButton.classList.add("btn-primary");
+                                    }
+                                })
+                                $("#community-buttons").append(newButton);
+                            })
+                    }
+                })
+        } else {
+            // No user is signed in.
+            console.log("No user is signed in");
+        }
+    });
+}
+
+getUserCommunities();
 
 var coords;
 

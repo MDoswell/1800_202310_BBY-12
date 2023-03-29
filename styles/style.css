@@ -276,6 +276,56 @@ li {
   fill: red;
 }
 
+#filter-button {
+  top: 12vh;
+  right: 60vw;
+}
+
+#filter-bar {
+  position: relative;
+  z-index: 10;
+}
+
+/* #filter-dropdown {
+  margin-left: 0;
+  margin-right: 0;
+} */
+
+#filter-tag-container {
+  display: inline;
+}
+
+#filter-bar-close {
+  float: right;
+}
+
+.filter-badge {
+  /* position: relative;
+  z-index: 11; */
+  padding: 0.5rem;
+  display: inline;
+  background-color: #26532b;
+  margin-right: 3px;
+}
+
+.filter-badge * {
+  /* position: relative;
+  z-index: 11; */
+  display: inline;
+  /* background-color: #26532b; */
+}
+
+.filter-badge img {
+  width: 1.5rem;
+}
+
+#communities-go-here{
+  margin-bottom: 100px;
+}
+
+#users-go-here{
+  margin-bottom: 100px;
+}
 
 /* Media Query */
 @media (max-width: 768px) {
