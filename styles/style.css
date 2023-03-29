@@ -276,6 +276,10 @@ li {
   fill: red;
 }
 
+#communities-go-here{
+  margin-bottom: 100px;
+}
+
 
 /* Media Query */
 @media (max-width: 768px) {
