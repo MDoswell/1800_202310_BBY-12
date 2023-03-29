@@ -12,13 +12,13 @@ function initMap() {
     zoom: 17,
     center: center,
     // Remove Google default marker
-    styles: [
-      {
-        featureType: "poi",
-        // elementType: "labels",
-        stylers: [{ visibility: "off" }],
-      },
-    ],
+    // styles: [
+    //   {
+    //     featureType: "poi",
+    //     // elementType: "labels",
+    //     stylers: [{ visibility: "off" }],
+    //   },
+    // ],
   });
 
   // $("#location").text(
