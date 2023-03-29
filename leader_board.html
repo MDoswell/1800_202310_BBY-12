@@ -23,7 +23,12 @@
 
 <body>
     <div id="navbarPlaceholder">Nav/Header</div>
-    <h1>Leaderboards</h1>
+    <nav class="navbar navbar-expand-sm bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#" style="color:#000;">Leader board</a>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick="history.go(-1)"></button>
+        </div>
+    </nav>
     <div id="users-go-here">
         <template id="userLeaderboard">
             <div class="card bg-primary">
@@ -57,7 +62,7 @@
     <script src="/scripts/firebaseAPI_BBY12.js"></script>
     <script src="/scripts/skeleton.js"></script>
     <script src="/scripts/leaderboards.js"></script>
-    <script src="/scripts/main.js"></script>
+    <!-- <script src="/scripts/main.js"></script> -->
 </body>
 
 </html>

@@ -38,6 +38,13 @@ function displayCommunityInfo() {
                   let text = document.createTextNode("JOIN");
                   a.appendChild(text);
                   document.getElementById("joinButton").append(a);
+                }else{
+                  let a = document.createElement("a");
+                  a.className = "btn btn-primary";
+                  a.setAttribute("onclick", "leaveCommunity()");
+                  let text = document.createTextNode("LEAVE");
+                  a.appendChild(text);
+                  document.getElementById("joinButton").append(a);
                 }
               })
               .catch((error) => {

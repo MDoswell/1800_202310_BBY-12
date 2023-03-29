@@ -319,6 +319,14 @@ li {
   width: 1.5rem;
 }
 
+#communities-go-here{
+  margin-bottom: 100px;
+}
+
+#users-go-here{
+  margin-bottom: 100px;
+}
+
 /* Media Query */
 @media (max-width: 768px) {
   #map {
