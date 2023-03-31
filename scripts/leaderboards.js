@@ -1,7 +1,7 @@
 function displayLeaderboard(collection) {
     let cardTemplate = document.getElementById("leaderboardCardTemplate");
 
-    db.collection(collection).orderBy("level", "desc").get()   //the collection called "users"
+    db.collection(collection).orderBy("points", "desc").get()   //the collection called "users"
         .then(allUsers => {
             //var i = 1;  //Optional: if you want to have a unique ID for each user
             allUsers.forEach(doc => { //iterate thru each doc
@@ -19,7 +19,7 @@ function displayLeaderboard(collection) {
                 newcard.querySelector('.points').innerHTML = userPoints + " points";
                 newcard.querySelector('.level').innerHTML = "Level " + level;
                 newcard.querySelector('.numHazards').innerHTML = "Number of Hazards reported: " + numHazards; //Example: NV01.jpg
-                newcard.querySelector('.numHelpful').innerHTML = "Number of Helpful votes recieved: " + numHelpful;
+                newcard.querySelector('.numHelpful').innerHTML = "Number of Helpful reviews given: " + numHelpful;
 
                 //Optional: give unique ids to all elements for future use
                 // newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);

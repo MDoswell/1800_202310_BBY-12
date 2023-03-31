@@ -39,7 +39,10 @@
     <link rel="stylesheet" href="./styles/style.css">
 
     <!-- Link to styles of your own -->
-    <!-- <link rel="stylesheet" href="./styles/style.css"> -->
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sen:wght@700&display=swap" rel="stylesheet">
 
 </head>
 
@@ -55,6 +58,11 @@
         <div id="modalPlaceholder"></div>
     </div>
 
+    <button id="filter-button" class="btn btn-primary position-absolute end-0 translate-middle" type="button"
+        data-bs-toggle="collapse" data-bs-target="#filter-bar">
+        Filter Markers
+    </button>
+
     <div id="filter-bar" class="collapse">
         <nav class="navbar bg-secondary">
             <div class="d-flex-inline justify-content-start container-fluid">
@@ -62,7 +70,7 @@
                 <div id="filter-dropdown" class="dropdown" style="display: inline">
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        Dropdown button
+                        Filters
                     </button>
                     <ul id="filter-list" class="dropdown-menu">
                         <li><h6 class="dropdown-header">Hazard type</h6></li>  
@@ -108,10 +116,7 @@
         <nav id="footerPlaceholder"></nav>
     </footer>
 
-    <button id="filter-button" class="btn btn-primary position-absolute end-0 translate-middle" type="button"
-        data-bs-toggle="collapse" data-bs-target="#filter-bar">
-        Filter Markers
-    </button>
+    
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
@@ -120,9 +125,10 @@
     <script src="./scripts/script.js"></script>
     <script src="./scripts/firebaseAPI_BBY12.js"></script>
     <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/levels.js"></script>
     <script src="./scripts/showHazard.js"></script>
     <script defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDG1IqoSEWBRkC4VEM_iE-zV7kOgCbGYGg&callback=initMap"></script>
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0lVOVDoLHbJiDqr5qNtu-XIUtZSRP-qA&callback=initMap"></script>
     <script src="./scripts/googleAPI.js"></script>
     <script src="./scripts/main.js"></script>
     <script src="./scripts/addMarkers.js"></script>
