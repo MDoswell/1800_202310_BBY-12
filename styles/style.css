@@ -101,8 +101,16 @@ li {
 
 /* Hamburger menu style end */
 
+#login-container {
+  background-image: linear-gradient(#1689dc, white);
+}
+
 .bg-primary {
   background-color: #1689dc !important;
+}
+
+.header-font {
+  font-family: 'Sen', sans-serif;
 }
 
 .navbar-brand {
@@ -119,6 +127,27 @@ li {
 
 .nav-link:hover {
   color: #d6ff79;
+}
+
+.btn-primary { 
+  background-color: #1689dc !important;
+  border-color: #1689dc;
+}
+
+.btn-primary:hover { 
+  background-color: #0e609b !important;
+  border-color: #0e609b;
+}
+
+.btn-outline-primary { 
+  /* background-color: #1689dc !important; */
+  color: #1689dc;
+  border-color: #1689dc;
+}
+
+.btn-primary:hover { 
+  background-color: #0e609b !important;
+  border-color: #0e609b;
 }
 
 .btn-secondary {
