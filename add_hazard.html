@@ -36,6 +36,9 @@
 
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="./styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sen:wght@700&display=swap" rel="stylesheet">
 
 </head>
 
@@ -49,7 +52,7 @@
 
     <nav class="navbar navbar-expand-sm bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#" style="color:#000;">Add a Hazard</a>
+            <a class="navbar-brand" href="#" style="color:#000000;">Add a Hazard</a>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick="history.go(-1)"></button>
         </div>
     </nav>
@@ -83,7 +86,7 @@
             </div>
 
             <div class="input-group mb-3">
-                <button class="btn btn-outline-secondary" type="button" id="hazardLocationButton"
+                <button class="btn btn-secondary" type="button" id="hazardLocationButton"
                     onclick="getCurrentLocation()">Get current
                     location</button>
                 <input type="text" id="hazardLocationField" class="form-control" placeholder="Location"

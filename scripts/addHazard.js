@@ -144,9 +144,8 @@ function getUserCommunities() {
 
             let communityList = [];
 
-            db.collection("community-member-list").get()   //the collection called "hikes"
+            db.collection("community-member-list").get()   //the collection called "community-member-list"
                 .then(memberships => {
-                    //var i = 1;  //Optional: if you want to have a unique ID for each hike
                     memberships.forEach(doc => {
                         // console.log(doc.data().member);
                         if (doc.data().member == user.uid) {

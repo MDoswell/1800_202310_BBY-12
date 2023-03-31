@@ -20,8 +20,8 @@ function populateUserInfo() {
 
                     //if the data fields are not empty, then write them in to the form.
                     if (userName != null) {
-                        document.getElementById("nameInput").value = userName;
-                        document.getElementById("profile-goes-here").innerHTML = userName + "'s Profile";
+                        // document.getElementById("nameInput").value = userName;
+                        // document.getElementById("profile-goes-here").innerHTML = userName + "'s Profile";
                     }
                     if (userCity != null) {
                         document.getElementById("cityInput").value = userCity;
@@ -35,6 +35,8 @@ function populateUserInfo() {
                     if (userLevel != null) {
                         document.getElementById("level-goes-here").innerHTML = "Level: " + userLevel;
                     }
+
+                    console.log(userDoc.data().image);
                     document.getElementById("pfpPreview").src = userDoc.data().image;
                 })
         } else {
