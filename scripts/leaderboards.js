@@ -7,7 +7,7 @@ function displayLeaderboard(collection) {
             allUsers.forEach(doc => { //iterate thru each doc
                 var title = doc.data().name;       // get value of the "name" key
                 var level = doc.data().level;  // get value of the "details" key
-                var userCode = doc.data().code;    //get unique ID to each hike to be used for fetching right image
+                var pfp = doc.data().image;    //get unique ID to each hike to be used for fetching right image
                 var userPoints = doc.data().points; //gets the length field
                 var numHazards = doc.data().numHazards;
                 var numHelpful = doc.data().numHelpful;
@@ -20,6 +20,12 @@ function displayLeaderboard(collection) {
                 newcard.querySelector('.level').innerHTML = "Level " + level;
                 newcard.querySelector('.numHazards').innerHTML = "Number of Hazards reported: " + numHazards; //Example: NV01.jpg
                 newcard.querySelector('.numHelpful').innerHTML = "Number of Helpful reviews given: " + numHelpful;
+                console.log(newcard.querySelector('.pfp'));
+                if (pfp != "") {
+                    newcard.querySelector('.pfp').src = pfp;
+                } else {
+                    newcard.querySelector('.pfp').src = "./images/profile.jpg";
+                }
 
                 //Optional: give unique ids to all elements for future use
                 // newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);

@@ -26,12 +26,11 @@
     <div id="navbarPlaceholder">Header/Nav</div>
     <nav class="navbar navbar-expand-sm bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#" style="color:#000;">Profile</a>
+            <h2 class="navbar-brand" id="profile-goes-here" style="color:#000;">Profile</h2>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick="history.go(-1)"></button>
         </div>
     </nav>
     <div class="container">
-        <!-- <h2 id="profile-goes-here">User's Profile</h2> -->
         <form>
             <div>
                 <span id="points-go-here">Points: </span>
@@ -52,7 +51,7 @@
                     <input type="file" id="pfpInput" class="form-control" placeholder="Upload an image">
                 </div>
             </fieldset>
-            <img src="/images/profile.jpg" id="pfpPreview" style="width: 96px" alt="Profile Picture"><span><--This is your profile picture!</span>
+            <img id="pfpPreview" src="./images/profile.jpg" style="width: 96px" alt="Profile Picture"><span><--This is your profile picture!</span>
                     <div class="d-flex justify-content-end mt-5">
                         <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
                         <span style="width: 10px"></span>
@@ -62,10 +61,10 @@
     </div>
     <div id="footerPlaceholder">Footer</div>
 
-    <script src="/scripts/firebaseAPI_BBY12.js"></script>
-    <script src="/scripts/skeleton.js"></script>
-    <script src="/scripts/profile.js"></script>
-    <!-- <script src="/scripts/main.js"></script> -->
+    <script src="./scripts/firebaseAPI_BBY12.js"></script>
+    <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/profile.js"></script>
+    <script src="./scripts/pfp.js"></script>
 </body>
 
 </html>
