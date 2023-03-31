@@ -48,6 +48,7 @@ function addSubmitButtonListener() {
                 // location: new firebase.firestore.GeoPoint(x[0], x[1]),
                 lat: hazardLat,
                 lng: hazardLng,
+                users: [],
                 communities: thisHazardCommunities,
                 timestamp: firebase.firestore.FieldValue.serverTimestamp()  //current system time
             }).then(doc => {
@@ -57,6 +58,18 @@ function addSubmitButtonListener() {
                 if (imagefile) {
                     uploadPic(doc.id);
                 }
+                firebase.auth().onAuthStateChanged(user => {
+                    if (user) {
+                    let currentUser = db.collection("users").doc(user.uid);
+                    currentUser.get().then(doc => {
+                        let userPoints = doc.data().points;
+                        currentUser.update({
+                            points: userPoints + 3
+                        });
+                        levels();
+                    });
+                    }
+                });
                 window.location.href = "main.html?docID=" + doc.id;
             })
         }

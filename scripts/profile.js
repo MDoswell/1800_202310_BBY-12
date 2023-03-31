@@ -7,7 +7,7 @@ function populateUserInfo() {
         if (user) {
 
             //go to the correct user document by referencing to the user uid
-            currentUser = db.collection("users").doc(user.uid)
+            currentUser = db.collection("users").doc(user.uid);
             //get the document for current user.
             currentUser.get()
                 .then(userDoc => {
