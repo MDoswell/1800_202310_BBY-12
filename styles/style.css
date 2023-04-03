@@ -269,7 +269,7 @@ li {
 
 /* Main page */
 #map {
-  height: 750px;
+  height: 70vh;
 }
 
 /* Hazard Features navigation */
@@ -367,24 +367,33 @@ li {
   top: 160px;
 }
 
-#communities-go-here{
+/* #communities-go-here{
   margin-bottom: 100px;
 }
 
 #users-go-here{
   margin-bottom: 100px;
+} */
+
+#content{
+  height: 70vh;
+}
+
+#footerPlaceholder{
+  height: 12vh;
+
 }
 
 /* Media Query */
 @media (max-width: 768px) {
   #map {
-    height: 550px;
+    height: 75vh;
   }
 }
 
 @media (max-width: 480px) {
   #map {
-    height: 400px;
+    height: 60vh;
   }
 
   #features {

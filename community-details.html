@@ -57,37 +57,35 @@
         </div>
     </nav>
 
-    <div class="card text-center" style="border:none;">
-        <div class="card-header">
-            <h5 class="card-title" id="community-name">Community name</h5>
+    <div id="content" style="margin-bottom: 30px;">
+    <div class="container-fluid">
+        <div class="card text-center" style="border:none;">
+            <div class="card-header">
+                <h5 class="card-title" id="community-name">Community name</h5>
+            </div>
+            <div class="card-header">
+                Who is the leader this week?
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Name</h5>
+                <img src="images/profile.jpg" alt="..." class="img-thumbnail" style="width:150px;">
+            </div>
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active">
+                    See our all members
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">Community leader board</a>
+            </div>
+            <div class="card-footer text-muted" style="background-color:#ffffff;" id="joinButton">
+                <!-- <a href="#" class="btn btn-primary" onclick="joinCommunity()">JOIN</a> -->
+            </div>
         </div>
-        <div class="card-header">
-            Who is the leader this week for our community?
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">Name</h5>
-            <img src="images/profile.jpg" alt="..." class="img-thumbnail" style="width:200px;">
-        </div>
-        <p class="card-text">Recent information in community</p>
-        <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action active">
-                See our all members
-            </a>
-            <a href="community-member.html" class="list-group-item list-group-item-action">See our all members</a>
-            <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
-            <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-            <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
-        </div>
-        <div class="card-footer text-muted" style="background-color:#ffffff;" id="joinButton">
-            <!-- <a href="#" class="btn btn-primary" onclick="joinCommunity()">JOIN</a> -->
-        </div>
-
     </div>
-
+</div>
     <footer>
         <nav id="footerPlaceholder"></nav>
     </footer>
-    
+
     <script src="/scripts/firebaseAPI_BBY12.js"></script>
     <script src="/scripts/community-details.js"></script>
     <script src="/scripts/script.js"></script>

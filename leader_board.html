@@ -32,7 +32,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick="history.go(-1)"></button>
         </div>
     </nav>
-    <div id="users-go-here">
+    <div id="users-go-here"  class="container-fluid">
         <template id="userLeaderboard">
             <div class="card bg-primary">
                 <img class="card-img-top">
@@ -46,7 +46,22 @@
                 </div>
             </div>
         </template>
+
         <template id="leaderboardCardTemplate">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="title">Username</h5>
+                    <p class="level">MP level</p>
+                    <p class="points">number of MP (meaninglesspoints)</p>
+                    <br>
+                    <p class="numHazards">This person has X hazards added to the map.</p>
+                    <p class="numHelpful">This person has given Y helpful reviews.</p>
+                </div>
+            </div>
+        </template>
+
+        
+        <!-- <template id="leaderboardCardTemplate">
             <div class="card bg-secondary">
                 <img class="card-img-top">
                 <div class="card-body bg-light">
@@ -58,7 +73,7 @@
                     <p class="numHelpful">This person has given Y helpful reviews.</p>
                 </div>
             </div>
-        </template>
+        </template> -->
     </div>
     <div id="footerPlaceholder">Footer</div>
     <!-- <br><button type="button" onclick="" id="bottom-left">Back To Main Page</button> -->
