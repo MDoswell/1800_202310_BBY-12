@@ -361,6 +361,12 @@ li {
   width: 1.5rem;
 }
 
+#error_window {
+  z-index: 10;
+  position: relative;
+  top: 160px;
+}
+
 #communities-go-here{
   margin-bottom: 100px;
 }
