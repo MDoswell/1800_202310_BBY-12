@@ -14,9 +14,10 @@ function populateUserInfo() {
                     //get the data fields of the user
                     var userName = userDoc.data().name;
                     var userCity = userDoc.data().city;
-                    // var userPicture = userDoc.data().pfp;
+                    var userPicture = userDoc.data().image;
                     var userPoints = userDoc.data().points;
                     var userLevel = userDoc.data().level;
+                    console.log(userPicture);
 
                     //if the data fields are not empty, then write them in to the form.
                     if (userName != null) {
@@ -26,8 +27,13 @@ function populateUserInfo() {
                     if (userCity != null) {
                         document.getElementById("cityInput").value = userCity;
                     }
-                    // if (userPicture != null) {
-                    //     document.getElementById("pfpInput").value = userPicture;
+                    // if (userPicture != "") {
+                    //     console.log("image: " + userDoc.data().image);
+                    //     document.getElementById("pfpPreview").src = userPicture;
+                    //     console.log("source of image: " + document.getElementById("pfpPreview").src);
+                    // } else {
+                    //     console.log("Default Image");
+                    //     document.getElementById("pfpPreview").src = "./images/profile.jpg";
                     // }
                     if (userPoints != null) {
                         document.getElementById("points-go-here").innerHTML = "Points: " + userPoints;
@@ -35,10 +41,8 @@ function populateUserInfo() {
                     if (userLevel != null) {
                         document.getElementById("level-goes-here").innerHTML = "Level: " + userLevel;
                     }
-
-                    console.log(userDoc.data().image);
-                    document.getElementById("pfpPreview").src = userDoc.data().image;
-                })
+                    document.getElementById("pfpPreview").src = userPicture;
+                });
         } else {
             // No user is signed in.
             console.log("No user is signed in");
@@ -54,12 +58,10 @@ function editUserInfo() {
 function saveUserInfo() {
     userName = document.getElementById('nameInput').value;       //get the value of the field with id="nameInput"
     userCity = document.getElementById('cityInput').value;     //get the value of the field with id="cityInput"
-    // userpfp = document.getElementById('pfpInput').value;       //get the value of the field with id="pfpInput"
 
     currentUser.update({
         name: userName,
-        city: userCity,
-        // pfp: userpfp
+        city: userCity
     })
     .then(() => {
         console.log(currentUser);
@@ -69,7 +71,6 @@ function saveUserInfo() {
     })
 
     document.getElementById('personalInfoFields').disabled = true;
-    populateUserInfo();
 }
 
 function addFileChooserListener() {
@@ -108,21 +109,21 @@ function uploadPic(postDocID) {
 
                 // AFTER .getDownloadURL is done
                 .then(function (url) { // Get URL of the uploaded file
-                    console.log("Got the download URL.");
+                    console.log("Got the download URL: " + url);
                     db.collection("users").doc(postDocID).update({
-                        "image": url // Save the URL into users collection
+                        image: url // Save the URL into users collection
                     })
 
                         // AFTER .update is done
                         .then(function () {
                             console.log('Added pic URL to Firestore.');
                             populateUserInfo();
-                        })
-                })
+                        });
+                });
         })
         .catch((error) => {
-            console.log("error uploading to cloud storage");
-        })
+            console.log("error uploading to cloud storage: " + error);
+        });
 }
 
 //call the function to run it 

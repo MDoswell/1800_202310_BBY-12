@@ -25,40 +25,47 @@
 </head>
 
 <body>
-    <div id="navbarPlaceholder">Nav/Header</div>
-    <nav class="navbar navbar-expand-sm bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#" style="color:#000;">Leader board</a>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick="history.go(-1)"></button>
+    <div id="" class="mw-100">
+        <div id="navbarPlaceholder">Nav/Header</div>
+        <nav class="navbar navbar-expand-sm bg-transparent">
+            <div class="container-fluid">
+                <p class="navbar-brand" style="color:#000; font-size: 36pt;">Leaderboard</p>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    onClick="history.go(-1)"></button>
+            </div>
+        </nav>
+        <button class="btn btn-primary mw-100" id="refresh-button" onclick="">Refresh</button>
+        <div id="users-go-here">
+            <template id="userLeaderboard">
+                <div class="card bg-transparent">
+                    <img class="card-img-top">
+                    <div class="card-body bg-transparent">
+                        <img class="pfp" style="width: 48px">
+                        <h5 class="title">Username</h5>
+                        <p class="points">number of MP (meaninglesspoints)</p>
+                        <p class="level">MP level</p>
+                        <br>
+                        <p class="userNumHazards">You have X hazards added to the map.</p>
+                        <p class="userNumHelpful">You have given Y helpful reviews.</p>
+                    </div>
+                </div>
+            </template>
+            <template id="leaderboardCardTemplate">
+                <div class="card bg-transparent delete-me">
+                    <img class="card-img-top">
+                    <div class="card-body bg-transparent">
+                        <img class="pfp" style="width: 48px">
+                        <h5 class="title">Username</h5>
+                        <p class="level">MP level</p>
+                        <p class="points">number of MP (meaninglesspoints)</p>
+                        <br>
+                        <p class="numHazards">This person has X hazards added to the map.</p>
+                        <p class="numHelpful">This person has given Y helpful reviews.</p>
+                    </div>
+                </div>
+            </template>
         </div>
-    </nav>
-    <div id="users-go-here">
-        <template id="userLeaderboard">
-            <div class="card bg-primary">
-                <img class="card-img-top">
-                <div class="card-body bg-light">
-                    <h5 class="title">Username</h5>
-                    <p class="points">number of MP (meaninglesspoints)</p>
-                    <p class="level">MP level</p>
-                    <br>
-                    <p class="userNumHazards">You have X hazards added to the map.</p>
-                    <p class="userNumHelpful">You have given Y helpful reviews.</p>
-                </div>
-            </div>
-        </template>
-        <template id="leaderboardCardTemplate">
-            <div class="card bg-secondary">
-                <img class="card-img-top">
-                <div class="card-body bg-light">
-                    <h5 class="title">Username</h5>
-                    <p class="level">MP level</p>
-                    <p class="points">number of MP (meaninglesspoints)</p>
-                    <br>
-                    <p class="numHazards">This person has X hazards added to the map.</p>
-                    <p class="numHelpful">This person has given Y helpful reviews.</p>
-                </div>
-            </div>
-        </template>
+        <button id="load-more-button" class="btn btn-primary" onclick="">Load More</button>
     </div>
     <div id="footerPlaceholder">Footer</div>
     <!-- <br><button type="button" onclick="" id="bottom-left">Back To Main Page</button> -->

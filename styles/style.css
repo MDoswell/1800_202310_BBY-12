@@ -233,6 +233,28 @@ li {
   background-color: gray;
 }
 
+#background {
+  background-image: linear-gradient(85deg, rgba(53, 129, 184, 0.4), rgba(214, 255, 121, 0.4));
+  height: auto;
+  padding: 0;
+  margin: 0;
+}
+
+#load-more-button {
+  width: 30vw;
+  height: 6vh;
+  position: relative;
+  left: 35vw;
+  bottom: 14vh;
+}
+
+#refresh-button {
+  width: 80%;
+  height: 6vh;
+  position: relative;
+  left: 10%;
+}
+
 #icon-white {
   filter: invert(100%) sepia(9%) saturate(3732%) hue-rotate(276deg) brightness(121%) contrast(93%);
   width: 3vw;
@@ -359,6 +381,12 @@ li {
 
 .filter-badge img {
   width: 1.5rem;
+}
+
+#error_window {
+  z-index: 10;
+  position: relative;
+  top: 160px;
 }
 
 #communities-go-here{

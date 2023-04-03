@@ -54,14 +54,18 @@
     <!-- Navbar-->
     <nav id="navbarPlaceholder"></nav>
 
-    <div class="container-fluid ">
-        <div id="modalPlaceholder"></div>
-    </div>
+    <div id="background">
+        <div class="container-fluid ">
+            <div id="modalPlaceholder"></div>
+        </div>
 
-    <button id="filter-button" class="btn btn-primary position-absolute end-0 translate-middle" type="button"
-        data-bs-toggle="collapse" data-bs-target="#filter-bar">
-        Filter Markers
-    </button>
+        <button id="filter-button" class="btn btn-primary position-absolute end-0 translate-middle" type="button"
+            data-bs-toggle="collapse" data-bs-target="#filter-bar">
+            Filter Markers
+        </button>
+
+    <span id="error_window" class="position-absolute end-0 translate-middle" style="background-color: white; display: none;" >
+    </span>
 
     <div id="filter-bar" class="collapse">
         <nav class="navbar bg-secondary">
@@ -79,36 +83,37 @@
                 <div id="filter-tag-container" class="px-3 flex-grow-1">
                     <!-- Container for tags -->
                 </div>
-                <button type="button" id="filter-bar-close" class="btn-close" data-bs-toggle="collapse" data-bs-target="#filter-bar"></button>
+                <button type="button" id="filter-bar-close" class="btn-close" data-bs-toggle="collapse"
+                    data-bs-target="#filter-bar"></button>
+            </nav>
+        </div>
+
+        <div class="container-fluid ">
+            <div id="map"></div>
+        </div>
+
+        <!-- Features -->
+        <div class="container-fluid" id="features">
+            <div>
+                <img src="../images/feature_tree_branch.svg" alt="">
+                <p>Branch</p>
             </div>
-        </nav>
-    </div>
-
-    <div class="container-fluid ">
-        <div id="map"></div>
-    </div>
-
-    <!-- Features -->
-    <div class="container-fluid" id="features">
-        <div>
-            <img src="../images/feature_tree_branch.svg" alt="">
-            <p>Branch</p>
-        </div>
-        <div>
-            <img src="../images/feature_heated.svg" alt="">
-            <p>Heated</p>
-        </div>
-        <div>
-            <img src="../images/feature_puddle.svg" alt="">
-            <p>Puddle</p>
-        </div>
-        <div>
-            <img src="../images/feature_warning.svg" alt="">
-            <p>Warning</p>
-        </div>
-        <div>
-            <img src="../images/feature_my_location.svg" alt="">
-            <p>Current</p>
+            <div>
+                <img src="../images/feature_heated.svg" alt="">
+                <p>Heated</p>
+            </div>
+            <div>
+                <img src="../images/feature_puddle.svg" alt="">
+                <p>Puddle</p>
+            </div>
+            <div>
+                <img src="../images/feature_warning.svg" alt="">
+                <p>Warning</p>
+            </div>
+            <div>
+                <img src="../images/feature_my_location.svg" alt="">
+                <p>Current</p>
+            </div>
         </div>
     </div>
 
@@ -116,7 +121,7 @@
         <nav id="footerPlaceholder"></nav>
     </footer>
 
-    
+
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
