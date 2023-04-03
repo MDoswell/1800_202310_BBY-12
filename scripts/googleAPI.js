@@ -9,16 +9,16 @@ function initMap() {
   // Initial location of a map
   map = new google.maps.Map($("#map").get(0), {
     mapTypeId: google.maps.MapTypeId.ROADMAP,
-    zoom: 17,
+    zoom: 16,
     center: center,
     // Remove Google default marker
-    // styles: [
-    //   {
-    //     featureType: "poi",
-    //     // elementType: "labels",
-    //     stylers: [{ visibility: "off" }],
-    //   },
-    // ],
+    styles: [
+      {
+        featureType: "poi",
+        // elementType: "labels",
+        stylers: [{ visibility: "off" }],
+      },
+    ],
   });
 
   // $("#location").text(
@@ -67,7 +67,6 @@ function initMap() {
   // window.navigator.geolocation.clearWatch(id);
 }
 
-// Success function
 function success(position) {
   var center = new google.maps.LatLng(
     position.coords.latitude,
@@ -90,9 +89,51 @@ function success(position) {
 }
 
 //Fail function
+
 function error(err) {
-  alert("Navigate fail = " + err.code);
+  let popup = document.getElementById("error_window");
+  popup.innerHTML="Navigate fail = " + err;
+  popup.style.display="block";
+  // alert("Navigate fail = ");
 }
+
+
+// function success(position) {
+//   // Show error message in popup
+//   alert("FAIL00");  
+
+//   // Hide popup after 5 seconds
+//   // setTimeout(function () {
+//   //   popup.hide();
+//   // }, 5000);
+// }
+
+// Success function
+// function success(position) {
+//   var center = new google.maps.LatLng(
+//     position.coords.latitude,
+//     position.coords.longitude
+//   );
+
+//   // Initial location of a map
+//   //map.setCenter(center);
+
+//   $("#location").text(
+//     "current latitude = " +
+//       position.coords.latitude +
+//       " current longitude = " +
+//       position.coords.longitude
+//   );
+
+//   locationMarker.setPosition(center);
+
+//   console.log(locationMarker.hazardId);
+// }
+
+// //Fail function
+// function error(err) {
+//   alert("Navigate fail = " + err.code);
+// }
 
 // function success(position) {
 //   // Show error message in popup

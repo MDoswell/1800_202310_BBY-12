@@ -61,7 +61,6 @@ function displayCommunityInfo() {
 displayCommunityInfo();
 
 function joinCommunity() {
-  console.log("inside community detail join function");
   let params = new URL(window.location.href); //get URL of search bar
   let communityID = params.searchParams.get("docID"); //get value for key "id"
 
@@ -79,6 +78,40 @@ function joinCommunity() {
           })
           .then(() => {
             window.location.href = "community-details.html?docID=" + communityID; 
+          });
+      });
+    } else {
+      console.log("No user is signed in");
+      window.location.href = "community.html";
+    }
+  });
+}
+
+function leaveCommunity() {
+  let params = new URL(window.location.href);
+  let communityID = params.searchParams.get("docID");
+
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      var currentUser = db.collection("users").doc(user.uid);
+      var userID = user.uid;
+      currentUser.get().then((userDoc) => {
+        db.collection("community-member-list")
+          .where("community", "==", communityID)
+          .where("member", "==", userID)
+          .get()
+          .then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+              doc.ref.delete().then(() => {
+                console.log("Document successfully deleted!");
+                window.location.href = "community-details.html?docID=" + communityID;
+              }).catch((error) => {
+                console.error("Error removing document: ", error);
+              });
+            });
+          })
+          .catch((error) => {
+            console.error("Error getting documents: ", error);
           });
       });
     } else {

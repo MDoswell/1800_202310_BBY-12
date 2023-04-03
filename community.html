@@ -57,40 +57,37 @@
     </nav> -->
         <!-- <nav class="navbar navbar-expand-sm navbar-light bg-light"> -->
 
-        <!-- Search form -->
-        <div style="margin-top: 10px; margin-bottom: 10px;">
-            <div class="container-fluid">
-                <div class="form-inline d-flex align-items-center">
-                    <i class="fas fa-search" aria-hidden="true"></i>&nbsp
-                    <input class="form-control" type="text" placeholder="Search" id="search">&nbsp
-                    <button class="btn btn-success" type="submit" onclick="search()">Search</button>&nbsp
-                    <button class="btn btn-success" type="button" onclick="createCommuity()">&nbspCreate&nbsp</button>
+    <!-- Search form -->
+    <div style="margin-top: 10px; margin-bottom: 10px;">
+        <div class="container-fluid">
+            <div class="form-inline d-flex align-items-center">
+                <i class="fas fa-search" aria-hidden="true"></i>&nbsp
+                <input class="form-control" type="text" placeholder="Search" id="search">&nbsp
+                <button class="btn btn-success" type="submit" onclick="search()">Search</button>&nbsp
+                <button class="btn btn-success" type="button" onclick="createCommuity()">&nbspCreate&nbsp</button>
+            </div>
+        </div>
+    </div>
+
+    <!--  -->
+    <div id="communities-go-here" class="container-fluid">
+    </div>
+
+    <template id="communityCardTemplate">
+        <div class="card mb-3">
+            <div class="card-header bg-transparent" style="border:none"><span class="badge rounded-pill bg-primary">Dog
+                    walker</span></div>
+            <div class="card-body">
+                <h5 class="card-title">New Westminster</h5>
+                <p class="card-text-location">With supporting text below as a natural lead-in to additional content.</p>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <h5 class="card-text-number">10 people</h5>
+                <div class="card-footer bg-transparent d-grid d-md-flex justify-content-md-end" style="border:none;">
+                    <a href="#" class="btn" style="background-color:#1689dc; color:white;">See more Details</a>
                 </div>
             </div>
         </div>
-
-        <!--  -->
-        <div id="communities-go-here" class="container-fluid">
-        </div>
-
-        <template id="communityCardTemplate">
-            <div class="card mb-3">
-                <div class="card-header bg-transparent" style="border:none"><span
-                        class="badge rounded-pill bg-primary">Dog
-                        walker</span></div>
-                <div class="card-body bg-light">
-                    <h5 class="card-title">New Westminster</h5>
-                    <p class="card-text-location">With supporting text below as a natural lead-in to additional content.
-                    </p>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <h5 class="card-text-number">10 people</h5>
-                    <div class="card-footer bg-transparent d-grid d-md-flex justify-content-md-end"
-                        style="border:none;">
-                        <a href="#" class="btn btn-primary ">See more Details</a>
-                    </div>
-                </div>
-            </div>
-        </template>
+        
         <!-- Big button card -->
         <!-- <div class="card mb-3">
             <div class="card-header bg-transparent" style="border:none"><span class="badge rounded-pill bg-primary">Dog

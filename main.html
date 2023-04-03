@@ -64,27 +64,27 @@
             Filter Markers
         </button>
 
-        <div id="filter-bar" class="collapse">
-            <nav class="navbar bg-secondary">
-                <div class="d-flex-inline justify-content-start container-fluid">
-                    <h3 class="navbar-brand" style="display: inline">Add Filter:</h3>
-                    <div id="filter-dropdown" class="dropdown" style="display: inline">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Filters
-                        </button>
-                        <ul id="filter-list" class="dropdown-menu">
-                            <li>
-                                <h6 class="dropdown-header">Hazard type</h6>
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="filter-tag-container" class="px-3 flex-grow-1">
-                        <!-- Container for tags -->
-                    </div>
-                    <button type="button" id="filter-bar-close" class="btn-close" data-bs-toggle="collapse"
-                        data-bs-target="#filter-bar"></button>
+    <span id="error_window" class="position-absolute end-0 translate-middle" style="background-color: white; display: none;" >
+    </span>
+
+    <div id="filter-bar" class="collapse">
+        <nav class="navbar bg-secondary">
+            <div class="d-flex-inline justify-content-start container-fluid">
+                <h3 class="navbar-brand" style="display: inline">Add Filter:</h3>
+                <div id="filter-dropdown" class="dropdown" style="display: inline">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Filters
+                    </button>
+                    <ul id="filter-list" class="dropdown-menu">
+                        <li><h6 class="dropdown-header">Hazard type</h6></li>  
+                    </ul>
                 </div>
+                <div id="filter-tag-container" class="px-3 flex-grow-1">
+                    <!-- Container for tags -->
+                </div>
+                <button type="button" id="filter-bar-close" class="btn-close" data-bs-toggle="collapse"
+                    data-bs-target="#filter-bar"></button>
             </nav>
         </div>
 
