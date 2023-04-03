@@ -34,7 +34,6 @@ function displayCardsDynamically(collection) {
                 // });
  
                 var docID = doc.id;
-                console.log(docID);
                 let newcard = cardTemplate.content.cloneNode(true);
 
                 var badgeColor;
@@ -84,12 +83,7 @@ function search(){
             allCommunities.forEach(doc => { //iterate thru each doc
 
                 var name = doc.data().name;
-                console.log("Community name :"+ name);
-                console.log(searchInputVal);
-
-
                 if (name.trim().toLowerCase().includes(searchInputVal)) {
-                    console.log('The string contains "world".');
                     var tag = doc.data().tag;       // get value of the "tag" key
                     var name = doc.data().name;       // get value of the "name" key
                     var location = doc.data().location;       // get value of the "location" key
@@ -97,7 +91,6 @@ function search(){
                     var member = doc.data().member;  // get value of the "details" key
     
                     var docID = doc.id;
-                    console.log(docID);
                     let newcard = cardTemplate.content.cloneNode(true);
     
                     var badgeColor;
