@@ -378,7 +378,7 @@ li {
 
 @media (max-width: 480px) {
   #map {
-    height: 400px;
+    height: 68vh;
   }
 
   #features {
