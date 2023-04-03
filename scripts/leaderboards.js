@@ -1,17 +1,20 @@
+var leaderLimit = 10;
+var test = false;
+
 function displayLeaderboard(collection) {
     let cardTemplate = document.getElementById("leaderboardCardTemplate");
 
-    db.collection(collection).orderBy("points", "desc").get()   //the collection called "users"
+    db.collection(collection).orderBy("points", "desc").limit(leaderLimit).get()   //the collection called "users"
         .then(allUsers => {
             //var i = 1;  //Optional: if you want to have a unique ID for each user
-            allUsers.forEach(doc => { //iterate thru each doc
+            for(var i = leaderLimit - 10; i < leaderLimit; i++) { //iterate thru each doc
+                var doc = allUsers.docs[i];
                 var title = doc.data().name;       // get value of the "name" key
                 var level = doc.data().level;  // get value of the "details" key
                 var pfp = doc.data().image;    //get unique ID to each hike to be used for fetching right image
                 var userPoints = doc.data().points; //gets the length field
                 var numHazards = doc.data().numHazards;
                 var numHelpful = doc.data().numHelpful;
-                var docID = doc.id;
                 let newcard = cardTemplate.content.cloneNode(true);
 
                 //update title and text and image
@@ -20,7 +23,6 @@ function displayLeaderboard(collection) {
                 newcard.querySelector('.level').innerHTML = "Level " + level;
                 newcard.querySelector('.numHazards').innerHTML = "Number of Hazards reported: " + numHazards; //Example: NV01.jpg
                 newcard.querySelector('.numHelpful').innerHTML = "Number of Helpful reviews given: " + numHelpful;
-                console.log(newcard.querySelector('.pfp'));
                 if (pfp != "") {
                     newcard.querySelector('.pfp').src = pfp;
                 } else {
@@ -36,8 +38,39 @@ function displayLeaderboard(collection) {
                 document.getElementById(collection + "-go-here").appendChild(newcard);
 
                 //i++;   //Optional: iterate variable to serve as unique ID
-            })
+            };
         })
+}
+
+function addButtonListeners() {
+    document.getElementById("load-more-button").onclick = loadMore;
+    document.getElementById("refresh-button").onclick = refresh;
+    test = true;
+}
+
+function loadMore() {
+    if (test) {
+        leaderLimit = leaderLimit + 10;
+        populateLeaderboard();
+        displayLeaderboard("users");
+    }
+}
+
+function refresh() {
+    if (test) {
+        var limit = leaderLimit;
+        leaderLimit = 10;
+        deleteOldStuff();
+        populateLeaderboard();
+        displayLeaderboard("users");
+    }
+}
+
+function deleteOldStuff() {
+    var leaderboardCards = document.getElementsByClassName('delete-me');
+    while (leaderboardCards[0]) {
+        leaderboardCards[0].parentNode.removeChild(leaderboardCards[0]);
+    }
 }
 
 function saveLeaderDocumentIDAndRedirect() {
@@ -81,3 +114,4 @@ function populateLeaderboard() {
 
 populateLeaderboard();
 displayLeaderboard("users");
+addButtonListeners();

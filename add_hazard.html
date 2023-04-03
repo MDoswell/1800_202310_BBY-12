@@ -36,6 +36,9 @@
 
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="./styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sen:wght@700&display=swap" rel="stylesheet">
 
 </head>
 
@@ -47,84 +50,87 @@
     <!-- Navbar-->
     <nav id="navbarPlaceholder"></nav>
 
-    <nav class="navbar navbar-expand-sm bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#" style="color:#000;">Add a Hazard</a>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick="history.go(-1)"></button>
-        </div>
-    </nav>
-    <div class="container">
-        <br>
-        <form id="addHazardForm">
-            <div class="form-floating mb-3">
-                <!-- Do other floating labels -->
-                <input type="text" id="hazardNameField" class="form-control" placeholder="Title" aria-label="Title"
-                    name="title" required>
-                <label for="hazardNameField">Title</label>
+    <div id="background" class="mw-100">
+        <nav class="navbar navbar-expand-sm bg-transparent">
+            <div class="container-fluid">
+                <p class="navbar-brand" style="color:#000000; font-size: 36pt;">Add a Hazard</p>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    onClick="history.go(-1)"></button>
             </div>
-
-            <div class="input-group mb-3">
-                <select id="hazardTypeSelect" class="form-select" id="hazardTypeSelect" name="type" required>
-                    <option value="" disabled selected hidden>Hazard Type</option>
-                    <option value="Branch">Branch</option>
-                    <option value="Heated">Heated</option>
-                    <option value="Puddle">Puddle</option>
-                    <option value="Warning">Warning</option>
-                    <option value="Ice">Ice</option>
-                    <option value="Puddle">Puddle</option>
-                    <option value="Hot sidewalk">Hot sidewalk</option>
-                    <option value="Other">Other</option>
-                </select>
-            </div>
-
-            <div class="input-group mb-3">
-                <textarea type="textarea" id="hazardDescriptionArea" class="form-control" placeholder="Description"
-                    aria-label="Description" name="description" required></textarea>
-            </div>
-
-            <div class="input-group mb-3">
-                <button class="btn btn-outline-secondary" type="button" id="hazardLocationButton"
-                    onclick="getCurrentLocation()">Get current
-                    location</button>
-                <input type="text" id="hazardLocationField" class="form-control" placeholder="Location"
-                    aria-label="Location" name="location" required>
-            </div>
-
-            <div>
-                <br>
-                <p>Communities</p>
-            </div>
-
-            <div class="card">
-                <div id="community-buttons" class="card-body">
+        </nav>
+        <div class="container">
+            <br>
+            <form id="addHazardForm">
+                <div class="form-floating mb-3">
+                    <!-- Do other floating labels -->
+                    <input type="text" id="hazardNameField" class="form-control" placeholder="Title" aria-label="Title"
+                        name="title" required>
+                    <label for="hazardNameField">Title</label>
                 </div>
-                <!-- <textarea type="textarea" id="hazardDescriptionArea" class="form-control" placeholder="Description"
+
+                <div class="input-group mb-3">
+                    <select id="hazardTypeSelect" class="form-select" id="hazardTypeSelect" name="type" required>
+                        <option value="" disabled selected hidden>Hazard Type</option>
+                        <option value="Branch">Branch</option>
+                        <option value="Heated">Heated</option>
+                        <option value="Puddle">Puddle</option>
+                        <option value="Warning">Warning</option>
+                        <option value="Ice">Ice</option>
+                        <option value="Puddle">Puddle</option>
+                        <option value="Hot sidewalk">Hot sidewalk</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="input-group mb-3">
+                    <textarea type="textarea" id="hazardDescriptionArea" class="form-control" placeholder="Description"
+                        aria-label="Description" name="description" required></textarea>
+                </div>
+
+                <div class="input-group mb-3">
+                    <button class="btn btn-secondary" type="button" id="hazardLocationButton"
+                        onclick="getCurrentLocation()">Get current
+                        location</button>
+                    <input type="text" id="hazardLocationField" class="form-control" placeholder="Location"
+                        aria-label="Location" name="location" required>
+                </div>
+
+                <div>
+                    <br>
+                    <p>Communities</p>
+                </div>
+
+                <div class="card">
+                    <div id="community-buttons" class="card-body">
+                    </div>
+                    <!-- <textarea type="textarea" id="hazardDescriptionArea" class="form-control" placeholder="Description"
                     aria-label="Description" name="description" required></textarea> -->
-            </div>
+                </div>
 
-            <div>
-                <br>
-                <p>Add photo (optional):</p>
-            </div>
+                <div>
+                    <br>
+                    <p>Add photo (optional):</p>
+                </div>
 
-            <div class="input-group mb-3">
-                <input type="file" id="hazardPhotoSelect" class="form-control">
-            </div>
+                <div class="input-group mb-3">
+                    <input type="file" id="hazardPhotoSelect" class="form-control">
+                </div>
 
-            <div id="picturePreviewContainer">
-                <img id="hazardPicPreview" src="">
-            </div>
+                <div id="picturePreviewContainer">
+                    <img id="hazardPicPreview" src="">
+                </div>
 
-            <!-- <br> -->
+                <!-- <br> -->
 
-            <button class="btn btn-primary" type="submit">Submit form</button>
-            <!-- //onclick="addHazard()" -->
-            <button class="btn btn-primary" type="submit" onclick="window.location.href = 'main.html'">Cancel</button>
-        </form>
+                <button class="btn btn-primary" type="submit">Submit form</button>
+                <!-- //onclick="addHazard()" -->
+                <button class="btn btn-primary" type="submit"
+                    onclick="window.location.href = 'main.html'">Cancel</button>
+            </form>
 
-        <br>
+            <br>
 
-        <!-- <div id="carouselExampleIndicators" style="width:80%; height: 80%; display: inline-block" class="carousel slide"
+            <!-- <div id="carouselExampleIndicators" style="width:80%; height: 80%; display: inline-block" class="carousel slide"
             data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -151,9 +157,8 @@
                 <span class="sr-only">Next</span>
             </a>
         </div> -->
+        </div>
     </div>
-
-
 
 
     <!-- Footer -->

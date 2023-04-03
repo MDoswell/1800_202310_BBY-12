@@ -42,15 +42,6 @@ function displayHazardMarkers(collection) {
                                 showMarker = true;
                             }
                         }
-                        // db.collection("hazards").doc(filterList[i].id).get()
-                        //     .then(doc => {
-                        //         let hazardCommunities = doc.data().communities;
-                        //         for (let j = 0; j < hazardCommunities.length; j++) {
-                        //             if (doc.id == hazardCommunities[j]) {
-                        //                 showMarker = false;
-                        //             }
-                        //         }
-                        //     })
                     } else {
                         console.log("Unknown filter type");
                     }
@@ -233,7 +224,7 @@ function addMapFilter(evt) {
         newFilterBadge.innerHTML = label;
         newFilterBadge.id = "filter-badge-" + id;
         newFilterBadge.classList.add("badge");
-        newFilterBadge.classList.add("text-bg-primary");
+        // newFilterBadge.classList.add("text-bg-primary");
         newFilterBadge.classList.add("filter-badge");
 
         // var closeButton = "<div id=\"close-tag\"><img id=\"close-tag-img\" src=\"images/cross.svg\"></div>";

@@ -17,28 +17,31 @@ function populateUserInfo() {
                     var userPicture = userDoc.data().image;
                     var userPoints = userDoc.data().points;
                     var userLevel = userDoc.data().level;
+                    console.log(userPicture);
 
                     //if the data fields are not empty, then write them in to the form.
                     if (userName != null) {
-                        document.getElementById("nameInput").value = userName;
-                        document.getElementById("profile-goes-here").innerHTML = userName + "'s Profile";
+                        // document.getElementById("nameInput").value = userName;
+                        // document.getElementById("profile-goes-here").innerHTML = userName + "'s Profile";
                     }
                     if (userCity != null) {
                         document.getElementById("cityInput").value = userCity;
                     }
-                    if (userPicture != "") {
-                        console.log("image: " + userDoc.data().image);
-                        document.getElementById("pfpPreview").src = userPicture;
-                        console.log("source of image: " + document.getElementById("pfpPreview").src);
-                    } else {
-                        document.getElementById("pfpPreview").src = "./images/profile.jpg";
-                    }
+                    // if (userPicture != "") {
+                    //     console.log("image: " + userDoc.data().image);
+                    //     document.getElementById("pfpPreview").src = userPicture;
+                    //     console.log("source of image: " + document.getElementById("pfpPreview").src);
+                    // } else {
+                    //     console.log("Default Image");
+                    //     document.getElementById("pfpPreview").src = "./images/profile.jpg";
+                    // }
                     if (userPoints != null) {
                         document.getElementById("points-go-here").innerHTML = "Points: " + userPoints;
                     }
                     if (userLevel != null) {
                         document.getElementById("level-goes-here").innerHTML = "Level: " + userLevel;
                     }
+                    document.getElementById("pfpPreview").src = userPicture;
                 });
         } else {
             // No user is signed in.

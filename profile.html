@@ -20,44 +20,51 @@
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
     <link rel="stylesheet" href="/styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sen:wght@700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div id="navbarPlaceholder">Header/Nav</div>
-    <nav class="navbar navbar-expand-sm bg-light">
-        <div class="container-fluid">
-            <h2 class="navbar-brand" id="profile-goes-here" style="color:#000;">Profile</h2>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick="history.go(-1)"></button>
-        </div>
-    </nav>
-    <div class="container">
-        <form>
-            <div>
-                <span id="points-go-here">Points: </span>
-                <br>
-                <span id="level-goes-here">Level: </span>
+    <div id="" class="mw-100" style="height: 99vh;">
+        <div id="navbarPlaceholder">Header/Nav</div>
+        <nav class="navbar navbar-expand-sm bg-transparent">
+            <div class="container-fluid">
+                <p class="navbar-brand" id="profile-goes-here" style="color:#000; font-size: 36pt;">User Profile</p>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    onClick="history.go(-1)"></button>
             </div>
-            <fieldset class="mb-3" id="personalInfoFields" disabled>
-                <div class="form-group">
-                    <label>Name</label>
-                    <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
+        </nav>
+        <div class="container">
+            <form>
+                <div>
+                    <span id="points-go-here">Points: </span>
+                    <br>
+                    <span id="level-goes-here">Level: </span>
                 </div>
-                <div class="form-group">
-                    <label>City</label>
-                    <input type="text" id="cityInput" class="form-control" placeholder="Enter your city">
-                </div>
-                <div class="form-group">
-                    <label>Profile Picture</label>
-                    <input type="file" id="pfpInput" class="form-control" placeholder="Upload an image">
-                </div>
-            </fieldset>
-            <img id="pfpPreview" src="./images/profile.jpg" style="width: 96px" alt="Profile Picture"><span><--This is your profile picture!</span>
-                    <div class="d-flex justify-content-end mt-5">
-                        <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
-                        <span style="width: 10px"></span>
-                        <button type="button" class="btn btn-info" onclick="saveUserInfo()">Save</button>
+                <fieldset class="mb-3" id="personalInfoFields" disabled>
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
                     </div>
-        </form>
+                    <div class="form-group">
+                        <label>City</label>
+                        <input type="text" id="cityInput" class="form-control" placeholder="Enter your city">
+                    </div>
+                    <div class="form-group">
+                        <label>Profile Picture</label>
+                        <input type="file" id="pfpInput" class="form-control" placeholder="Upload an image">
+                    </div>
+                </fieldset>
+                <img id="pfpPreview" src="./images/profile.jpg" style="width: 128px" alt="Profile Picture"><span><--This
+                        is your profile picture!</span>
+                        <div class="d-flex justify-content-end mt-5">
+                            <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
+                            <span style="width: 10px"></span>
+                            <button type="button" class="btn btn-primary" onclick="saveUserInfo()">Save</button>
+                        </div>
+            </form>
+        </div>
     </div>
     <div id="footerPlaceholder">Footer</div>
 

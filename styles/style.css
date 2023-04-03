@@ -101,8 +101,20 @@ li {
 
 /* Hamburger menu style end */
 
+#login-container {
+  background-image: linear-gradient(#1689dc, white);
+}
+
 .bg-primary {
   background-color: #1689dc !important;
+}
+
+.bg-secondary {
+  background-color: #26532b !important;
+}
+
+.header-font {
+  font-family: 'Sen', sans-serif;
 }
 
 .navbar-brand {
@@ -119,6 +131,27 @@ li {
 
 .nav-link:hover {
   color: #d6ff79;
+}
+
+.btn-primary { 
+  background-color: #1689dc !important;
+  border-color: #1689dc;
+}
+
+.btn-primary:hover { 
+  background-color: #0e609b !important;
+  border-color: #0e609b;
+}
+
+.btn-outline-primary { 
+  /* background-color: #1689dc !important; */
+  color: #1689dc;
+  border-color: #1689dc;
+}
+
+.btn-outline-primary:hover { 
+  background-color: #1689dc;
+  border-color: #1689dc;
 }
 
 .btn-secondary {
@@ -200,10 +233,26 @@ li {
   background-color: gray;
 }
 
-#routeplanning-filler {
-  background-color: #f0f6fa;
-  width: auto;
-  height: 99vh;
+#background {
+  background-image: linear-gradient(85deg, rgba(53, 129, 184, 0.4), rgba(214, 255, 121, 0.4));
+  height: auto;
+  padding: 0;
+  margin: 0;
+}
+
+#load-more-button {
+  width: 30vw;
+  height: 6vh;
+  position: relative;
+  left: 35vw;
+  bottom: 14vh;
+}
+
+#refresh-button {
+  width: 80%;
+  height: 6vh;
+  position: relative;
+  left: 10%;
 }
 
 #icon-white {
@@ -283,13 +332,16 @@ li {
 }
 
 #filter-button {
-  top: 12vh;
-  right: 60vw;
+  top: 114px;
+  margin-right: 1%;
+  z-index: 10;
 }
 
 #filter-bar {
   position: relative;
   z-index: 10;
+  background-color: #1689dc;
+  color: #1689dc;
 }
 
 /* #filter-dropdown {
@@ -310,8 +362,9 @@ li {
   z-index: 11; */
   padding: 0.5rem;
   display: inline;
-  background-color: #26532b;
+  background-color: #b1db4f;
   margin-right: 3px;
+  color: #30292F;
 }
 
 .filter-badge * {
@@ -319,6 +372,11 @@ li {
   z-index: 11; */
   display: inline;
   /* background-color: #26532b; */
+  color: #26532b;
+}
+
+.filter-badge p {
+  color: #26532b;
 }
 
 .filter-badge img {
