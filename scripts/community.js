@@ -9,7 +9,7 @@ function createCommuity(){
 function displayCardsDynamically(collection) {
     let cardTemplate = document.getElementById("communityCardTemplate");
 
-    db.collection(collection).get()   //the collection called "hikes"
+    db.collection(collection).get()   //the collection called "communities"
         .then(allCommunities=> {
             //var i = 1;  //Optional: if you want to have a unique ID for each hike
             allCommunities.forEach(doc => { //iterate thru each doc
@@ -79,7 +79,7 @@ function search(){
         communitiesGoHere.removeChild(communitiesGoHere.firstChild);
     }
 
-    db.collection("communities").get()   //the collection called "hikes"
+    db.collection("communities").get()   //the collection called "communities"
         .then(allCommunities=> {
             allCommunities.forEach(doc => { //iterate thru each doc
 
