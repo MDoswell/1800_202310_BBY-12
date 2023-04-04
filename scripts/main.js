@@ -57,18 +57,16 @@ function displayHazardMarkers(collection) {
                     // console.log(type);
 
                     var myIcon;
-                    if (type == "Obstruction") {
-                        myIcon = new google.maps.MarkerImage("/images/feature_heated.svg", null, null, null, new google.maps.Size(50, 50));
-                    } else if (type == "Warning") {
+                    if (type == "Other") {
                         myIcon = new google.maps.MarkerImage("/images/feature_warning.svg", null, null, null, new google.maps.Size(50, 50));
-                    } else if (type == "Branch") {
+                    } else if (type == "Obstruction") {
                         myIcon = new google.maps.MarkerImage("/images/feature_tree_branch.svg", null, null, null, new google.maps.Size(50, 50));
-                    } else if (type == "Heated") {
+                    } else if (type == "Heat") {
                         myIcon = new google.maps.MarkerImage("/images/feature_heated.svg", null, null, null, new google.maps.Size(50, 50));
                     } else if (type == "Puddle") {
                         myIcon = new google.maps.MarkerImage("/images/feature_puddle.svg", null, null, null, new google.maps.Size(50, 50));
                     } else if (type == "Ice") {
-                        myIcon = new google.maps.MarkerImage("/images/feature_warning.svg", null, null, null, new google.maps.Size(50, 50));
+                        myIcon = new google.maps.MarkerImage("/images/feature-ice.svg", null, null, null, new google.maps.Size(50, 50));
                     }
 
                     marker = new google.maps.Marker({
@@ -243,6 +241,7 @@ function addMapFilter(evt) {
 
         // console.log(filterList);
 
+        window.history.replaceState({}, document.title, "/" + "main.html");
         removeMarkers();
         displayHazardMarkers("hazards");
     }

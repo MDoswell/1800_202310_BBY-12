@@ -48,8 +48,11 @@ function showHazard(hazardID) {
         document.getElementById("hazardDescription").innerHTML = hazardInfo.data().description;
         document.getElementById("hazardLocation").innerHTML = "Loading address...";
         document.getElementById("hazardTimestamp").innerHTML = date;
-        // document.getElementById("hazardImage").src = "../images/pedestrian-logo.png";
-        document.getElementById("hazardImage").src = hazardInfo.data().image;
+        document.getElementById("hazardImage").src = "../images/pedestrian-logo.png";
+        if (hazardInfo.data().image) {
+            document.getElementById("hazardImage").src = hazardInfo.data().image;    
+        }
+        // document.getElementById("hazardImage").src = hazardInfo.data().image;
     })
 
     const button1 = document.getElementById("button1");
