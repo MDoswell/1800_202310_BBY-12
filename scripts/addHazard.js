@@ -77,7 +77,7 @@ function addSubmitButtonListener() {
                     console.log("uploading pic");
                     uploadPic(doc.id);
                 } else {
-                    // window.location.href = "main.html?docID=" + doc.id;
+                    window.location.href = "main.html?docID=" + doc.id;
                 }
                 // window.location.href = "main.html?docID=" + doc.id;
             })
