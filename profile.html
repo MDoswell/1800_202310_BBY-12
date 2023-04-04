@@ -26,49 +26,51 @@
 </head>
 
 <body>
-    <div id="navbarPlaceholder">Header/Nav</div>
-    <nav class="navbar navbar-expand-sm bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#" style="color:#000;">Profile</a>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick="history.go(-1)"></button>
-        </div>
-    </nav>
-    <div class="container">
-        <!-- <h2 id="profile-goes-here">User's Profile</h2> -->
-        <form>
-            <div>
-                <span id="points-go-here">Points: </span>
-                <br>
-                <span id="level-goes-here">Level: </span>
+    <div id="" class="mw-100">
+        <div id="navbarPlaceholder">Header/Nav</div>
+        <nav class="navbar navbar-expand-sm bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#" style="color:#000; font-weight: bold;">User Profile</a>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick="history.go(-1)"></button>
             </div>
-            <fieldset class="mb-3" id="personalInfoFields" disabled>
-                <div class="form-group">
-                    <label>Name</label>
-                    <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
+        </nav>
+        <div class="container">
+            <form>
+                <div>
+                    <span id="points-go-here">Points: </span>
+                    <br>
+                    <span id="level-goes-here">Level: </span>
                 </div>
-                <div class="form-group">
-                    <label>City</label>
-                    <input type="text" id="cityInput" class="form-control" placeholder="Enter your city">
-                </div>
-                <div class="form-group">
-                    <label>Profile Picture</label>
-                    <input type="file" id="pfpInput" class="form-control" placeholder="Upload an image">
-                </div>
-            </fieldset>
-            <img src="/images/profile.jpg" id="pfpPreview" style="width: 96px" alt="Profile Picture"><span><--This is your profile picture!</span>
-                    <div class="d-flex justify-content-end mt-5">
-                        <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
-                        <span style="width: 10px"></span>
-                        <button type="button" class="btn btn-primary" onclick="saveUserInfo()">Save</button>
+                <fieldset class="mb-3" id="personalInfoFields" disabled>
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
                     </div>
-        </form>
+                    <div class="form-group">
+                        <label>City</label>
+                        <input type="text" id="cityInput" class="form-control" placeholder="Enter your city">
+                    </div>
+                    <div class="form-group">
+                        <label>Profile Picture</label>
+                        <input type="file" id="pfpInput" class="form-control" placeholder="Upload an image">
+                    </div>
+                </fieldset>
+                <img id="pfpPreview" src="./images/profile.jpg" style="width: 128px" alt="Profile Picture"><span><--This
+                        is your profile picture!</span>
+                        <div class="d-flex justify-content-end mt-3">
+                            <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
+                            <span style="width: 10px"></span>
+                            <button type="button" class="btn btn-primary" onclick="saveUserInfo()">Save</button>
+                        </div>
+            </form>
+        </div>
     </div>
     <div id="footerPlaceholder">Footer</div>
 
-    <script src="/scripts/firebaseAPI_BBY12.js"></script>
-    <script src="/scripts/skeleton.js"></script>
-    <script src="/scripts/profile.js"></script>
-    <!-- <script src="/scripts/main.js"></script> -->
+    <script src="./scripts/firebaseAPI_BBY12.js"></script>
+    <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/profile.js"></script>
+    <script src="./scripts/pfp.js"></script>
 </body>
 
 </html>
