@@ -61,7 +61,7 @@ function displayHazardMarkers(collection) {
                         myIcon = new google.maps.MarkerImage("/images/feature_warning.svg", null, null, null, new google.maps.Size(50, 50));
                     } else if (type == "Obstruction") {
                         myIcon = new google.maps.MarkerImage("/images/feature_tree_branch.svg", null, null, null, new google.maps.Size(50, 50));
-                    } else if (type == "Heated") {
+                    } else if (type == "Heat") {
                         myIcon = new google.maps.MarkerImage("/images/feature_heated.svg", null, null, null, new google.maps.Size(50, 50));
                     } else if (type == "Puddle") {
                         myIcon = new google.maps.MarkerImage("/images/feature_puddle.svg", null, null, null, new google.maps.Size(50, 50));
