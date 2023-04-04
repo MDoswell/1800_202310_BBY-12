@@ -15,6 +15,7 @@ function addFileChooserListener() {
         console.log("inside file chooser event handler!")
         //the change event returns a file "e.target.files[0]"
         imagefile = e.target.files[0];
+        console.log(imagefile);
         var blob = URL.createObjectURL(e.target.files[0]);
 
         //change the DOM img element source to point to this file
@@ -50,30 +51,35 @@ function addSubmitButtonListener() {
                 lng: hazardLng,
                 users: [],
                 communities: thisHazardCommunities,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp(),  //current system time
                 helpfuls: 0,
-                nothelpfuls: 0,  
-                timestamp: firebase.firestore.FieldValue.serverTimestamp()  //current system time
+                nothelpfuls: 0,
+                users: []
             }).then(doc => {
                 console.log("Post document added!");
                 console.log(doc.id);
-                //saveNewPostID(user.uid, doc.id);
-                if (imagefile) {
-                    alert(imagefile);
-                    uploadPic(doc.id);
-                }
                 firebase.auth().onAuthStateChanged(user => {
                     if (user) {
                     let currentUser = db.collection("users").doc(user.uid);
                     currentUser.get().then(doc => {
                         let userPoints = doc.data().points;
                         currentUser.update({
-                            points: userPoints + 3
+                            points: userPoints + 3,
+                            numHazards: doc.data().numHazards + 1
                         });
                         levels();
                     });
                     }
                 });
-                window.location.href = "main.html?docID=" + doc.id;
+                //saveNewPostID(user.uid, doc.id);
+                if (imagefile) {
+                    // alert(imagefile);
+                    console.log("uploading pic");
+                    uploadPic(doc.id);
+                } else {
+                    window.location.href = "main.html?docID=" + doc.id;
+                }
+                // window.location.href = "main.html?docID=" + doc.id;
             })
         }
 
@@ -106,6 +112,8 @@ addSubmitButtonListener()
 
 
 
+
+
 function uploadPic(postDocID) {
     console.log("inside uploadPic " + postDocID);
     var storageRef = storage.ref("images/" + postDocID + ".jpg");
@@ -127,6 +135,7 @@ function uploadPic(postDocID) {
                         // AFTER .update is done
                         .then(function () {
                             console.log('Added pic URL to Firestore.');
+                            window.location.href = "main.html?docID=" + postDocID;
                         })
                 })
         })
@@ -164,7 +173,8 @@ function getUserCommunities() {
                         db.collection("communities").doc(communityID).get()
                             .then(doc => {
                                 console.log(doc.data().name)
-                                let newButton = document.createElement("BUTTON");
+                                let newButton = document.createElement("button");
+                                newButton.type = "button";
                                 newButton.innerHTML = doc.data().name;
                                 newButton.id = "button-" + communityID;
                                 newButton.classList.add("btn");
