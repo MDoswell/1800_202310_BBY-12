@@ -5,6 +5,8 @@ function loadPFP() {
             currentUser.get().then(userDoc => {
                 if (userDoc.data().image != "") {
                     document.getElementById("pfpPreview").src = userDoc.data().image;
+                }else{
+                    document.getElementById("pfpPreview").src = "../images/profile.jpg";
                 }
             });
         }
