@@ -50,7 +50,10 @@ function addSubmitButtonListener() {
                 lng: hazardLng,
                 users: [],
                 communities: thisHazardCommunities,
-                timestamp: firebase.firestore.FieldValue.serverTimestamp()  //current system time
+                timestamp: firebase.firestore.FieldValue.serverTimestamp(),  //current system time
+                helpfuls: 0,
+                nothelpfuls: 0,
+                users: []
             }).then(doc => {
                 console.log("Post document added!");
                 console.log(doc.id);
@@ -161,7 +164,8 @@ function getUserCommunities() {
                         db.collection("communities").doc(communityID).get()
                             .then(doc => {
                                 console.log(doc.data().name)
-                                let newButton = document.createElement("BUTTON");
+                                let newButton = document.createElement("button");
+                                newButton.type = "button";
                                 newButton.innerHTML = doc.data().name;
                                 newButton.id = "button-" + communityID;
                                 newButton.classList.add("btn");

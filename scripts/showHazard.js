@@ -14,13 +14,39 @@ function showHazard(hazardID) {
 
     hazard.get().then(hazardInfo => {
         date = new Date(hazardInfo.data().timestamp.seconds * 1000);
+        date = date.toDateString() + ", " + date.toLocaleTimeString();
 
-        let hazardLocation = hazardInfo.data().lat + ", " + hazardInfo.data().lng;
+        // let hazardLocation = hazardInfo.data().lat + ", " + hazardInfo.data().lng;
+
+        let coords = { lat: hazardInfo.data().lat, lng: hazardInfo.data().lng };
+        console.log(coords);
+
+        geocoder
+            .geocode({ location: coords })
+            .then((response) => {
+                if (response.results[0]) {
+                    console.log(response.results[0]);
+                    let address = response.results[0].formatted_address;
+
+                    document.getElementById("hazardLocation").innerHTML = address;
+                    // let addressString = address + " (" + coords.lat + coords.lng + ")";
+
+                    // textbox.value = addressString;
+
+                } else {
+                    window.alert("No results found");
+                    document.getElementById("hazardLocation").innerHTML = "Address not found";
+                }
+
+
+            })
+            .catch((e) => window.alert("Geocoder failed due to: " + e));
+
 
         document.getElementById("hazardTitle").innerHTML = hazardInfo.data().name;
         document.getElementById("hazardType").innerHTML = hazardInfo.data().type;
         document.getElementById("hazardDescription").innerHTML = hazardInfo.data().description;
-        document.getElementById("hazardLocation").innerHTML = hazardLocation;
+        document.getElementById("hazardLocation").innerHTML = "Loading address...";
         document.getElementById("hazardTimestamp").innerHTML = date;
         document.getElementById("hazardImage").src = hazardInfo.data().image;
     })
@@ -67,6 +93,7 @@ function addHelpful(hazardID) {
             currentUser = user.uid;
             console.log(currentUser);
             currentHazard = hazard.get().then(doc => {
+                console.log(doc);
                 let users = doc.data().users;
                 console.log(currentHazard);
                 if (users.includes(currentUser)) {
@@ -138,4 +165,10 @@ function addNotHelpful(hazardID) {
             });
         }
     });
+}
+
+var geocoder;
+
+function initializeGeocoder() {
+    geocoder = new google.maps.Geocoder();
 }

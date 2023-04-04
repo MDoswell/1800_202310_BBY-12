@@ -21,9 +21,9 @@ function displayHazardMarkers(collection) {
                 var communities = doc.data().communities;
                 let showMarker = true;
 
-                if (!testThis) {
-                    showMarker = false;
-                }
+                // if (!testThis) {
+                //     showMarker = false;
+                // }
 
                 //console.log(type);
 

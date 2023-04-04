@@ -67,10 +67,10 @@
                 <label for="hazardNameField">Title</label>
             </div>
 
-            <div class="input-group mb-3">
+            <div class="form-floating mb-3">
                 <select id="hazardTypeSelect" class="form-select" id="hazardTypeSelect" name="type" required>
-                    <option value="" disabled selected hidden>Hazard Type</option>
-                    <option value="Branch">Branch</option>
+                    <option value="" disabled selected hidden>Select</option>
+                    <option value="Branch">Obstruction</option>
                     <option value="Heated">Heated</option>
                     <option value="Puddle">Puddle</option>
                     <option value="Warning">Warning</option>
@@ -79,11 +79,13 @@
                     <option value="Hot sidewalk">Hot sidewalk</option>
                     <option value="Other">Other</option>
                 </select>
+                <label for="hazardTypeSelect">Hazard Type</label>
             </div>
 
-            <div class="input-group mb-3">
+            <div class="form-floating mb-3">
                 <textarea type="textarea" id="hazardDescriptionArea" class="form-control" placeholder="Description"
                     aria-label="Description" name="description" required></textarea>
+                    <label for="hazardDescriptionArea">Description</label>
             </div>
 
             <div class="input-group mb-3">
@@ -121,7 +123,7 @@
 
             <!-- <br> -->
 
-            <button class="btn btn-primary" type="submit">Submit form</button>
+            <button id="hazard-submit" class="btn btn-primary" type="submit">Submit form</button>
             <!-- //onclick="addHazard()" -->
             <button class="btn btn-primary" type="submit" onclick="window.location.href = 'main.html'">Cancel</button>
         </form>
@@ -170,7 +172,7 @@
     <!-- <script src="./scripts/levels.js"></script> -->
     <script src="./scripts/addHazard.js"></script>
     <script defer
-        src="https://maps.googleapis.com/maps/api/js?key=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&libraries=places&callback=initAutoComplete"></script>
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0lVOVDoLHbJiDqr5qNtu-XIUtZSRP-qA&libraries=places&callback=initAutoComplete"></script>
 </body>
 
 </html>
