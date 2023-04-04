@@ -8,7 +8,11 @@ function levels() {
             currentUser.get().then(doc => {
                 let userPoints = doc.data().points;
                 let userLevel = doc.data().level;
-                if (userPoints >= 5 && userPoints < 15) {
+                if (userPoints < 5) {
+                    currentUser.update({
+                        level: 1
+                    });
+                } else if (userPoints >= 5 && userPoints < 15) {
                     currentUser.update({
                         level: 2
                     });
