@@ -2,7 +2,7 @@
 
 // console.log(testHazard);
 
-var currentUser = "rNj7ShOtWkfnOLDcLrZJD4Fscpn1";
+// var currentUser = "rNj7ShOtWkfnOLDcLrZJD4Fscpn1";
 var currentHazard;
 
 function showHazard(hazardID) {
