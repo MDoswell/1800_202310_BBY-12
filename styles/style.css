@@ -243,15 +243,14 @@ li {
 #load-more-button {
   width: 30vw;
   height: 6vh;
-  position: relative;
+  /* position: relative; */
   left: 35vw;
   bottom: 14vh;
 }
 
 #refresh-button {
-  width: 80%;
+  width: 30%;
   height: 6vh;
-  position: relative;
   left: 10%;
 }
 
@@ -291,7 +290,7 @@ li {
 
 /* Main page */
 #map {
-  height: 750px;
+  height: 70vh;
 }
 
 /* Hazard Features navigation */
@@ -389,24 +388,33 @@ li {
   top: 160px;
 }
 
-#communities-go-here{
+/* #communities-go-here{
   margin-bottom: 100px;
 }
 
 #users-go-here{
   margin-bottom: 100px;
+} */
+
+#content{
+  height: 70vh;
+}
+
+#footerPlaceholder{
+  height: 12vh;
+
 }
 
 /* Media Query */
 @media (max-width: 768px) {
   #map {
-    height: 550px;
+    height: 75vh;
   }
 }
 
 @media (max-width: 480px) {
   #map {
-    height: 68vh;
+    height: 60vh;
   }
 
   #features {

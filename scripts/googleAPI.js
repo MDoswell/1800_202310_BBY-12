@@ -32,7 +32,7 @@ function initMap() {
     position: center, // location : ,
     title: "Current Location", // title : ,
     map: map, // map object :
-    hazardId: "test ID",
+    hazardId: "Current Location",
   });
 
   // locationMarker.addListener("click", () => {
@@ -85,7 +85,7 @@ function success(position) {
 
   locationMarker.setPosition(center);
 
-  console.log(locationMarker.hazardId);
+  // console.log(locationMarker.hazardId);
 }
 
 //Fail function
