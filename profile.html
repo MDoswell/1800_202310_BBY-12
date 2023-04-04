@@ -26,13 +26,12 @@
 </head>
 
 <body>
-    <div id="" class="mw-100" style="height: 99vh;">
+    <div id="" class="mw-100">
         <div id="navbarPlaceholder">Header/Nav</div>
-        <nav class="navbar navbar-expand-sm bg-transparent">
+        <nav class="navbar navbar-expand-sm bg-light">
             <div class="container-fluid">
-                <p class="navbar-brand" id="profile-goes-here" style="color:#000; font-size: 28pt;">User Profile</p>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
-                    onClick="history.go(-1)"></button>
+                <a class="navbar-brand" href="#" style="color:#000; font-weight: bold;">User Profile</a>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick="history.go(-1)"></button>
             </div>
         </nav>
         <div class="container">
@@ -58,7 +57,7 @@
                 </fieldset>
                 <img id="pfpPreview" src="./images/profile.jpg" style="width: 128px" alt="Profile Picture"><span><--This
                         is your profile picture!</span>
-                        <div class="d-flex justify-content-end mt-5">
+                        <div class="d-flex justify-content-end mt-3">
                             <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
                             <span style="width: 10px"></span>
                             <button type="button" class="btn btn-primary" onclick="saveUserInfo()">Save</button>

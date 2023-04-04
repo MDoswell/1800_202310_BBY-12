@@ -25,14 +25,14 @@ function displayHazardMarkers(collection) {
                     showMarker = false;
                 }
 
-                console.log(type);
+                //console.log(type);
 
-                console.log(filterList);
+                //console.log(filterList);
                 for (let i = 0; i < filterList.length; i++) {
-                    console.log(FileList[i]);
+                    //console.log(FileList[i]);
                     if (filterList[i].type == "hazardType") {
                         if (type != filterList[i].id) {
-                            console.log("Does not fit filter");
+                            //console.log("Does not fit filter");
                             showMarker = false;
                         }
                     } else if (filterList[i].type == "community") {
@@ -43,13 +43,13 @@ function displayHazardMarkers(collection) {
                             }
                         }
                     } else {
-                        console.log("Unknown filter type");
+                        //console.log("Unknown filter type");
                     }
                 }
 
                 if (showMarker || filterList == []) {
-                    console.log("creating marker");
-                    console.log(title);
+                    //console.log("creating marker");
+                    //console.log(title);
                     // console.log(details);
                     // console.log(docID);
                     // console.log(lat);
@@ -81,14 +81,14 @@ function displayHazardMarkers(collection) {
 
                     marker.addListener("click", () => {
                         //When click the marker, hazard shows.
-                        console.log(docID);
+                        //console.log(docID);
                         showHazard(docID);
                     });
 
                     markers.push(marker);
                 }
             })
-            console.log("adding markers to map");
+            //console.log("adding markers to map");
             for (let i = 0; i < markers.length; i++) {
                 markers[i].setMap(map);
             }
@@ -100,10 +100,10 @@ function showParamHazard() {
     let params = new URL(window.location.href) //get the url from the search bar
     let ID = params.searchParams.get("docID");
 
-    console.log(ID);
+    //console.log(ID);
 
     if (ID) {
-        console.log("showing param hazard");
+        //console.log("showing param hazard");
 
         showHazard(ID);
     }
@@ -133,11 +133,11 @@ function addHazardTypeFilters() {
         newFilterButton.filterID = hazardTypes[i];
         newFilterButton.onclick = addMapFilter;
 
-        console.log(newFilterButton);
+        //console.log(newFilterButton);
 
         let newFilter = document.createElement("li");
         newFilter.appendChild(newFilterButton);
-        console.log(newFilter);
+        //console.log(newFilter);
 
         $("#filter-list").append(newFilter);
     }
@@ -154,7 +154,7 @@ function addCommunityFilters() {
         if (user) {
             //go to the correct user document by referencing to the user uid
             currentUser = db.collection("users").doc(user.uid);
-            console.log(user.uid);
+            //console.log(user.uid);
 
             let communityList = [];
 
@@ -163,21 +163,21 @@ function addCommunityFilters() {
                     memberships.forEach(doc => {
                         // console.log(doc.data().member);
                         if (doc.data().member == user.uid) {
-                            console.log(doc.data().community)
+                            //console.log(doc.data().community)
                             communityList.push(doc.data().community)
                         }
                     })
 
-                    console.log(communityList);
+                    //console.log(communityList);
                     for (var i = 0; i < communityList.length; i++) {
                         let communityID = communityList[i];
-                        console.log(communityID);
+                        //console.log(communityID);
                         db.collection("communities").doc(communityID).get()
                             .then(doc => {
                                 // <li><button class="dropdown-item" type="button">Action</button></li>
                                 let communityName = doc.data().name;
 
-                                console.log(doc.data().name)
+                                //console.log(doc.data().name)
                                 let newFilterButton = document.createElement("BUTTON");
                                 newFilterButton.innerHTML = communityName;
                                 newFilterButton.classList.add("dropdown-item");
@@ -187,11 +187,11 @@ function addCommunityFilters() {
                                 newFilterButton.filterID = communityID;
                                 newFilterButton.onclick = addMapFilter;
 
-                                console.log(newFilterButton);
+                                //console.log(newFilterButton);
 
                                 let newFilter = document.createElement("li");
                                 newFilter.appendChild(newFilterButton);
-                                console.log(newFilter);
+                                //console.log(newFilter);
 
                                 $("#filter-list").append(newFilter);
 
@@ -201,7 +201,7 @@ function addCommunityFilters() {
                 })
         } else {
             // No user is signed in.
-            console.log("No user is signed in");
+            //console.log("No user is signed in");
         }
     });
 }
@@ -209,12 +209,12 @@ function addCommunityFilters() {
 addCommunityFilters();
 
 function addMapFilter(evt) {
-    console.log("adding filter...");
+    //console.log("adding filter...");
     let type = evt.currentTarget.filterType;
     let label = evt.currentTarget.filterLabel;
     let id = evt.currentTarget.filterID;
 
-    console.log(id);
+    //console.log(id);
 
     if (filterList.find(filter => filter.id == id)) {
         console.log("filter in list");

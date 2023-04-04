@@ -77,6 +77,9 @@ function joinCommunity() {
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
           })
           .then(() => {
+            db.collection("communities").doc(communityID).update({
+              member: firebase.firestore.FieldValue.increment(1)
+            });
             window.location.href = "community-details.html?docID=" + communityID; 
           });
       });
@@ -100,11 +103,14 @@ function leaveCommunity() {
           .where("community", "==", communityID)
           .where("member", "==", userID)
           .get()
-          .then((querySnapshot) => {
+          .then((querySnapshot) => {    
             querySnapshot.forEach((doc) => {
               doc.ref.delete().then(() => {
-                console.log("Document successfully deleted!");
-                window.location.href = "community-details.html?docID=" + communityID;
+                // Update number of members in community document
+                db.collection("communities").doc(communityID).update({
+                  member: firebase.firestore.FieldValue.increment(-1)
+                });
+                window.location.href = "community.html"; 
               }).catch((error) => {
                 console.error("Error removing document: ", error);
               });
