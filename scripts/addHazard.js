@@ -59,6 +59,7 @@ function addSubmitButtonListener() {
                 console.log(doc.id);
                 //saveNewPostID(user.uid, doc.id);
                 if (imagefile) {
+                    alert(imagefile);
                     uploadPic(doc.id);
                 }
                 firebase.auth().onAuthStateChanged(user => {

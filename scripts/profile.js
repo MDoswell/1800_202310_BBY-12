@@ -21,7 +21,7 @@ function populateUserInfo() {
 
                     //if the data fields are not empty, then write them in to the form.
                     if (userName != null) {
-                        // document.getElementById("nameInput").value = userName;
+                        document.getElementById("nameInput").value = userName;
                         // document.getElementById("profile-goes-here").innerHTML = userName + "'s Profile";
                     }
                     if (userCity != null) {

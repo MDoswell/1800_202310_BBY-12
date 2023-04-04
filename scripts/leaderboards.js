@@ -9,7 +9,10 @@ function displayLeaderboard(collection) {
             //var i = 1;  //Optional: if you want to have a unique ID for each user
             for(var i = leaderLimit - 10; i < leaderLimit; i++) { //iterate thru each doc
                 var doc = allUsers.docs[i];
-                var title = doc.data().name;       // get value of the "name" key
+                console.log("i"+i);
+                var title = doc.data().name;
+                
+                console.log("title" + title);
                 var level = doc.data().level;  // get value of the "details" key
                 var pfp = doc.data().image;    //get unique ID to each hike to be used for fetching right image
                 var userPoints = doc.data().points; //gets the length field
