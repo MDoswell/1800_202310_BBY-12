@@ -1,6 +1,9 @@
+// Invoke a community
 function displayCommunityInfo() {
   let params = new URL(window.location.href); //get URL of search bar
   let ID = params.searchParams.get("docID"); //get value for key "id"
+
+  //Distinguish that a user whether joined or not
   let count = 0;
 
   firebase.auth().onAuthStateChanged((user) => {
@@ -53,13 +56,14 @@ function displayCommunityInfo() {
           });
       });
     } else {
-      console.log("No user is signed in");
+      // console.log("No user is signed in");
       window.location.href = "community.html";
     }
   });
 }
 displayCommunityInfo();
 
+// Join the community
 function joinCommunity() {
   let params = new URL(window.location.href); //get URL of search bar
   let communityID = params.searchParams.get("docID"); //get value for key "id"
@@ -77,6 +81,7 @@ function joinCommunity() {
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
           })
           .then(() => {
+            // If a user join the community, increase the number of members.
             db.collection("communities").doc(communityID).update({
               member: firebase.firestore.FieldValue.increment(1)
             });
@@ -84,12 +89,13 @@ function joinCommunity() {
           });
       });
     } else {
-      console.log("No user is signed in");
+      // console.log("No user is signed in");
       window.location.href = "community.html";
     }
   });
 }
 
+// leave the community
 function leaveCommunity() {
   let params = new URL(window.location.href);
   let communityID = params.searchParams.get("docID");
@@ -106,7 +112,7 @@ function leaveCommunity() {
           .then((querySnapshot) => {    
             querySnapshot.forEach((doc) => {
               doc.ref.delete().then(() => {
-                // Update number of members in community document
+                // If a user join the community, decrease the number of members.
                 db.collection("communities").doc(communityID).update({
                   member: firebase.firestore.FieldValue.increment(-1)
                 });
@@ -121,7 +127,7 @@ function leaveCommunity() {
           });
       });
     } else {
-      console.log("No user is signed in");
+      // console.log("No user is signed in");
       window.location.href = "community.html";
     }
   });
