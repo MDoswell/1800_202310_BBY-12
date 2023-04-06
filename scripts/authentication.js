@@ -31,7 +31,7 @@ var uiConfig = {
             numHelpful: 0,
             numHazards: 0,
             city: "Burnaby",
-            image: ""
+            image: "",
           })
           .then(function () {
             console.log("New user added to firestore");

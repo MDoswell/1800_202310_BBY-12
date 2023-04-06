@@ -1,11 +1,10 @@
 var map;
 var locationMarker;
-var center;
 
 //Run google map and navigating when enter the main page.
 function initMap() {
   // Temporary start position of map
-  center = new google.maps.LatLng(49.25, -123);
+  var center = new google.maps.LatLng(49.25, -123);
 
   // Initial location of a map
   map = new google.maps.Map($("#map").get(0), {
@@ -16,7 +15,7 @@ function initMap() {
     styles: [
       {
         featureType: "poi",
-        // elementType: "labels",
+        elementType: "labels",
         stylers: [{ visibility: "off" }],
       },
     ],
@@ -29,15 +28,10 @@ function initMap() {
     hazardId: "Current Location",
   });
 
-  // locationMarker.addListener("click", () => {
-  //   //When click the marker, hazard shows.
-  //   showHazard(testHazard);
-  // });
-
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
       (position) => {
-       // Navigate current location
+        // Navigate current location
         id = window.navigator.geolocation.watchPosition(success, error, {
           enableHighAccuracy: true,
           maximumAge: 0,
@@ -62,13 +56,13 @@ function initMap() {
 }
 
 function success(position) {
-  center = new google.maps.LatLng(
+  var center = new google.maps.LatLng(
     position.coords.latitude,
     position.coords.longitude
   );
 
   // Initial location of a map
-  //map.setCenter(center);
+  map.setCenter(center);
 
   $("#location").text(
     "current latitude = " +
@@ -85,7 +79,7 @@ function success(position) {
 //Fail function
 function error(err) {
   let popup = document.getElementById("error_window");
-  popup.innerHTML="Navigate fail = " + err;
-  popup.style.display="block";
+  popup.innerHTML = "Navigate fail = " + err;
+  popup.style.display = "block";
   // alert("Navigate fail = ");
 }

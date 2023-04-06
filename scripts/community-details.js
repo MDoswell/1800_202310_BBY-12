@@ -30,7 +30,7 @@ function displayCommunityInfo() {
 
                   if (communityID == ID && memberID == userID) {
                     count++;
-                  }         
+                  }
                 });
 
                 // Only appear when user didn't join.
@@ -41,7 +41,7 @@ function displayCommunityInfo() {
                   let text = document.createTextNode("JOIN");
                   a.appendChild(text);
                   document.getElementById("joinButton").append(a);
-                }else{
+                } else {
                   let a = document.createElement("a");
                   a.className = "btn btn-primary";
                   a.setAttribute("onclick", "leaveCommunity()");
@@ -82,10 +82,13 @@ function joinCommunity() {
           })
           .then(() => {
             // If a user join the community, increase the number of members.
-            db.collection("communities").doc(communityID).update({
-              member: firebase.firestore.FieldValue.increment(1)
-            });
-            window.location.href = "community-details.html?docID=" + communityID; 
+            db.collection("communities")
+              .doc(communityID)
+              .update({
+                member: firebase.firestore.FieldValue.increment(1),
+              });
+            window.location.href =
+              "community-details.html?docID=" + communityID;
           });
       });
     } else {
@@ -109,17 +112,22 @@ function leaveCommunity() {
           .where("community", "==", communityID)
           .where("member", "==", userID)
           .get()
-          .then((querySnapshot) => {    
+          .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
-              doc.ref.delete().then(() => {
-                // If a user join the community, decrease the number of members.
-                db.collection("communities").doc(communityID).update({
-                  member: firebase.firestore.FieldValue.increment(-1)
+              doc.ref
+                .delete()
+                .then(() => {
+                  // If a user join the community, decrease the number of members.
+                  db.collection("communities")
+                    .doc(communityID)
+                    .update({
+                      member: firebase.firestore.FieldValue.increment(-1),
+                    });
+                  window.location.href = "community.html";
+                })
+                .catch((error) => {
+                  console.error("Error removing document: ", error);
                 });
-                window.location.href = "community.html"; 
-              }).catch((error) => {
-                console.error("Error removing document: ", error);
-              });
             });
           })
           .catch((error) => {
