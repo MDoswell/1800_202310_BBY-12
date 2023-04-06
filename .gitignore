@@ -4,3 +4,10 @@ node_modules/
 .vscode/
 firebaseAPI_BBY12.js
 api.txt
+.firebase/hosting..cache
+.firebaserc
+404.html
+firebase.json
+firestore.indexes.json
+firestore.rules
+storage.rules
