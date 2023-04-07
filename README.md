@@ -16,17 +16,16 @@ List team members and/or short bio's here...
 	
 ## 3. Technologies and Resources Used
 List technologies (with version numbers), API's, icons, fonts, images, media or data sources, and other resources that were used.
-* <img src="https://img.shields.io/badge/HTML5-v5-E34F26?logo=HTML5"> HTML
-* <img src="https://img.shields.io/badge/CSS3-v3-1572B6?logo=CSS3"> CSS
-* <img src="https://img.shields.io/badge/javascript-ES6+-F7DF1E?logo=javascript"> JavaScript
-* <img src="https://img.shields.io/badge/Bootstrap-v5.0-7952B3?logo=Bootstrap"> Bootstrap 5.0 (Frontend library)
-* <img src="https://img.shields.io/badge/firebase-v5.0-23039BE5?logo=firebase"> Firebase 8.0 (BAAS - Backend as a Service)
-<!-- * ![Firebase](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase)  -->
-* <img src="https://img.shields.io/badge/Google%20Maps%20API?logo=Google Maps API"> Google Maps JavaScript API
-<!-- * ![Google Maps API](https://img.shields.io/badge/-Google%20Maps%20API-blue)Google Maps JavaScript API -->
-* <img src="http://img.shields.io/badge/-git-black?&logo=git"> Git
-* <img src="http://img.shields.io/badge/-github-black?&logo=github"> Github
-* <img src="https://img.shields.io/badge/Trello--0052CC?logo=Trello"> Trello
+* <img src="https://img.shields.io/badge/HTML5-v5-E34F26?logo=HTML5">
+* <img src="https://img.shields.io/badge/CSS3-v3-1572B6?logo=CSS3">
+* <img src="https://img.shields.io/badge/javascript-ES6+-F7DF1E?logo=javascript">
+* <img src="https://img.shields.io/badge/Bootstrap-v5.0-7952B3?logo=Bootstrap">  (Frontend library)
+* <img src="https://img.shields.io/badge/firebase-v8.0-23039BE5?logo=firebase"> (BAAS - Backend as a Service)
+* <img src="https://img.shields.io/badge/Google%20Maps%20API-4285F4?logo=Google%20Maps%20API">
+* <img src="https://img.shields.io/badge/-git-black?&logo=git">
+* <img src="https://img.shields.io/badge/-github-black?&logo=github"> 
+* <img src="https://img.shields.io/badge/Trello-0052CC?logo=Trello">
+* <img src="https://img.shields.io/badge/Figma-F24E1E?logo=Figma">
 
 
 ## 4. Complete setup/installion/usage
