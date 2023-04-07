@@ -6,7 +6,7 @@
 var currentHazard;
 
 function showHazard(hazardID) {
-  console.log(db.collection("hazards").get());
+  // console.log(db.collection("hazards").get());
 
   var hazard = db.collection("hazards").doc(hazardID);
 
@@ -60,7 +60,7 @@ function showHazard(hazardID) {
     addHelpful(hazardID);
   };
   // button1.addEventListener("click", () => {addHelpful(hazardID)});
-  console.log(button1.addEventListener);
+  // console.log(button1.addEventListener);
   const button2 = document.getElementById("button2");
   button2.onclick = null;
   button2.onclick = () => {
@@ -72,7 +72,7 @@ function showHazard(hazardID) {
 }
 
 function updateHelpfuls(hazardID) {
-  console.log(hazardID);
+  // console.log(hazardID);
   let hazard = db.collection("hazards").doc(hazardID);
   let total;
   let numHelpful;
@@ -85,26 +85,26 @@ function updateHelpfuls(hazardID) {
     }
     document.getElementById("helpful-text").innerHTML =
       numHelpful + " / " + total + " users found this helpful (" + perc + "%)";
-    console.log("Updated helpful count");
+    // console.log("Updated helpful count");
   });
 }
 
 function addHelpful(hazardID) {
-  console.log(hazardID);
-  console.log("Entered addHelpful function");
+  // console.log(hazardID);
+  // console.log("Entered addHelpful function");
   let hazard = db.collection("hazards").doc(hazardID);
   let numHelpful;
-  console.log(currentUser);
+  // console.log(currentUser);
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       currentUser = user.uid;
       console.log(currentUser);
       currentHazard = hazard.get().then((doc) => {
-        console.log(doc);
+        // console.log(doc);
         let users = doc.data().users;
-        console.log(currentHazard);
+        // console.log(currentHazard);
         if (users.includes(currentUser)) {
-          console.log("You've already pressed the button!!!1!!11!!111!");
+          // console.log("You've already pressed the button!!!1!!11!!111!");
         } else {
           hazard.get().then((hazardInfo) => {
             numHelpful = hazardInfo.data().helpfuls;
@@ -113,7 +113,7 @@ function addHelpful(hazardID) {
               users: firebase.firestore.FieldValue.arrayUnion(currentUser),
             });
             updateHelpfuls(hazardID);
-            console.log("Successfully incremented numHelpful");
+            // console.log("Successfully incremented numHelpful");
           });
           let userPoints = db.collection("users").doc(currentUser);
           userPoints.get().then((doc) => {
@@ -133,21 +133,21 @@ function addHelpful(hazardID) {
 }
 
 function addNotHelpful(hazardID) {
-  console.log(hazardID);
-  console.log("Entered addNotHelpful function");
+  // console.log(hazardID);
+  // console.log("Entered addNotHelpful function");
   let hazard = db.collection("hazards").doc(hazardID);
   let numNotHelpful;
   currentHazard = hazardID;
-  console.log(currentHazard);
+  // console.log(currentHazard);
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       currentUser = user.uid;
-      console.log(currentUser);
+      // console.log(currentUser);
       currentHazard = hazard.get().then((doc) => {
         let users = doc.data().users;
-        console.log(currentHazard);
+        // console.log(currentHazard);
         if (users.includes(currentUser)) {
-          console.log("You've already pressed the button!!!1!!11!!111!");
+          // console.log("You've already pressed the button!!!1!!11!!111!");
         } else {
           hazard.get().then((hazardInfo) => {
             numNotHelpful = hazardInfo.data().nothelpfuls;
@@ -156,7 +156,7 @@ function addNotHelpful(hazardID) {
               users: firebase.firestore.FieldValue.arrayUnion(currentUser),
             });
             updateHelpfuls(hazardID);
-            console.log("Successfully incremented numHelpful");
+            // console.log("Successfully incremented numHelpful");
           });
           let userPoints = db.collection("users").doc(currentUser);
           userPoints.get().then((doc) => {
@@ -167,7 +167,7 @@ function addNotHelpful(hazardID) {
             levels();
           });
         }
-        console.log("Added helpful");
+        // console.log("Added helpful");
       });
     }
   });

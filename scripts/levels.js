@@ -40,7 +40,7 @@ function levels() {
           currentFloor = currentFloor * formula;
           targetLevel = targetLevel + 1;
         } else {
-          console.log("Somehow you broke the levelling system...");
+          // console.log("Somehow you broke the levelling system...");
           alert("You somehow broke the levelling system...");
         }
       });

@@ -1,10 +1,10 @@
 var imagefile;
 
 function addFileChooserListener() {
-  console.log("inside add File chooser listener");
+  // console.log("inside add File chooser listener");
   const fileInput = document.getElementById("hazardPhotoSelect"); // pointer #1
 
-  console.log(fileInput.value);
+  // console.log(fileInput.value);
   //attach listener to input file
   //when this file changes, do something
   fileInput.addEventListener("change", function (e) {
@@ -12,10 +12,10 @@ function addFileChooserListener() {
     const image = document.getElementById("hazardPicPreview"); // pointer #2
     image.src = imagefile;
 
-    console.log("inside file chooser event handler!");
+    // console.log("inside file chooser event handler!");
     //the change event returns a file "e.target.files[0]"
     imagefile = e.target.files[0];
-    console.log(imagefile);
+    // console.log(imagefile);
     var blob = URL.createObjectURL(e.target.files[0]);
 
     //change the DOM img element source to point to this file
@@ -30,8 +30,8 @@ function addSubmitButtonListener() {
       //define a variable for the collection in Firestore
       var hazardRef = db.collection("hazards");
 
-      console.log(document.getElementById("hazardPhotoSelect").value);
-      console.log(new firebase.firestore.GeoPoint(1, 2));
+      // console.log(document.getElementById("hazardPhotoSelect").value);
+      // console.log(new firebase.firestore.GeoPoint(1, 2));
 
       var hazardName = form.elements["title"].value;
       var hazardType = form.elements["type"].value;
@@ -40,7 +40,7 @@ function addSubmitButtonListener() {
       var hazardLng = coords.lng;
       var thisHazardCommunities = hazardCommunities;
 
-      console.log("ran add hazard");
+      // console.log("ran add hazard");
 
       hazardRef
         .add({
@@ -58,8 +58,8 @@ function addSubmitButtonListener() {
           users: [],
         })
         .then((doc) => {
-          console.log("Post document added!");
-          console.log(doc.id);
+          // console.log("Post document added!");
+          // console.log(doc.id);
           firebase.auth().onAuthStateChanged((user) => {
             if (user) {
               let currentUser = db.collection("users").doc(user.uid);
@@ -77,7 +77,7 @@ function addSubmitButtonListener() {
           //saveNewPostID(user.uid, doc.id);
           if (imagefile) {
             // alert(imagefile);
-            console.log("uploading pic");
+            // console.log("uploading pic");
             uploadPic(doc.id);
           } else {
             window.location.href = "main.html?docID=" + doc.id;
@@ -102,7 +102,7 @@ function addSubmitButtonListener() {
         // console.log($("#hazardLocationField"))
       }
 
-      console.log("submitting");
+      // console.log("submitting");
 
       // newcard.querySelector('a').href = "eachHike.html?docID=" + docID;
     });
@@ -111,7 +111,7 @@ function addSubmitButtonListener() {
 addSubmitButtonListener();
 
 function uploadPic(postDocID) {
-  console.log("inside uploadPic " + postDocID);
+  // console.log("inside uploadPic " + postDocID);
   var storageRef = storage.ref("images/" + postDocID + ".jpg");
 
   storageRef
@@ -119,14 +119,14 @@ function uploadPic(postDocID) {
 
     // AFTER .put() is done
     .then(function () {
-      console.log("Uploaded to Cloud Storage.");
+      // console.log("Uploaded to Cloud Storage.");
       storageRef
         .getDownloadURL()
 
         // AFTER .getDownloadURL is done
         .then(function (url) {
           // Get URL of the uploaded file
-          console.log("Got the download URL.");
+          // console.log("Got the download URL.");
           db.collection("hazards")
             .doc(postDocID)
             .update({
@@ -135,13 +135,13 @@ function uploadPic(postDocID) {
 
             // AFTER .update is done
             .then(function () {
-              console.log("Added pic URL to Firestore.");
+              // console.log("Added pic URL to Firestore.");
               window.location.href = "main.html?docID=" + postDocID;
             });
         });
     })
     .catch((error) => {
-      console.log("error uploading to cloud storage");
+      // console.log("error uploading to cloud storage");
     });
 }
 
@@ -153,7 +153,7 @@ function getUserCommunities() {
     if (user) {
       //go to the correct user document by referencing to the user uid
       currentUser = db.collection("users").doc(user.uid);
-      console.log(user.uid);
+      // console.log(user.uid);
 
       let communityList = [];
 
@@ -163,20 +163,20 @@ function getUserCommunities() {
           memberships.forEach((doc) => {
             // console.log(doc.data().member);
             if (doc.data().member == user.uid) {
-              console.log(doc.data().community);
+              // console.log(doc.data().community);
               communityList.push(doc.data().community);
             }
           });
 
-          console.log(communityList);
+          // console.log(communityList);
           for (var i = 0; i < communityList.length; i++) {
             let communityID = communityList[i];
-            console.log(communityID);
+            // console.log(communityID);
             db.collection("communities")
               .doc(communityID)
               .get()
               .then((doc) => {
-                console.log(doc.data().name);
+                // console.log(doc.data().name);
                 let newButton = document.createElement("button");
                 newButton.type = "button";
                 newButton.innerHTML = doc.data().name;
@@ -202,7 +202,7 @@ function getUserCommunities() {
         });
     } else {
       // No user is signed in.
-      console.log("No user is signed in");
+      // console.log("No user is signed in");
     }
   });
 }
@@ -221,7 +221,7 @@ function initAutoComplete() {
     //marker.setVisible(false);
 
     const place = autocomplete.getPlace();
-    console.log(place);
+    // console.log(place);
 
     if (!place.geometry || !place.geometry.location) {
       // User entered the name of a Place that was not suggested and
@@ -230,18 +230,18 @@ function initAutoComplete() {
       return;
     } else {
       // const x = place.geometry.location;
-      console.log(place.geometry.location.lat());
+      // console.log(place.geometry.location.lat());
       coords = {
         lat: place.geometry.location.lat(),
         lng: place.geometry.location.lng(),
       };
-      console.log(coords);
+      // console.log(coords);
     }
   });
 }
 
 function getCurrentLocation() {
-  console.log(navigator.geolocation);
+  // console.log(navigator.geolocation);
   // Navigate current location
   window.navigator.geolocation.getCurrentPosition(success, error, {
     enableHighAccuracy: true,
@@ -253,13 +253,13 @@ function getCurrentLocation() {
 function success(position) {
   let textbox = document.getElementById("hazardLocationField");
   coords = { lat: position.coords.latitude, lng: position.coords.longitude };
-  console.log(coords);
+  // console.log(coords);
 
   geocoder
     .geocode({ location: coords })
     .then((response) => {
       if (response.results[0]) {
-        console.log(response.results[0]);
+        // console.log(response.results[0]);
         let address = response.results[0].formatted_address;
 
         let addressString = address + " (" + coords.lat + coords.lng + ")";

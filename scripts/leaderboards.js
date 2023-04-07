@@ -13,10 +13,9 @@ function displayLeaderboard(collection) {
       for (var i = leaderLimit - 10; i < leaderLimit; i++) {
         //iterate thru each doc
         var doc = allUsers.docs[i];
-        console.log("i" + i);
         var title = doc.data().name;
 
-        console.log("title" + title);
+        // console.log("title" + title);
         var level = doc.data().level; // get value of the "details" key
         var pfp = doc.data().image; //get unique ID to each hike to be used for fetching right image
         var userPoints = doc.data().points; //gets the length field
@@ -104,7 +103,7 @@ function populateLeaderboard() {
     .get()
     .then((allLeaders) => {
       leaderboards = allLeaders.docs;
-      console.log(leaderboards);
+      // console.log(leaderboards);
       leaderboards.forEach((doc) => {
         var title = doc.data().title; //gets the name field
         var level = doc.data().level; //gets the unique ID field
@@ -112,7 +111,7 @@ function populateLeaderboard() {
         var numHazards = doc.data().numHazards;
         var numHelpful = doc.data().numHelpful;
         var time = doc.data().timestamp.toDate();
-        console.log(time);
+        // console.log(time);
 
         let leaderCard = leaderboardCardTemplate.content.cloneNode(true);
         leaderCard.querySelector(".title").innerHTML = title;

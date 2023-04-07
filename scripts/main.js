@@ -77,7 +77,7 @@ function displayHazardMarkers(collection) {
             );
           } else if (type == "Heat") {
             myIcon = new google.maps.MarkerImage(
-              "/images/feature_heated.svg",
+              "/images/feature_heat.svg",
               null,
               null,
               null,

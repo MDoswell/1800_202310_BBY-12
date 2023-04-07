@@ -14,7 +14,6 @@ function displayCardsDynamically(collection) {
   db.collection(collection)
     .get() //the collection called "communities"
     .then((allCommunities) => {
-      //var i = 1;  //Optional: if you want to have a unique ID for each hike
       allCommunities.forEach((doc) => {
         //iterate thru each doc
         var tag = doc.data().tag; // get value of the "tag" key
@@ -22,20 +21,6 @@ function displayCardsDynamically(collection) {
         var location = doc.data().location; // get value of the "location" key
         var description = doc.data().description; // get value of the "description" key
         var member = doc.data().member; // get value of the "member" key
-
-        // Attach a listener to the database reference
-        // databaseRef.on('value', function(snapshot) {
-        // // Get the number of children in the snapshot
-        // var numChildren = snapshot.numChildren();
-        // console.log('Number of data:', numChildren);
-        // });
-
-        // db.collection("community-member-list").get().then(querySnapshot => {
-        //     const members = querySnapshot.doc().member;
-        //     console.log("22" + members);
-        // }).catch(error => {
-        //     console.error("Error getting collection size:", error);
-        // });
 
         var docID = doc.id;
         let newcard = cardTemplate.content.cloneNode(true);
