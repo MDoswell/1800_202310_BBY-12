@@ -1,8 +1,7 @@
-# Project Title
-<h1 align="center"> SureFoot </h1> 
+# SureFoot
 <div align="center">
   <a align="center" href="https://github.com/MDoswell/1800_202310_BBY-12">
-    <img src="https://github.com/MDoswell/1800_202310_BBY-12/blob/main/images/surefoot_logo.png" alt="Logo" width="80" height="80">
+    <img src="https://github.com/MDoswell/1800_202310_BBY-12/blob/main/images/surefoot_logo.png" alt="Logo" width="150" height="150">
   </a>
 </div>
 
@@ -11,19 +10,23 @@ SureFoot is a web application to help walkers (dog-walkers, stroller users, etc.
 
 ## 2. Names of Contributors
 List team members and/or short bio's here... 
-* Hi my name is Yongeun ([jenkwon92])(https://github.com/jenkwon92). I'm excited about this project because it's good practical experience.
-* Hi my name is Mike ([MDoswell]) (https://github.com/MDoswell). I'm excited about this project because of the chance for practical experience.
-* Hi my name is Noah ([mrnoah99]) (https://github.com/mrnoah99). I'm excited about this project because it will help me learn how collaborating in projects works online, and how to program apps or games.
+* Hi my name is Yongeun [jenkwon92](https://github.com/jenkwon92). I'm excited about this project because it's good practical experience.
+* Hi my name is Mike [MDoswell] (https://github.com/MDoswell). I'm excited about this project because of the chance for practical experience.
+* Hi my name is Noah [mrnoah99] (https://github.com/mrnoah99). I'm excited about this project because it will help me learn how collaborating in projects works online, and how to program apps or games.
 	
 ## 3. Technologies and Resources Used
 List technologies (with version numbers), API's, icons, fonts, images, media or data sources, and other resources that were used.
-* ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) HTML
-* ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) CSS
-* ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) JavaScript
-* ![Bootstrap](https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white) Bootstrap 5.0 (Frontend library)
-* ![Firebase](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase) Firebase 8.0 (BAAS - Backend as a Service)
-* ![Google Maps API](https://img.shields.io/badge/-Google%20Maps%20API-blue)Google Maps JavaScript API
-* ![Github](http://img.shields.io/badge/-github-black?&logo=github)Github
+* <img src="https://img.shields.io/badge/HTML5-v5-E34F26?logo=HTML5"> HTML
+* <img src="https://img.shields.io/badge/CSS3-v3-1572B6?logo=CSS3"> CSS
+* <img src="https://img.shields.io/badge/javascript-ES6+-F7DF1E?logo=javascript"> JavaScript
+* <img src="https://img.shields.io/badge/Bootstrap-v5.0-7952B3?logo=Bootstrap"> Bootstrap 5.0 (Frontend library)
+* <img src="https://img.shields.io/badge/firebase-v5.0-23039BE5?logo=firebase"> Firebase 8.0 (BAAS - Backend as a Service)
+<!-- * ![Firebase](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase)  -->
+* <img src="https://img.shields.io/badge/Google%20Maps%20API?logo=Google Maps API"> Google Maps JavaScript API
+<!-- * ![Google Maps API](https://img.shields.io/badge/-Google%20Maps%20API-blue)Google Maps JavaScript API -->
+* <img src="http://img.shields.io/badge/-git-black?&logo=git"> Git
+* <img src="http://img.shields.io/badge/-github-black?&logo=github"> Github
+* <img src="https://img.shields.io/badge/Trello--0052CC?logo=Trello"> Trello
 
 
 ## 4. Complete setup/installion/usage
