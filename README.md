@@ -16,6 +16,8 @@ List team members and/or short bio's here...
 	
 ## 3. Technologies and Resources Used
 List technologies (with version numbers), API's, icons, fonts, images, media or data sources, and other resources that were used.
+
+technologies & API's
 * <img src="https://img.shields.io/badge/HTML5-v5-E34F26?logo=HTML5">
 * <img src="https://img.shields.io/badge/CSS3-v3-1572B6?logo=CSS3">
 * <img src="https://img.shields.io/badge/javascript-ES6+-F7DF1E?logo=javascript">
@@ -24,6 +26,8 @@ List technologies (with version numbers), API's, icons, fonts, images, media or 
 * <img src="https://img.shields.io/badge/Google%20Maps%20API-4285F4?logo=Google%20Maps%20API">
 * <img src="https://img.shields.io/badge/-git-black?&logo=git">
 * <img src="https://img.shields.io/badge/-github-black?&logo=github"> 
+
+Planning
 * <img src="https://img.shields.io/badge/Trello-0052CC?logo=Trello">
 * <img src="https://img.shields.io/badge/Figma-F24E1E?logo=Figma">
 
@@ -34,6 +38,7 @@ Here are the steps ...
 * Access to https://comp1800-bby12.web.app/
 * A responsive web application that supports all screen sizes.
 <img width="524" alt="Screenshot_10" src="https://user-images.githubusercontent.com/70299766/230571811-62e90a3e-cb84-490b-b771-f46df2ed51d5.png">
+
 * Click the sign-up button to create a new account, or log in if having an account.
 
 ## 5. Known Bugs and Limitations
