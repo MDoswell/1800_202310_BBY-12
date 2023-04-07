@@ -2,7 +2,7 @@
 <h1 align="center"> SureFoot </h1> 
 <div align="center">
   <a align="center" href="https://github.com/MDoswell/1800_202310_BBY-12">
-    <img src="https://github.com/MDoswell/1800_202310_BBY-12/blob/main/images/logo.png" alt="Logo" width="80" height="80">
+    <img src="https://github.com/MDoswell/1800_202310_BBY-12/blob/main/images/surefoot_logo.png" alt="Logo" width="80" height="80">
   </a>
 </div>
 
@@ -11,9 +11,9 @@ SureFoot is a web application to help walkers (dog-walkers, stroller users, etc.
 
 ## 2. Names of Contributors
 List team members and/or short bio's here... 
-* Hi my name is Yongeun[jenkwon92](https://github.com/jenkwon92). I'm excited about this project because it's good practical experience.
-* Hi my name is Mike[MDoswell](https://github.com/MDoswell). I'm excited about this project because of the chance for practical experience.
-* Hi my name is Noah[mrnoah99](https://github.com/mrnoah99). I'm excited about this project because it will help me learn how collaborating in projects works online, and how to program apps or games.
+* Hi my name is Yongeun ([jenkwon92])(https://github.com/jenkwon92). I'm excited about this project because it's good practical experience.
+* Hi my name is Mike ([MDoswell]) (https://github.com/MDoswell). I'm excited about this project because of the chance for practical experience.
+* Hi my name is Noah ([mrnoah99]) (https://github.com/mrnoah99). I'm excited about this project because it will help me learn how collaborating in projects works online, and how to program apps or games.
 	
 ## 3. Technologies and Resources Used
 List technologies (with version numbers), API's, icons, fonts, images, media or data sources, and other resources that were used.
