@@ -31,9 +31,13 @@ List technologies (with version numbers), API's, icons, fonts, images, media or 
 ## 4. Complete setup/installion/usage
 State what a user needs to do when they come to your project.  How do others start using your code or application?
 Here are the steps ...
+* Access to https://comp1800-bby12.web.app/
+
 * ...
 * ...
-* ...
+Open with Live Server the index.html and click "Access GIGaNet" or alternatively visit our live link https://giganet-46ce5.web.app/index.html
+Set media window size to mobile size (ex. iphone 12) for optimal view of design
+Create an account or login using your email address and password and you will be redirected to the main.html page
 
 ## 5. Known Bugs and Limitations
 Here are some known bugs:
