@@ -15,9 +15,7 @@ List team members and/or short bio's here...
 * Hi my name is Noah [mrnoah99](https://github.com/mrnoah99). I'm excited about this project because it will help me learn how collaborating in projects works online, and how to program apps or games.
 	
 ## 3. Technologies and Resources Used
-List technologies (with version numbers), API's, icons, fonts, images, media or data sources, and other resources that were used.
-
-technologies & API's
+Technologies & API's
 * <img src="https://img.shields.io/badge/HTML5-v5-E34F26?logo=HTML5">
 * <img src="https://img.shields.io/badge/CSS3-v3-1572B6?logo=CSS3">
 * <img src="https://img.shields.io/badge/javascript-ES6+-F7DF1E?logo=javascript">
