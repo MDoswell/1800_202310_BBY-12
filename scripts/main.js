@@ -36,7 +36,7 @@ function displayHazardMarkers(collection) {
               }
             }
           } else {
-            console.log("Unknown filter type");
+            // console.log("Unknown filter type");
           }
         }
 
@@ -217,7 +217,7 @@ function addCommunityFilters() {
         });
     } else {
       // No user is signed in.
-      console.log("No user is signed in");
+      // console.log("No user is signed in");
     }
   });
 }

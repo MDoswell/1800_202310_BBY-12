@@ -120,7 +120,7 @@ function uploadPic(postDocID) {
         });
     })
     .catch((error) => {
-      console.log("error uploading to cloud storage");
+      // console.log("error uploading to cloud storage");
     });
 }
 
@@ -187,7 +187,7 @@ function getUserCommunities() {
         });
     } else {
       // No user is signed in.
-      console.log("No user is signed in");
+      // console.log("No user is signed in");
     }
   });
 }

@@ -88,7 +88,6 @@ function addHelpful(hazardID) {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       currentUser = user.uid;
-      console.log(currentUser);
       currentHazard = hazard.get().then((doc) => {
         let users = doc.data().users;
         if (users.includes(currentUser)) {
