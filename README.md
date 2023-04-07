@@ -26,11 +26,11 @@ Technologies & API's
 * <img src="https://img.shields.io/badge/-github-black?&logo=github"> 
 
 Planning
-* <img src="https://img.shields.io/badge/Trello-0052CC?logo=Trello">(https://trello.com/b/8QTNWtCN/comp1800)
+* <img src="https://img.shields.io/badge/Trello-0052CC?logo=Trello"> :[link](https://trello.com/b/8QTNWtCN/comp1800)
 * <img src="https://img.shields.io/badge/Figma-F24E1E?logo=Figma">
-* [Wireflow link[(https://www.figma.com/file/y8Svk4YHCQ5F1bBisBpHXC/Untitled?t=uTnqGw8FAxzwvHUq-0)
-* [FigJam link[(https://www.figma.com/file/XX4pP8weNQ2Unciq36tJMd/Comp1800-202310-BBY12?t=uTnqGw8FAxzwvHUq-0)
-* [<img src="https://img.shields.io/badge/Google form-4285F4?logo=form">](https://docs.google.com/forms/d/1-V2OYT56mccZj81y9JhRzvMPou1ve_9ht0lrMHQ5iZ8/prefill)
+* <img src="https://img.shields.io/badge/Figma-wireflow-F24E1E?logo=Figma">:[link](https://www.figma.com/file/y8Svk4YHCQ5F1bBisBpHXC/Untitled?t=uTnqGw8FAxzwvHUq-0)
+* <img src="https://img.shields.io/badge/Figma-figjam-F24E1E?logo=Figma">:[link](https://www.figma.com/file/XX4pP8weNQ2Unciq36tJMd/Comp1800-202310-BBY12?t=uTnqGw8FAxzwvHUq-0)
+* <img src="https://img.shields.io/badge/Google form-4285F4?logo=form">:[link](https://docs.google.com/forms/d/1-V2OYT56mccZj81y9JhRzvMPou1ve_9ht0lrMHQ5iZ8/prefill)
 
 
 ## 4. Complete setup/installion/usage
