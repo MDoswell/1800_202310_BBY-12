@@ -28,9 +28,9 @@ Technologies & API's
 Planning
 * <img src="https://img.shields.io/badge/Trello-0052CC?logo=Trello">(https://trello.com/b/8QTNWtCN/comp1800)
 * <img src="https://img.shields.io/badge/Figma-F24E1E?logo=Figma">
-* Wireflow: (https://www.figma.com/file/y8Svk4YHCQ5F1bBisBpHXC/Untitled?t=uTnqGw8FAxzwvHUq-0)
-* FigJam: (https://www.figma.com/file/XX4pP8weNQ2Unciq36tJMd/Comp1800-202310-BBY12?t=uTnqGw8FAxzwvHUq-0)
-* <img src="https://img.shields.io/badge/Google form-4285F4?logo=form">(https://docs.google.com/forms/d/1-V2OYT56mccZj81y9JhRzvMPou1ve_9ht0lrMHQ5iZ8/prefill)
+* [Wireflow link[(https://www.figma.com/file/y8Svk4YHCQ5F1bBisBpHXC/Untitled?t=uTnqGw8FAxzwvHUq-0)
+* [FigJam link[(https://www.figma.com/file/XX4pP8weNQ2Unciq36tJMd/Comp1800-202310-BBY12?t=uTnqGw8FAxzwvHUq-0)
+* [<img src="https://img.shields.io/badge/Google form-4285F4?logo=form">](https://docs.google.com/forms/d/1-V2OYT56mccZj81y9JhRzvMPou1ve_9ht0lrMHQ5iZ8/prefill)
 
 
 ## 4. Complete setup/installion/usage
@@ -39,6 +39,7 @@ Here are the steps ...
 * Access to https://comp1800-bby12.web.app/
 * A responsive web application that supports all screen sizes.
 <img width="524" alt="Screenshot_10" src="https://user-images.githubusercontent.com/70299766/230571811-62e90a3e-cb84-490b-b771-f46df2ed51d5.png">
+
 * Click the sign-up button to create a new account, or log in if you already have an account.
 * Accept to a location tracking.
 
