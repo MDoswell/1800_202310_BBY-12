@@ -55,10 +55,12 @@
     <nav id="navbarPlaceholder"></nav>
 
     <div id="content">
+        <!-- Placeholder for modal. Replaced by modal when a hazard is clicked -->
         <div class="container-fluid ">
             <div id="modalPlaceholder"></div>
         </div>
 
+        <!-- Button to expand filter menu -->
         <button id="filter-button" class="btn btn-primary position-absolute end-0 translate-middle" type="button"
             data-bs-toggle="collapse" data-bs-target="#filter-bar">
             Filter Markers
@@ -68,6 +70,7 @@
             style="background-color: white; display: none;">
         </span>
 
+        <!-- Filter menu -->
         <div id="filter-bar" class="collapse">
             <nav class="navbar bg-secondary">
                 <div class="d-flex-inline justify-content-start container-fluid">
@@ -84,18 +87,19 @@
                         </ul>
                     </div>
                     <div id="filter-tag-container" class="px-3 flex-grow-1">
-                        <!-- Container for tags -->
+                        <!-- Container for filter tags -->
                     </div>
                     <button type="button" id="filter-bar-close" class="btn-close" data-bs-toggle="collapse"
                         data-bs-target="#filter-bar"></button>
             </nav>
         </div>
 
+        <!-- Map -->
         <div class="container-fluid ">
             <div id="map"></div>
         </div>
 
-        <!-- Features -->
+        <!-- Legend for hazard symbols -->
         <div class="container-fluid" id="features">
             <div>
                 <img src="../images/feature_tree_branch.svg" alt="">
@@ -139,7 +143,6 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0lVOVDoLHbJiDqr5qNtu-XIUtZSRP-qA&callback=initMap"></script>
     <script src="./scripts/googleAPI.js"></script>
     <script src="./scripts/main.js"></script>
-    <!-- <script src="./scripts/addMarkers.js"></script> -->
 </body>
 
 </html>

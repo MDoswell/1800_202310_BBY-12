@@ -37,18 +37,19 @@ Here are the steps ...
 * A responsive web application that supports all screen sizes.
 <img width="524" alt="Screenshot_10" src="https://user-images.githubusercontent.com/70299766/230571811-62e90a3e-cb84-490b-b771-f46df2ed51d5.png">
 
-* Click the sign-up button to create a new account, or log in if having an account.
+* Click the sign-up button to create a new account, or log in if you already have an account.
 
 ## 5. Known Bugs and Limitations
 Here are some known bugs:
 * The load more function on the leaderboards page is not functioning normally.
 * In some cases, geolocation is not functioning properly and the exact location may not be displayed.
+* Profile image is not displaying or saving properly for some users.
 
 ## 6. Features for Future
 What we'd like to build in the future:
 * Complete a route planning function.
 * Switch the refresh function on the leaderboards page to automatic refresh function.
-* Alarm function for nearest hazard
+* Alert function for very close hazards
 	
 ## 7. Contents of Folder
 Content of the project folder:
@@ -60,7 +61,7 @@ Content of the project folder:
 ├── community-create.html    # create a community page
 ├── community-details.html   # Community detail page
 ├── community.html           # Community board page
-├── index.html               # landing HTML file, this is what users see when you come to url
+├── index.html               # landing HTML file, this is what users see when they come to root url
 ├── leader_board.html        # Leader board page
 ├── login.html               # login page
 ├── main.html                # Main page with description of SureFoot

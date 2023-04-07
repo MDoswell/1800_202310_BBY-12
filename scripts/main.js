@@ -1,40 +1,31 @@
-function addHazard() {
-  let addHazard = document.getElementById("addHazard");
-  location.href = "../addHazard.html";
-  console.log(addHazard);
-}
-
+// global variable to hold the filters selected by the user
 var filterList = [];
+
+// global variable to hold the hazard markers displayed on the map
 var markers = [];
 
+/*  */
 function displayHazardMarkers(collection) {
   db.collection(collection)
     .get() //the collection called "hazards"
     .then((allHazards) => {
+      //iterate thru each doc
       allHazards.forEach((doc) => {
-        //iterate thru each doc
-        var testThis = doc.data().testThis;
+        // get details about the hazards for filtering
         var title = doc.data().name;
-        var details = doc.data().description;
         var docID = doc.id;
         var type = doc.data().type;
         var lat = parseFloat(doc.data().lat);
         var lng = parseFloat(doc.data().lng);
         var communities = doc.data().communities;
+        // flag indicating whether to create and display marker for this hazard
         let showMarker = true;
 
-        // if (!testThis) {
-        //     showMarker = false;
-        // }
-
-        //console.log(type);
-
-        //console.log(filterList);
+        /* iterate through filters, and set showMarker to false if hazard does
+          not fit a given filter */
         for (let i = 0; i < filterList.length; i++) {
-          //console.log(FileList[i]);
           if (filterList[i].type == "hazardType") {
             if (type != filterList[i].id) {
-              //console.log("Does not fit filter");
               showMarker = false;
             }
           } else if (filterList[i].type == "community") {
@@ -45,19 +36,13 @@ function displayHazardMarkers(collection) {
               }
             }
           } else {
-            //console.log("Unknown filter type");
+            console.log("Unknown filter type");
           }
         }
 
+        /* For hazards where showMarker is true (or all hazards if no filters are
+          active), set appropriate marker icon, and create marker */
         if (showMarker || filterList == []) {
-          //console.log("creating marker");
-          //console.log(title);
-          // console.log(details);
-          // console.log(docID);
-          // console.log(lat);
-          // console.log(lng);
-          // console.log(type);
-
           var myIcon;
           if (type == "Other") {
             myIcon = new google.maps.MarkerImage(
@@ -109,16 +94,15 @@ function displayHazardMarkers(collection) {
             hazardId: docID,
           });
 
+          // Add listener so that when marker is clicked, hazard modal appears.
           marker.addListener("click", () => {
-            //When click the marker, hazard shows.
-            //console.log(docID);
             showHazard(docID);
           });
 
           markers.push(marker);
         }
       });
-      //console.log("adding markers to map");
+      // add each marker to the map
       for (let i = 0; i < markers.length; i++) {
         markers[i].setMap(map);
       }
@@ -126,19 +110,18 @@ function displayHazardMarkers(collection) {
     });
 }
 
+/* Get params from URL, and if one exists for docID, display the hazard
+  with that ID (param is set after add a hazard). */
 function showParamHazard() {
   let params = new URL(window.location.href); //get the url from the search bar
   let ID = params.searchParams.get("docID");
 
-  //console.log(ID);
-
   if (ID) {
-    //console.log("showing param hazard");
-
     showHazard(ID);
   }
 }
 
+/* Remove all hazard markers from the map */
 function removeMarkers() {
   for (let i = 0; i < markers.length; i++) {
     markers[i].setMap(null);
@@ -149,9 +132,12 @@ function removeMarkers() {
 
 displayHazardMarkers("hazards");
 
+/* Populate the hazard type filter section of the dropdown menu in the
+  filter menu */
 function addHazardTypeFilters() {
-  let hazardTypes = ["Ice", "Obstruction", "Other"];
+  let hazardTypes = ["Ice", "Obstruction", "Other", "Heat", "Puddle"];
 
+  // for each hazard type, create a button that adds a filter for that hazard type
   for (let i = 0; i < hazardTypes.length; i++) {
     let newFilterButton = document.createElement("BUTTON");
     newFilterButton.innerHTML = hazardTypes[i];
@@ -162,15 +148,13 @@ function addHazardTypeFilters() {
     newFilterButton.filterID = hazardTypes[i];
     newFilterButton.onclick = addMapFilter;
 
-    //console.log(newFilterButton);
-
+    // put the button in a list item and add to dropdown
     let newFilter = document.createElement("li");
     newFilter.appendChild(newFilterButton);
-    //console.log(newFilter);
-
     $("#filter-list").append(newFilter);
   }
 
+  // after all type filters have been added, create section for community filters
   document
     .getElementById("filter-list")
     .insertAdjacentHTML("beforeend", '<li><hr class="dropdown-divider"></li>');
@@ -181,42 +165,39 @@ function addHazardTypeFilters() {
       '<li><h6 class="dropdown-header">Community</h6></li>'
     );
 }
-
+// Call this function immediately
 addHazardTypeFilters();
 
+/* Populate the community filter section of the dropdown menu in the
+  filter menu */
 function addCommunityFilters() {
   firebase.auth().onAuthStateChanged((user) => {
     // Check if user is signed in:
     if (user) {
       //go to the correct user document by referencing to the user uid
       currentUser = db.collection("users").doc(user.uid);
-      //console.log(user.uid);
-
+      // array to hold the communities the user belongs to
       let communityList = [];
 
       db.collection("community-member-list")
         .get()
         .then((memberships) => {
           memberships.forEach((doc) => {
-            // console.log(doc.data().member);
+            // add each community the user is in to communityList
             if (doc.data().member == user.uid) {
-              //console.log(doc.data().community)
               communityList.push(doc.data().community);
             }
           });
 
-          //console.log(communityList);
+          // for each community user is in, add a button to the filter menu dropdown
           for (var i = 0; i < communityList.length; i++) {
             let communityID = communityList[i];
-            //console.log(communityID);
             db.collection("communities")
               .doc(communityID)
               .get()
               .then((doc) => {
-                // <li><button class="dropdown-item" type="button">Action</button></li>
+                // create button that adds filter for this community
                 let communityName = doc.data().name;
-
-                //console.log(doc.data().name)
                 let newFilterButton = document.createElement("BUTTON");
                 newFilterButton.innerHTML = communityName;
                 newFilterButton.classList.add("dropdown-item");
@@ -226,47 +207,45 @@ function addCommunityFilters() {
                 newFilterButton.filterID = communityID;
                 newFilterButton.onclick = addMapFilter;
 
-                //console.log(newFilterButton);
-
+                // add that button to the filter menu dropdown
                 let newFilter = document.createElement("li");
                 newFilter.appendChild(newFilterButton);
-                //console.log(newFilter);
 
                 $("#filter-list").append(newFilter);
-
-                // document.getElementById("filter-button-" + communityID).onclick = addMapFilter("community", communityName, communityID);
               });
           }
         });
     } else {
       // No user is signed in.
-      //console.log("No user is signed in");
+      console.log("No user is signed in");
     }
   });
 }
-
+// Call this function immediately
 addCommunityFilters();
 
+/* Adds a filter to the map. Details about filter type come from data stored in
+  the button which called this function. */
 function addMapFilter(evt) {
-  //console.log("adding filter...");
+  // Get details about filter from button that called this function
   let type = evt.currentTarget.filterType;
   let label = evt.currentTarget.filterLabel;
   let id = evt.currentTarget.filterID;
 
-  //console.log(id);
-
+  /* If this filter has not yet been added, add it to filterList array and 
+    create filter tag badge on filter menu */
   if (filterList.find((filter) => filter.id == id)) {
-    console.log("filter in list");
+    // console.log("filter in list");
   } else {
+    // add filter to filterList and create filter badge
     filterList.push({ id: id, type: type });
     let newFilterBadge = document.createElement("span");
     newFilterBadge.innerHTML = label;
     newFilterBadge.id = "filter-badge-" + id;
     newFilterBadge.classList.add("badge");
-    // newFilterBadge.classList.add("text-bg-primary");
     newFilterBadge.classList.add("filter-badge");
 
-    // var closeButton = "<div id=\"close-tag\"><img id=\"close-tag-img\" src=\"images/cross.svg\"></div>";
+    // create close button on badge
     let closeButton = document.createElement("div");
     closeButton.id = "close-" + id;
     closeButton.targetFilter = id;
@@ -275,21 +254,22 @@ function addMapFilter(evt) {
     let closeButtonImg = document.createElement("img");
     closeButtonImg.src = "images/cross.svg";
 
+    // add badge to filter menu
     closeButton.appendChild(closeButtonImg);
     newFilterBadge.appendChild(closeButton);
 
     $("#filter-tag-container").append(newFilterBadge);
 
-    // console.log(filterList);
-
+    /* clear params from url so that calling displayHazardMarkers() does not
+      open a hazard modal */
     window.history.replaceState({}, document.title, "/" + "main.html");
     removeMarkers();
     displayHazardMarkers("hazards");
   }
 }
 
+/* Removes a filter. Filter to remove specified by data in button that called this function */
 function removeFilter(evt) {
-  // console.log(filterList);
   let filter = evt.currentTarget.targetFilter;
 
   filterList.splice(
@@ -297,7 +277,6 @@ function removeFilter(evt) {
     1
   );
   document.getElementById("filter-badge-" + filter).remove();
-  // console.log(filterList);
 
   removeMarkers();
   displayHazardMarkers("hazards");
