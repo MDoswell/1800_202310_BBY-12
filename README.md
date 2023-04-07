@@ -26,8 +26,11 @@ Technologies & API's
 * <img src="https://img.shields.io/badge/-github-black?&logo=github"> 
 
 Planning
-* <img src="https://img.shields.io/badge/Trello-0052CC?logo=Trello">
+* <img src="https://img.shields.io/badge/Trello-0052CC?logo=Trello"> [link](https://trello.com/b/8QTNWtCN/comp1800)
 * <img src="https://img.shields.io/badge/Figma-F24E1E?logo=Figma">
+* <img src="https://img.shields.io/badge/Figma-wireflow-F24E1E?logo=Figma"> [link](https://www.figma.com/file/y8Svk4YHCQ5F1bBisBpHXC/Untitled?t=uTnqGw8FAxzwvHUq-0)
+* <img src="https://img.shields.io/badge/Figma-figjam-F24E1E?logo=Figma"> [link](https://www.figma.com/file/XX4pP8weNQ2Unciq36tJMd/Comp1800-202310-BBY12?t=uTnqGw8FAxzwvHUq-0)
+* <img src="https://img.shields.io/badge/Google form-4285F4?logo=form"> [link](https://docs.google.com/forms/d/1-V2OYT56mccZj81y9JhRzvMPou1ve_9ht0lrMHQ5iZ8/prefill)
 
 
 ## 4. Complete setup/installion/usage
@@ -38,6 +41,7 @@ Here are the steps ...
 <img width="524" alt="Screenshot_10" src="https://user-images.githubusercontent.com/70299766/230571811-62e90a3e-cb84-490b-b771-f46df2ed51d5.png">
 
 * Click the sign-up button to create a new account, or log in if you already have an account.
+* Accept to a location tracking.
 
 ## 5. Known Bugs and Limitations
 Here are some known bugs:
