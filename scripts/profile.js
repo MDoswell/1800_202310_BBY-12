@@ -27,14 +27,6 @@ function populateUserInfo() {
                     if (userCity != null) {
                         document.getElementById("cityInput").value = userCity;
                     }
-                    // if (userPicture != "") {
-                    //     console.log("image: " + userDoc.data().image);
-                    //     document.getElementById("pfpPreview").src = userPicture;
-                    //     console.log("source of image: " + document.getElementById("pfpPreview").src);
-                    // } else {
-                    //     console.log("Default Image");
-                    //     document.getElementById("pfpPreview").src = "./images/profile.jpg";
-                    // }
                     if (userPoints != null) {
                         document.getElementById("points-go-here").innerHTML = "Points: " + userPoints;
                     }
@@ -56,36 +48,34 @@ function editUserInfo() {
 }
 
 function saveUserInfo() {
-    userName = document.getElementById('nameInput').value;       //get the value of the field with id="nameInput"
-    userCity = document.getElementById('cityInput').value;     //get the value of the field with id="cityInput"
+    userName = document.getElementById('nameInput').value; // Get the value of the field with id="nameInput"
+    userCity = document.getElementById('cityInput').value; // Get the value of the field with id="cityInput"
 
-    currentUser.update({
+    currentUser.update({ // Updates the name and city values in Firestore
         name: userName,
         city: userCity
     })
     .then(() => {
-        console.log(currentUser);
+        console.log(currentUser); // If there has been a file uploaded, then it will be saved to Firestore
         if (imagefile) {
             uploadPic(currentUser.id);
         }
     })
 
-    document.getElementById('personalInfoFields').disabled = true;
+    document.getElementById('personalInfoFields').disabled = true; // Resets the input fields to be unchangeable
 }
 
 function addFileChooserListener() {
-    console.log("inside add File chooser listener");
     const fileInput = document.getElementById("pfpInput"); // pointer #1
 
     console.log(fileInput.value);
     //attach listener to input file
-    //when this file changes, do something
+    //when this file changes, send it to Firestore
     fileInput.addEventListener('change', function (e) {
         imagefile = fileInput.value;
         const image = document.getElementById("pfpPreview"); // pointer #2
         image.src = imagefile;
 
-        console.log("inside file chooser event handler!");
         //the change event returns a file "e.target.files[0]"
         imagefile = e.target.files[0];
         var blob = URL.createObjectURL(e.target.files[0]);
@@ -97,26 +87,22 @@ function addFileChooserListener() {
 addFileChooserListener();
 
 function uploadPic(postDocID) {
-    console.log("inside uploadPic " + postDocID);
-    var storageRef = storage.ref("images/" + postDocID + ".jpg");
+    var storageRef = storage.ref("images/" + postDocID + ".jpg"); // Reference to the Firestore image storage
 
-    storageRef.put(imagefile)   //global variable ImageFile
+    storageRef.put(imagefile)   //global variable ImageFile gets uploaded to the cloud storage
 
         // AFTER .put() is done
         .then(function () {
-            console.log('Uploaded to Cloud Storage.');
             storageRef.getDownloadURL()
 
                 // AFTER .getDownloadURL is done
                 .then(function (url) { // Get URL of the uploaded file
-                    console.log("Got the download URL: " + url);
                     db.collection("users").doc(postDocID).update({
                         image: url // Save the URL into users collection
                     })
 
                         // AFTER .update is done
-                        .then(function () {
-                            console.log('Added pic URL to Firestore.');
+                        .then(function () { // Updates the image so that it remains accurate
                             populateUserInfo();
                         });
                 });

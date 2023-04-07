@@ -119,7 +119,7 @@ function removeMarkers() {
 displayHazardMarkers("hazards");
 
 function addHazardTypeFilters() {
-    let hazardTypes = ["Ice", "Obstruction", "Other"];
+    let hazardTypes = ["Ice", "Obstruction", "Other", "Heat", "Puddle"];
 
     for (let i = 0; i < hazardTypes.length; i++) {
         let newFilterButton = document.createElement("BUTTON");
