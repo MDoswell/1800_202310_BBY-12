@@ -4,28 +4,31 @@ var test = false;
 function displayLeaderboard(collection) {
     let cardTemplate = document.getElementById("leaderboardCardTemplate"); // Card template for the leaderboard spots
 
-    db.collection(collection).orderBy("points", "desc").limit(leaderLimit).get()   // Gets the collection "users", sorted by
-    // the number of points they have, starting at the highest down to the lowest, and limited to the first 10
-        .then(allUsers => {
-            for(var i = leaderLimit - 10; i < leaderLimit; i++) { //iterate thru each doc
-                var doc = allUsers.docs[i];
-                console.log("i"+i);
-                var title = doc.data().name;
-                
-                console.log("title" + title);
-                var level = doc.data().level;  // Get value of the "level" key
-                var pfp = doc.data().image;    // Get unique ID to each user to be used for fetching the right image
-                var userPoints = doc.data().points; // Gets the points field
-                var numHazards = doc.data().numHazards; // Gets the number of hazards this user has added
-                var numHelpful = doc.data().numHelpful; // Gets the number of helpful ratings this user has given
-                let newcard = cardTemplate.content.cloneNode(true); // Creates a new Leaderboard card with the user's data values
+  db.collection(collection)
+    .orderBy("points", "desc")
+    .limit(leaderLimit)
+    .get() //the collection called "users"
+    .then((allUsers) => {
+      //var i = 1;  //Optional: if you want to have a unique ID for each user
+      for (var i = leaderLimit - 10; i < leaderLimit; i++) {
+        //iterate thru each doc
+        var doc = allUsers.docs[i];
+        var title = doc.data().name;
+
+        // console.log("title" + title);
+        var level = doc.data().level; // get value of the "details" key
+        var pfp = doc.data().image; //get unique ID to each hike to be used for fetching right image
+        var userPoints = doc.data().points; //gets the length field
+        var numHazards = doc.data().numHazards;
+        var numHelpful = doc.data().numHelpful;
+        let newcard = cardTemplate.content.cloneNode(true);
 
                 //update title and text and image
                 newcard.querySelector('.title').innerHTML = title;
                 newcard.querySelector('.points').innerHTML = userPoints + " points";
                 newcard.querySelector('.level').innerHTML = "Level " + level;
                 newcard.querySelector('.numHazards').innerHTML = "Number of Hazards reported: " + numHazards;
-                newcard.querySelector('.numHelpful').innerHTML = "Number of Helpful reviews given: " + numHelpful;
+                newcard.querySelector('.numHelpful').innerHTML = "Number of Helpful ratings given: " + numHelpful;
                 if (pfp != "") {
                     newcard.querySelector('.pfp').src = pfp; // The images are given a random ID so it would be a src to (ImageID).jpg
                     // an example of an image ID would be something like a45ZBgsa47tgR741WSvh46xc1er
@@ -56,7 +59,6 @@ function loadMore() { // Loads the next 10 users in the leaderboard
 
 function refresh() { // Refreshes the leaderboard, however in doing so it resets to the first 10 users
     if (test) {
-        var limit = leaderLimit;
         leaderLimit = 10;
         deleteOldStuff();
         populateLeaderboard();
@@ -77,28 +79,32 @@ function populateLeaderboard() { // Gets all of the needed information for displ
 
     var leaderID = localStorage.getItem("leaderDocID");
 
-    db.collection("users").where("leaderDocID", "==", leaderID).get()
-        .then(allLeaders => {
-            leaderboards = allLeaders.docs;
-            console.log(leaderboards);
-            leaderboards.forEach(doc => {
-                var title = doc.data().title; //gets the name field
-                var level = doc.data().level; //gets the unique ID field
-                var points = doc.data().points;
-                var numHazards = doc.data().numHazards;
-                var numHelpful = doc.data().numHelpful;
-                var time = doc.data().timestamp.toDate();
-                console.log(time)
+  db.collection("users")
+    .where("leaderDocID", "==", leaderID)
+    .get()
+    .then((allLeaders) => {
+      leaderboards = allLeaders.docs;
+      // console.log(leaderboards);
+      leaderboards.forEach((doc) => {
+        var title = doc.data().title; // Gets the name field
+        var level = doc.data().level; // Gets the user's level field
+        var points = doc.data().points; // Gets the user's points field
+        var numHazards = doc.data().numHazards; // Gets the number of hazards reported by this user
+        var numHelpful = doc.data().numHelpful; // Gets the number of helpful ratings given by this user
 
-                let leaderCard = leaderboardCardTemplate.content.cloneNode(true);
-                leaderCard.querySelector('.title').innerHTML = title;
-                leaderCard.querySelector('.level').innerHTML = `level: ${level}`;
-                leaderCard.querySelector('.points').innerHTML = `points: ${points}`;
-                leaderCard.querySelector('.numHazards').innerHTML = `hazards: ${numHazards}`;
-                leaderCard.querySelector('.numHelpful').innerHTML = `helpful: ${numHelpful}`;
-                leaderboardCardGroup.appendChild(leaderCard);
-            })
-        })
+        let leaderCard = leaderboardCardTemplate.content.cloneNode(true);
+        leaderCard.querySelector(".title").innerHTML = title;
+        leaderCard.querySelector(".level").innerHTML = `level: ${level}`;
+        leaderCard.querySelector(".points").innerHTML = `points: ${points}`;
+        leaderCard.querySelector(
+          ".numHazards"
+        ).innerHTML = `hazards: ${numHazards}`;
+        leaderCard.querySelector(
+          ".numHelpful"
+        ).innerHTML = `helpful: ${numHelpful}`;
+        leaderboardCardGroup.appendChild(leaderCard);
+      });
+    });
 }
 
 populateLeaderboard();

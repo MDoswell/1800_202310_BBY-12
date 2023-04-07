@@ -2,27 +2,24 @@ var currentUser;
 var imagefile;
 
 function populateUserInfo() {
-    firebase.auth().onAuthStateChanged(user => {
-        // Check if user is signed in:
-        if (user) {
+  firebase.auth().onAuthStateChanged((user) => {
+    // Check if user is signed in:
+    if (user) {
+      // Go to the correct user document by referencing to the user uid
+      currentUser = db.collection("users").doc(user.uid);
+      // Get the document for current user.
+      currentUser.get().then((userDoc) => {
+        // Get the data fields of the user
+        var userName = userDoc.data().name;
+        var userCity = userDoc.data().city;
+        var userPicture = userDoc.data().image;
+        var userPoints = userDoc.data().points;
+        var userLevel = userDoc.data().level;
+        console.log(userPicture);
 
-            //go to the correct user document by referencing to the user uid
-            currentUser = db.collection("users").doc(user.uid);
-            //get the document for current user.
-            currentUser.get()
-                .then(userDoc => {
-                    //get the data fields of the user
-                    var userName = userDoc.data().name;
-                    var userCity = userDoc.data().city;
-                    var userPicture = userDoc.data().image;
-                    var userPoints = userDoc.data().points;
-                    var userLevel = userDoc.data().level;
-                    console.log(userPicture);
-
-                    //if the data fields are not empty, then write them in to the form.
+                    // If the data fields are not empty, then write them in to the form.
                     if (userName != null) {
                         document.getElementById("nameInput").value = userName;
-                        // document.getElementById("profile-goes-here").innerHTML = userName + "'s Profile";
                     }
                     if (userCity != null) {
                         document.getElementById("cityInput").value = userCity;
@@ -43,8 +40,8 @@ function populateUserInfo() {
 }
 
 function editUserInfo() {
-    //Enable the form fields
-    document.getElementById('personalInfoFields').disabled = false;
+  // Enable the form fields
+  document.getElementById("personalInfoFields").disabled = false;
 }
 
 function saveUserInfo() {
@@ -66,30 +63,30 @@ function saveUserInfo() {
 }
 
 function addFileChooserListener() {
-    const fileInput = document.getElementById("pfpInput"); // pointer #1
+    const fileInput = document.getElementById("pfpInput"); // Pointer to the file upload field
 
     console.log(fileInput.value);
-    //attach listener to input file
-    //when this file changes, send it to Firestore
+    // Attach listener to input file
+    // When this file changes, send it to Firestore
     fileInput.addEventListener('change', function (e) {
         imagefile = fileInput.value;
-        const image = document.getElementById("pfpPreview"); // pointer #2
+        const image = document.getElementById("pfpPreview"); // Pointer to the preview of the profile image
         image.src = imagefile;
 
-        //the change event returns a file "e.target.files[0]"
+        // The change event returns a file "e.target.files[0]"
         imagefile = e.target.files[0];
         var blob = URL.createObjectURL(e.target.files[0]);
 
-        //change the DOM img element source to point to this file
-        image.src = blob; //assign the "src" property of the "img" tag
-    })
+    // Change the DOM img element source to point to this file
+    image.src = blob; // Assign the "src" property of the "img" tag
+  });
 }
 addFileChooserListener();
 
 function uploadPic(postDocID) {
-    var storageRef = storage.ref("images/" + postDocID + ".jpg"); // Reference to the Firestore image storage
+    var storageRef = storage.ref("images/" + postDocID + ".jpg"); // Reference to the image in Firestore storage
 
-    storageRef.put(imagefile)   //global variable ImageFile gets uploaded to the cloud storage
+    storageRef.put(imagefile)   // Global variable ImageFile gets uploaded to the cloud storage
 
         // AFTER .put() is done
         .then(function () {
@@ -112,5 +109,5 @@ function uploadPic(postDocID) {
         });
 }
 
-//call the function to run it 
+//call the function to run it
 populateUserInfo();

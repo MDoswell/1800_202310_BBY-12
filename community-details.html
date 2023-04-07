@@ -28,6 +28,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
@@ -49,39 +50,38 @@
 
 <body>
     <nav id="navbarPlaceholder"></nav>
-    <!-- <h1>Community</h1> -->
     <nav class="navbar navbar-expand-sm bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#" style="color:#000; font-weight: bold;">Community details</a>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="location.href='community.html';"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                onclick="location.href='community.html';"></button>
         </div>
     </nav>
 
     <div id="content" style="margin-bottom: 30px;">
-    <div class="container-fluid">
-        <div class="card text-center" style="border:none;">
-            <div class="card-header">
-                <h5 class="card-title" id="community-name">Community name</h5>
-            </div>
-            <div class="card-header">
-                Who is the leader this week?
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">Name</h5>
-                <img src="images/profile.jpg" alt="..." class="img-thumbnail" style="width:150px;">
-            </div>
-            <div class="list-group">
-                <a href="#" class="list-group-item list-group-item-action active">
-                    See our all members
-                </a>
-                <a href="#" class="list-group-item list-group-item-action">Community leader board</a>
-            </div>
-            <div class="card-footer text-muted" style="background-color:#ffffff;" id="joinButton">
-                <!-- <a href="#" class="btn btn-primary" onclick="joinCommunity()">JOIN</a> -->
+        <div class="container-fluid">
+            <div class="card text-center" style="border:none;">
+                <div class="card-header">
+                    <h5 class="card-title" id="community-name">Community name</h5>
+                </div>
+                <div class="card-header">
+                    Who is the leader this week?
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Name</h5>
+                    <img src="images/profile.jpg" alt="..." class="img-thumbnail" style="width:150px;">
+                </div>
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action active">
+                        See our all members
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">Community leader board</a>
+                </div>
+                <div class="card-footer text-muted" style="background-color:#ffffff;" id="joinButton">
+                </div>
             </div>
         </div>
     </div>
-</div>
     <footer>
         <nav id="footerPlaceholder"></nav>
     </footer>

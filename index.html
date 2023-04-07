@@ -52,12 +52,6 @@
 
     <div id="login-container" class="container mw-100 px-auto m-0 g-0" style="width: 100%;">
 
-        <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalLong">
-            Launch demo modal
-        </button>
-
-        <div id="modalPlaceholder"></div> -->
-
         <!-- Welcome Banner -->
         <div class="px-3 pb-3 mb-4 g-0 rounded-3 text-center text-light">
             <ul class="nav justify-content-center">
@@ -73,13 +67,10 @@
         <!-- Login / Sign up button -->
         <div class="d-grid gap-2 col-6 mx-auto">
             <button class="btn btn-secondary" type="button" onClick="loginPage()">Login</button>
-            <button class="btn btn-outline-secondary" type="button">Sign Up</button>
+            <button class="btn btn-outline-secondary" type="button" onClick="loginPage()">Sign Up</button>
         </div>
         </br>
     </div>
-
-    <!-- Footer -->
-    <!-- <footer id="loginFooterPlaceholder"></footer> -->
 
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
@@ -88,7 +79,6 @@
     <!-- Link to scripts of your own -->
     <script src="./scripts/firebaseAPI_BBY12.js"></script>
     <script src="./scripts/skeleton.js"></script>
-    <!-- <script src="./scripts/loginSkeleton.js"></script> -->
     <script src="./scripts/script.js"></script>
     <script>
         logout();       //make sure user is logged out

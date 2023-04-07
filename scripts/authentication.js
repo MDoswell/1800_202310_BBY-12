@@ -31,14 +31,17 @@ var uiConfig = {
             numHelpful: 0,
             numHazards: 0,
             city: "Burnaby",
-            image: ""
+            image: "",
+            currentFloor: 100,
+            levelUpFormula: 1.595257,
+            nextLevel: 6
           })
           .then(function () {
-            console.log("New user added to firestore");
+            // console.log("New user added to firestore");
             window.location.assign("main.html"); //re-direct to main.html after signup
           })
           .catch(function (error) {
-            console.log("Error adding new user: " + error);
+            // console.log("Error adding new user: " + error);
           });
       } else {
         return true;
