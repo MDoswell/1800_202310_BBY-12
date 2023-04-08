@@ -119,6 +119,10 @@ function showParamHazard() {
   if (ID) {
     showHazard(ID);
   }
+
+  /* Clear params from url so that calling reloading page or calling
+    displayHazardMarkers() does not open a hazard modal */
+  window.history.replaceState({}, document.title, "/" + "main.html");
 }
 
 /* Remove all hazard markers from the map */
@@ -252,7 +256,7 @@ function addMapFilter(evt) {
     closeButton.addEventListener("click", removeFilter);
 
     let closeButtonImg = document.createElement("img");
-    closeButtonImg.src = "images/cross.svg";
+    closeButtonImg.src = "images/cross.png";
 
     // Add badge to filter menu
     closeButton.appendChild(closeButtonImg);
@@ -260,9 +264,7 @@ function addMapFilter(evt) {
 
     $("#filter-tag-container").append(newFilterBadge);
 
-    /* Clear params from url so that calling displayHazardMarkers() does not
-      open a hazard modal */
-    window.history.replaceState({}, document.title, "/" + "main.html");
+    // Remove current markers and reload markers to fit filter
     removeMarkers();
     displayHazardMarkers("hazards");
   }

@@ -379,7 +379,8 @@ li {
 }
 
 .filter-badge img {
-  width: 1.5rem;
+  width: 1rem;
+  padding-left: 0.2rem;
 }
 
 #error_window {

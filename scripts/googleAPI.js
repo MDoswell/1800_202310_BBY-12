@@ -55,20 +55,28 @@ function initMap() {
   // window.navigator.geolocation.clearWatch(id);
 }
 
+// Tracks whether map center has been set
+var mapCenterSet = false;
+
+// Success function
 function success(position) {
   var center = new google.maps.LatLng(
     position.coords.latitude,
     position.coords.longitude
   );
 
-  // Initial location of a map
-  map.setCenter(center);
+  if (!mapCenterSet) {
+    // Initial location of map
+    map.setCenter(center);
+    mapCenterSet = true;
+  }
+
 
   $("#location").text(
     "current latitude = " +
-      position.coords.latitude +
-      " current longitude = " +
-      position.coords.longitude
+    position.coords.latitude +
+    " current longitude = " +
+    position.coords.longitude
   );
 
   locationMarker.setPosition(center);

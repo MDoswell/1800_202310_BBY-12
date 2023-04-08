@@ -4,7 +4,7 @@ var test = false;
 /* Loads all of the information collected by populateLeaderboard() and sorts each card by the user's points, then displays
 the list of them in descending order.*/
 function displayLeaderboard(collection) {
-    let cardTemplate = document.getElementById("leaderboardCardTemplate"); // Card template for the leaderboard spots
+  let cardTemplate = document.getElementById("leaderboardCardTemplate"); // Card template for the leaderboard spots
 
   db.collection(collection)
     .orderBy("points", "desc")
@@ -83,7 +83,7 @@ function populateLeaderboard() {
     let leaderboardCardTemplate = document.getElementById("leaderboardCardTemplate");
     let leaderboardCardGroup = document.getElementById("leaderboardCardGroup");
 
-    var leaderID = localStorage.getItem("leaderDocID");
+  var leaderID = localStorage.getItem("leaderDocID");
 
   db.collection("users")
     .where("leaderDocID", "==", leaderID)

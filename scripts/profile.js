@@ -19,21 +19,21 @@ function populateUserInfo() {
         var userPoints = userDoc.data().points;
         var userLevel = userDoc.data().level;
 
-                    // If the data fields are not empty, then write them in to the form.
-                    if (userName != null) {
-                        document.getElementById("nameInput").value = userName;
-                    }
-                    if (userCity != null) {
-                        document.getElementById("cityInput").value = userCity;
-                    }
-                    if (userPoints != null) {
-                        document.getElementById("points-go-here").innerHTML = "Points: " + userPoints;
-                    }
-                    if (userLevel != null) {
-                        document.getElementById("level-goes-here").innerHTML = "Level: " + userLevel;
-                    }
-                    document.getElementById("pfpPreview").src = userPicture;
-                });
+                // If the data fields are not empty, then write them in to the form.
+                if (userName != null) {
+                    document.getElementById("nameInput").value = userName;
+                }
+                if (userCity != null) {
+                    document.getElementById("cityInput").value = userCity;
+                }
+                if (userPoints != null) {
+                    document.getElementById("points-go-here").innerHTML = "Points: " + userPoints;
+                }
+                if (userLevel != null) {
+                    document.getElementById("level-goes-here").innerHTML = "Level: " + userLevel;
+                }
+                document.getElementById("pfpPreview").src = userPicture;
+            });
         } else {
             // No user is signed in.
             console.log("No user is signed in");
@@ -43,8 +43,8 @@ function populateUserInfo() {
 
 // Enables the input fields so that the user can make changes to their profile
 function editUserInfo() {
-  // Enable the form fields
-  document.getElementById("personalInfoFields").disabled = false;
+    // Enable the form fields
+    document.getElementById("personalInfoFields").disabled = false;
 }
 
 // Saves any changes the user made to their profile, disables the input fields again, and refreshes the information being displayed
@@ -56,12 +56,12 @@ function saveUserInfo() {
         name: userName,
         city: userCity
     })
-    .then(() => {
-        console.log(currentUser); // If there has been a file uploaded, then it will be saved to Firestore
-        if (imagefile) {
-            uploadPic(currentUser.id);
-        }
-    })
+        .then(() => {
+            console.log(currentUser); // If there has been a file uploaded, then it will be saved to Firestore
+            if (imagefile) {
+                uploadPic(currentUser.id);
+            }
+        })
 
     document.getElementById('personalInfoFields').disabled = true; // Resets the input fields to be unchangeable
 }
@@ -82,9 +82,9 @@ function addFileChooserListener() {
         imagefile = e.target.files[0];
         var blob = URL.createObjectURL(e.target.files[0]);
 
-    // Change the DOM img element source to point to this file
-    image.src = blob; // Assign the "src" property of the "img" tag
-  });
+        // Change the DOM img element source to point to this file
+        image.src = blob; // Assign the "src" property of the "img" tag
+    });
 }
 addFileChooserListener();
 
