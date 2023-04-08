@@ -50,6 +50,7 @@ Here are some known bugs:
 * In some cases, geolocation is not functioning properly and the exact location may not be displayed.
 * Profile image is not displaying or saving properly for some users.
 * Vertical spacing of elements of main.html is inconsistent across different computers.
+* Settings and Support in hamburger menu, and Route Planning (walker icon in bottom navbar) are just placeholders that have not been implemented.
 
 ## 6. Features for Future
 What we'd like to build in the future:
