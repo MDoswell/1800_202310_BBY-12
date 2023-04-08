@@ -2,36 +2,36 @@ var currentUser;
 var imagefile;
 
 function populateUserInfo() {
-  firebase.auth().onAuthStateChanged((user) => {
-    // Check if user is signed in:
-    if (user) {
-      // Go to the correct user document by referencing to the user uid
-      currentUser = db.collection("users").doc(user.uid);
-      // Get the document for current user.
-      currentUser.get().then((userDoc) => {
-        // Get the data fields of the user
-        var userName = userDoc.data().name;
-        var userCity = userDoc.data().city;
-        var userPicture = userDoc.data().image;
-        var userPoints = userDoc.data().points;
-        var userLevel = userDoc.data().level;
-        console.log(userPicture);
+    firebase.auth().onAuthStateChanged((user) => {
+        // Check if user is signed in:
+        if (user) {
+            // Go to the correct user document by referencing to the user uid
+            currentUser = db.collection("users").doc(user.uid);
+            // Get the document for current user.
+            currentUser.get().then((userDoc) => {
+                // Get the data fields of the user
+                var userName = userDoc.data().name;
+                var userCity = userDoc.data().city;
+                var userPicture = userDoc.data().image;
+                var userPoints = userDoc.data().points;
+                var userLevel = userDoc.data().level;
+                console.log(userPicture);
 
-                    // If the data fields are not empty, then write them in to the form.
-                    if (userName != null) {
-                        document.getElementById("nameInput").value = userName;
-                    }
-                    if (userCity != null) {
-                        document.getElementById("cityInput").value = userCity;
-                    }
-                    if (userPoints != null) {
-                        document.getElementById("points-go-here").innerHTML = "Points: " + userPoints;
-                    }
-                    if (userLevel != null) {
-                        document.getElementById("level-goes-here").innerHTML = "Level: " + userLevel;
-                    }
-                    document.getElementById("pfpPreview").src = userPicture;
-                });
+                // If the data fields are not empty, then write them in to the form.
+                if (userName != null) {
+                    document.getElementById("nameInput").value = userName;
+                }
+                if (userCity != null) {
+                    document.getElementById("cityInput").value = userCity;
+                }
+                if (userPoints != null) {
+                    document.getElementById("points-go-here").innerHTML = "Points: " + userPoints;
+                }
+                if (userLevel != null) {
+                    document.getElementById("level-goes-here").innerHTML = "Level: " + userLevel;
+                }
+                document.getElementById("pfpPreview").src = userPicture;
+            });
         } else {
             // No user is signed in.
             console.log("No user is signed in");
@@ -40,8 +40,8 @@ function populateUserInfo() {
 }
 
 function editUserInfo() {
-  // Enable the form fields
-  document.getElementById("personalInfoFields").disabled = false;
+    // Enable the form fields
+    document.getElementById("personalInfoFields").disabled = false;
 }
 
 function saveUserInfo() {
@@ -52,12 +52,12 @@ function saveUserInfo() {
         name: userName,
         city: userCity
     })
-    .then(() => {
-        console.log(currentUser); // If there has been a file uploaded, then it will be saved to Firestore
-        if (imagefile) {
-            uploadPic(currentUser.id);
-        }
-    })
+        .then(() => {
+            console.log(currentUser); // If there has been a file uploaded, then it will be saved to Firestore
+            if (imagefile) {
+                uploadPic(currentUser.id);
+            }
+        })
 
     document.getElementById('personalInfoFields').disabled = true; // Resets the input fields to be unchangeable
 }
@@ -77,9 +77,9 @@ function addFileChooserListener() {
         imagefile = e.target.files[0];
         var blob = URL.createObjectURL(e.target.files[0]);
 
-    // Change the DOM img element source to point to this file
-    image.src = blob; // Assign the "src" property of the "img" tag
-  });
+        // Change the DOM img element source to point to this file
+        image.src = blob; // Assign the "src" property of the "img" tag
+    });
 }
 addFileChooserListener();
 

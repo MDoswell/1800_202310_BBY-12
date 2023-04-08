@@ -2,7 +2,7 @@ var leaderLimit = 10;
 var test = false;
 
 function displayLeaderboard(collection) {
-    let cardTemplate = document.getElementById("leaderboardCardTemplate"); // Card template for the leaderboard spots
+  let cardTemplate = document.getElementById("leaderboardCardTemplate"); // Card template for the leaderboard spots
 
   db.collection(collection)
     .orderBy("points", "desc")
@@ -23,61 +23,61 @@ function displayLeaderboard(collection) {
         var numHelpful = doc.data().numHelpful;
         let newcard = cardTemplate.content.cloneNode(true);
 
-                //update title and text and image
-                newcard.querySelector('.title').innerHTML = title;
-                newcard.querySelector('.points').innerHTML = userPoints + " points";
-                newcard.querySelector('.level').innerHTML = "Level " + level;
-                newcard.querySelector('.numHazards').innerHTML = "Number of Hazards reported: " + numHazards;
-                newcard.querySelector('.numHelpful').innerHTML = "Number of Helpful ratings given: " + numHelpful;
-                if (pfp != "") {
-                    newcard.querySelector('.pfp').src = pfp; // The images are given a random ID so it would be a src to (ImageID).jpg
-                    // an example of an image ID would be something like a45ZBgsa47tgR741WSvh46xc1er
-                } else {
-                    newcard.querySelector('.pfp').src = "./images/profile.jpg"; // If there is no picture associated with this user,
-                    // they are given the default profile image
-                }
+        //update title and text and image
+        newcard.querySelector('.title').innerHTML = title;
+        newcard.querySelector('.points').innerHTML = userPoints + " points";
+        newcard.querySelector('.level').innerHTML = "Level " + level;
+        newcard.querySelector('.numHazards').innerHTML = "Number of Hazards reported: " + numHazards;
+        newcard.querySelector('.numHelpful').innerHTML = "Number of Helpful ratings given: " + numHelpful;
+        if (pfp != "") {
+          newcard.querySelector('.pfp').src = pfp; // The images are given a random ID so it would be a src to (ImageID).jpg
+          // an example of an image ID would be something like a45ZBgsa47tgR741WSvh46xc1er
+        } else {
+          newcard.querySelector('.pfp').src = "./images/profile.jpg"; // If there is no picture associated with this user,
+          // they are given the default profile image
+        }
 
-                //attach to gallery, Example: "title-go-here"
-                document.getElementById(collection + "-go-here").appendChild(newcard);
-            };
-        })
+        //attach to gallery, Example: "title-go-here"
+        document.getElementById(collection + "-go-here").appendChild(newcard);
+      };
+    })
 }
 
 function addButtonListeners() { // Adds listeners to the "refresh" and "load more" buttons
-    document.getElementById("load-more-button").onclick = loadMore;
-    document.getElementById("refresh-button").onclick = refresh;
-    test = true;
+  document.getElementById("load-more-button").onclick = loadMore;
+  document.getElementById("refresh-button").onclick = refresh;
+  test = true;
 }
 
 function loadMore() { // Loads the next 10 users in the leaderboard
-    if (test) {
-        leaderLimit = leaderLimit + 10;
-        populateLeaderboard();
-        displayLeaderboard("users");
-    }
+  if (test) {
+    leaderLimit = leaderLimit + 10;
+    populateLeaderboard();
+    displayLeaderboard("users");
+  }
 }
 
 function refresh() { // Refreshes the leaderboard, however in doing so it resets to the first 10 users
-    if (test) {
-        leaderLimit = 10;
-        deleteOldStuff();
-        populateLeaderboard();
-        displayLeaderboard("users");
-    }
+  if (test) {
+    leaderLimit = 10;
+    deleteOldStuff();
+    populateLeaderboard();
+    displayLeaderboard("users");
+  }
 }
 
 function deleteOldStuff() { // Deletes the old cards so that they can be replaced with new ones
-    var leaderboardCards = document.getElementsByClassName('delete-me');
-    while (leaderboardCards[0]) {
-        leaderboardCards[0].parentNode.removeChild(leaderboardCards[0]);
-    }
+  var leaderboardCards = document.getElementsByClassName('delete-me');
+  while (leaderboardCards[0]) {
+    leaderboardCards[0].parentNode.removeChild(leaderboardCards[0]);
+  }
 }
 
 function populateLeaderboard() { // Gets all of the needed information for displaying the leaderboard
-    let leaderboardCardTemplate = document.getElementById("leaderboardCardTemplate");
-    let leaderboardCardGroup = document.getElementById("leaderboardCardGroup");
+  let leaderboardCardTemplate = document.getElementById("leaderboardCardTemplate");
+  let leaderboardCardGroup = document.getElementById("leaderboardCardGroup");
 
-    var leaderID = localStorage.getItem("leaderDocID");
+  var leaderID = localStorage.getItem("leaderDocID");
 
   db.collection("users")
     .where("leaderDocID", "==", leaderID)

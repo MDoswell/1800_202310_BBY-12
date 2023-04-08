@@ -46,8 +46,10 @@ Here are the steps ...
 ## 5. Known Bugs and Limitations
 Here are some known bugs:
 * The load more function on the leaderboards page is not functioning normally.
+* The functions for populating and refreshing the leaderboard are throwing errors in the console, but still seem to be working.
 * In some cases, geolocation is not functioning properly and the exact location may not be displayed.
 * Profile image is not displaying or saving properly for some users.
+* Vertical spacing of elements of main.html is inconsistent across different computers.
 
 ## 6. Features for Future
 What we'd like to build in the future:
@@ -76,6 +78,7 @@ Content of the project folder:
 It has the following subfolders and files:
 ├── .git                     # Folder for git repo
 ├── images                   # Folder for images
+    /cross.png                  # From flaticon.com
     /favicon.ico                # Designed by Mike
     /feature_heat.svg           # Extracted from figma
     /feature_puddle.svg         # Extracted from figma
@@ -87,6 +90,7 @@ It has the following subfolders and files:
     /footer_leader_board.svg    # Extracted from figma
     /footer_route_planning.svg  # Extracted from figma
     /main.svg                   # Extracted from figma
+    /pedestrian-logo.png        # From clker.com
     /profile.jpg                
     /sample_hazard.jpg          # Acknowledge source
     /surefoot_logo.png          # Designed by Mike
