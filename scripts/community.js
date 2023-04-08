@@ -1,4 +1,4 @@
-// move to add community page
+// Move to add community page
 function createCommuity() {
   window.location.href = "community-create.html";
 }

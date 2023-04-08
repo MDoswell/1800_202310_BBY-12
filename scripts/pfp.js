@@ -1,3 +1,4 @@
+// Used to load the user's profile picture in places like the leaderboards and the hamburger menu
 function loadPFP() {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {

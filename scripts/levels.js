@@ -1,3 +1,5 @@
+/* Called whenever a user gains points, in order to check if they have enough to progress to the next level. Uses preset values
+for the first 5 levels, then uses an exponential formula to increase the requirements past that.*/
 function levels() {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {

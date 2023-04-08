@@ -4,7 +4,7 @@ var filterList = [];
 // Global variable to hold the hazard markers displayed on the map
 var markers = [];
 
-/*  */
+/* Loads all of the hazards from Firebase, then displays them on the map.*/
 function displayHazardMarkers(collection) {
   db.collection(collection)
     .get() // The collection called "hazards"

@@ -1,6 +1,9 @@
 var currentUser;
 var imagefile;
 
+/* If the user is signed in when they load profile.html, then this gets their name, city, profile image, points, and level.
+Then it applies that information to the respective fields in the html. If there is no user signed in, then a default page is
+loaded.*/
 function populateUserInfo() {
   firebase.auth().onAuthStateChanged((user) => {
     // Check if user is signed in:
@@ -15,7 +18,6 @@ function populateUserInfo() {
         var userPicture = userDoc.data().image;
         var userPoints = userDoc.data().points;
         var userLevel = userDoc.data().level;
-        console.log(userPicture);
 
                     // If the data fields are not empty, then write them in to the form.
                     if (userName != null) {
@@ -39,11 +41,13 @@ function populateUserInfo() {
     });
 }
 
+// Enables the input fields so that the user can make changes to their profile
 function editUserInfo() {
   // Enable the form fields
   document.getElementById("personalInfoFields").disabled = false;
 }
 
+// Saves any changes the user made to their profile, disables the input fields again, and refreshes the information being displayed
 function saveUserInfo() {
     userName = document.getElementById('nameInput').value; // Get the value of the field with id="nameInput"
     userCity = document.getElementById('cityInput').value; // Get the value of the field with id="cityInput"
@@ -62,6 +66,7 @@ function saveUserInfo() {
     document.getElementById('personalInfoFields').disabled = true; // Resets the input fields to be unchangeable
 }
 
+// Adds a listener to the file upload field, so that when a file is uploaded, it is forwarded to the Firestore database
 function addFileChooserListener() {
     const fileInput = document.getElementById("pfpInput"); // Pointer to the file upload field
 
@@ -83,6 +88,8 @@ function addFileChooserListener() {
 }
 addFileChooserListener();
 
+/* If there is an image uploaded, then this is what updates the Firestore storage to use the new image, and sets the preview
+of the profile image*/
 function uploadPic(postDocID) {
     var storageRef = storage.ref("images/" + postDocID + ".jpg"); // Reference to the image in Firestore storage
 

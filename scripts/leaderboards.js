@@ -1,29 +1,30 @@
 var leaderLimit = 10;
 var test = false;
 
+/* Loads all of the information collected by populateLeaderboard() and sorts each card by the user's points, then displays
+the list of them in descending order.*/
 function displayLeaderboard(collection) {
     let cardTemplate = document.getElementById("leaderboardCardTemplate"); // Card template for the leaderboard spots
 
   db.collection(collection)
     .orderBy("points", "desc")
     .limit(leaderLimit)
-    .get() //the collection called "users"
+    .get() // The collection called "users"
     .then((allUsers) => {
-      //var i = 1;  //Optional: if you want to have a unique ID for each user
       for (var i = leaderLimit - 10; i < leaderLimit; i++) {
-        //iterate thru each doc
+        // Iterate thru each doc
         var doc = allUsers.docs[i];
         var title = doc.data().name;
 
         // console.log("title" + title);
-        var level = doc.data().level; // get value of the "details" key
-        var pfp = doc.data().image; //get unique ID to each hike to be used for fetching right image
-        var userPoints = doc.data().points; //gets the length field
+        var level = doc.data().level; //  Get value of the "details" key
+        var pfp = doc.data().image; // Get unique ID to each hike to be used for fetching right image
+        var userPoints = doc.data().points; // Gets the length field
         var numHazards = doc.data().numHazards;
         var numHelpful = doc.data().numHelpful;
         let newcard = cardTemplate.content.cloneNode(true);
 
-                //update title and text and image
+                // Update title and text and image
                 newcard.querySelector('.title').innerHTML = title;
                 newcard.querySelector('.points').innerHTML = userPoints + " points";
                 newcard.querySelector('.level').innerHTML = "Level " + level;
@@ -31,25 +32,27 @@ function displayLeaderboard(collection) {
                 newcard.querySelector('.numHelpful').innerHTML = "Number of Helpful ratings given: " + numHelpful;
                 if (pfp != "") {
                     newcard.querySelector('.pfp').src = pfp; // The images are given a random ID so it would be a src to (ImageID).jpg
-                    // an example of an image ID would be something like a45ZBgsa47tgR741WSvh46xc1er
+                    // An example of an image ID would be something like a45ZBgsa47tgR741WSvh46xc1er
                 } else {
-                    newcard.querySelector('.pfp').src = "./images/profile.jpg"; // If there is no picture associated with this user,
-                    // they are given the default profile image
+                    newcard.querySelector('.pfp').src = "./images/profile.jpg"; /* If there is no picture associated with this user,
+                    they are given the default profile image*/
                 }
 
-                //attach to gallery, Example: "title-go-here"
+                // Attach to gallery, Example: "title-go-here"
                 document.getElementById(collection + "-go-here").appendChild(newcard);
             };
         })
 }
 
-function addButtonListeners() { // Adds listeners to the "refresh" and "load more" buttons
+// Adds listeners to the "refresh" and "load more" buttons
+function addButtonListeners() {
     document.getElementById("load-more-button").onclick = loadMore;
     document.getElementById("refresh-button").onclick = refresh;
     test = true;
 }
 
-function loadMore() { // Loads the next 10 users in the leaderboard
+// Loads the next 10 users in the leaderboard
+function loadMore() {
     if (test) {
         leaderLimit = leaderLimit + 10;
         populateLeaderboard();
@@ -57,7 +60,8 @@ function loadMore() { // Loads the next 10 users in the leaderboard
     }
 }
 
-function refresh() { // Refreshes the leaderboard, however in doing so it resets to the first 10 users
+// Refreshes the leaderboard, however in doing so it resets to the first 10 users
+function refresh() {
     if (test) {
         leaderLimit = 10;
         deleteOldStuff();
@@ -66,14 +70,16 @@ function refresh() { // Refreshes the leaderboard, however in doing so it resets
     }
 }
 
-function deleteOldStuff() { // Deletes the old cards so that they can be replaced with new ones
+// Deletes the old cards so that they can be replaced with new ones
+function deleteOldStuff() {
     var leaderboardCards = document.getElementsByClassName('delete-me');
     while (leaderboardCards[0]) {
         leaderboardCards[0].parentNode.removeChild(leaderboardCards[0]);
     }
 }
 
-function populateLeaderboard() { // Gets all of the needed information for displaying the leaderboard
+// Gets all of the updated information from the database for displaying the leaderboard
+function populateLeaderboard() {
     let leaderboardCardTemplate = document.getElementById("leaderboardCardTemplate");
     let leaderboardCardGroup = document.getElementById("leaderboardCardGroup");
 
@@ -107,6 +113,7 @@ function populateLeaderboard() { // Gets all of the needed information for displ
     });
 }
 
+// When leader_board.html loads this script it automatically loads the first 10 users
 populateLeaderboard();
 displayLeaderboard("users");
 addButtonListeners();
